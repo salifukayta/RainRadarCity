@@ -1,0 +1,9 @@
+<ion-view view-title="City Search">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="city in citiesCtrl.cities" ui-sref="app.radar({cityName: city.name})" >
+        {{city.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
