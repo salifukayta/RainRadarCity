@@ -3,7 +3,6 @@
  */
 'use strict';
 
-couldApp.controller('AppController', function($scope) {
-
+cloudApp.controller('AppController', function($scope) {
 
 })

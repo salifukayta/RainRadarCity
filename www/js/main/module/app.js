@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in CitiesController.js
-couldApp = angular.module('cloudPrecipitation', ['ionic'])
+cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -29,21 +29,30 @@ couldApp = angular.module('cloudPrecipitation', ['ionic'])
                 templateUrl: "templates/menu.html",
                 controller: 'AppController as appCtrl'
             })
-
-            .state('app.search', {
-                url: "/search",
+            .state('app.root', {
+                url: "/root",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/search.html"
+                        templateUrl: "templates/root.html",
+                        controller: 'RootController as rootCtrl'
                     }
                 }
             })
-
-            .state('app.browse', {
-                url: "/browse",
+            .state('app.intro', {
+                url: "/intro",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/browse.html"
+                        templateUrl: "templates/intro/intro.html",
+                        controller: 'IntroController as introCtrl'
+                    }
+                }
+            })
+            .state('app.city-geoloc', {
+                url: "/city-geoloc",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/cities/cityGeoloc.html",
+                        controller: 'CityGeolocController as CityGeolocCtrl'
                     }
                 }
             })
@@ -57,24 +66,35 @@ couldApp = angular.module('cloudPrecipitation', ['ionic'])
                 }
             })
             .state('app.radar', {
-                url: "/radar/:cityName",
+                url: "/radar/:city",
+                cache: false,
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/radar/city.html",
-                        controller: 'RadarCityController as radarCityCtrl',
+                        templateUrl: "templates/radar/radarView.html",
+                        controller: 'RadarController as radarCtrl',
                     },
                 }
             })
 
-            .state('app.single', {
-                url: "/playlists/:playlistId",
+            .state('app.favorites', {
+                url: "/favorites",
                 views: {
                     'menuContent': {
-                        templateUrl: "templates/playlist.html",
-                        controller: 'PlaylistCtrl'
+                        templateUrl: "templates/cities/favorites.html",
+                        controller: 'FavoritesController as favoritesCtrl'
+                    }
+                }
+            })
+
+            .state('app.about', {
+                url: "/about",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/about/about.html",
+                        controller: 'AboutController as aboutCtrl'
                     }
                 }
             });
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/cities');
+        $urlRouterProvider.otherwise('/app/root');
     });

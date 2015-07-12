@@ -39,4 +39,11 @@
     <splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
+
+  <!--TODO To make sure data stored in localStorage does not get backed up to iCloud and thus resulting in Apple rejecting your app for voilating the Data Storage Guidelines-->
+  <!--<widget ...>-->
+    <!--<preference name="BackupWebStorage" value="none" />-->
+  <!--</widget>-->
+
+  <allow-navigation href="*" />
 </widget>

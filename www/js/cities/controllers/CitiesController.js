@@ -1,33 +1,29 @@
-/** CitiesCtrl **/
+/** CitiesController **/
 'use strict';
 
-couldApp.controller('CitiesController', function ($scope, $ionicModal) {
+cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', function ($scope, $state, citiesService) {
+    var _this = this;
+    this.cities = [];
+    this.error = null;
 
-    this.cities = [
-        {name: "tounes"},
-        {name: "sfax"},
-        {name: "nantes"},
-        {name: "paris"},
-        {name: "manouba"},
-        {name: "denden"},
-    ];
+    this.goTo = function (city) {
+        $state.go('app.radar', {'city': angular.toJson(city) });
+    }
 
-    console.log(this.cities);
-
-
-    // Form data for the login modal
-    $scope.loginData = {};
-
-    // Create the login modal that we will use later
-    $ionicModal.fromTemplateUrl('templates/login.html', {
-        scope: $scope
-    }).then(function (modal) {
-        $scope.modal = modal;
-    });
-
-    // Triggered in the login modal to close it
-    $scope.closeLogin = function () {
-        $scope.modal.hide();
+    this.search = function() {
+        _this.error = null;
+        if (this.cityToSearch == "") {
+            this.cities = [];
+        } else {
+            citiesService.search(this.cityToSearch)
+                .then(function(cities){
+                    _this.cities = cities;
+                    console.log(cities);
+                })
+                .catch(function(err){
+                    _this.error = err;
+                    _this.cities = [];
+                });
+        }
     };
-
-})
+}]);
