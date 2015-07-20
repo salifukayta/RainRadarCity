@@ -4,12 +4,10 @@
 
 'use strict';
 
-cloudApp.controller('IntroController', ['$scope', '$state', '$ionicViewService', '$localstorage', function ($scope, $state, $ionicViewService, $localstorage) {
+cloudApp.controller('IntroController', ['$scope', '$state', '$ionicViewService', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
 
-
-    //TODO save index slide ??
     this.startApp = function() {
-        $ionicViewService.nextViewOptions({
+        $ionicHistory.nextViewOptions({
             disableBack: true
         });
         $localstorage.set("initDone", true);

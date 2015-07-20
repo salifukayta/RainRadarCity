@@ -3,13 +3,13 @@
  */
 'use strict';
 
-cloudApp.factory('citiesService', ['$q', '$http', function ($q, $http) {
+cloudApp.factory('citiesService', ['$q', '$http', 'BASE_URL_SEARCH_CITY', function ($q, $http, BASE_URL_SEARCH_CITY) {
         //TODO use can custom this
         var nbCityPerPage = 20;
         var serviceAPI = {
             search: function (cityToSearch) {
                 var deferred = $q.defer();
-                $http.get('http://www.meteoblue.com/en/server/search/query3?query=' + cityToSearch)// + '&itemsPerPage=' + nbCityPerPage)
+                $http.get(BASE_URL_SEARCH_CITY + cityToSearch)// + '&itemsPerPage=' + nbCityPerPage)
                     .success(function(data, status, headers, config) {
                         // data.results contains a city array
                         deferred.resolve(data.results);
@@ -51,7 +51,7 @@ cloudApp.factory('citiesService', ['$q', '$http', function ($q, $http) {
             searchOne: function (city, country) {
                 var deferred = $q.defer();
                 console.log("Search by " + city);
-                $http.get('http://www.meteoblue.com/en/server/search/query3?query=' + city) // + '&itemsPerPage=' + nbCityPerPage)
+                $http.get(BASE_URL_SEARCH_CITY + city) // + '&itemsPerPage=' + nbCityPerPage)
                     .success(function(data, status, headers, config) {
                         console.log("Search city in");
                         console.log(data.results);

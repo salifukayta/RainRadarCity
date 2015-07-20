@@ -4,13 +4,24 @@
 
 'use strict';
 
-cloudApp.controller('RootController', ['$scope', '$state', '$ionicViewService', '$localstorage', function ($scope, $state, $ionicViewService, $localstorage) {
+cloudApp.controller('RootController', ['$scope', '$state', '$ionicViewService', '$localstorage', 'gettextCatalog', function ($scope, $state, $ionicHistory, $localstorage, gettextCatalog) {
 
-    $ionicViewService.nextViewOptions({
+    var lang = 'fr';
+
+    //gettextcatalog.loadremote("./languages/" + lang + ".json")
+    //    .then(function(){
+    //        gettextcatalog.setcurrentlanguage(lang);
+    //    })
+    //    .catch(function(config) {
+    //        console.log("lang file not found");
+    //    });
+    //gettextcatalog.debug = true;
+
+    $ionicHistory.nextViewOptions({
         disableBack: true
     });
 
-    var testIntro = true;
+    var testIntro = false;
 
     if (testIntro || angular.isUndefined($localstorage.get("initDone"))) {
         $state.go('app.intro');

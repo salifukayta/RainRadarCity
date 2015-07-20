@@ -54,7 +54,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                     .then(function (data) {
                         $ionicLoading.hide();
                         _this.radar = data;
-                        if (_this.radar.city.length != 0) {
+                        if (_this.radar.country.length != 0) {
                             _this.isNoDataAvailable = false;
                             nexPicture();
                             $interval(nexPicture, 3000);
@@ -69,9 +69,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             }
 
             function initCity() {
-                $ionicLoading.show({
-                    template: 'Loading'
-                });
+                $ionicLoading.show();
                 if ($stateParams.city == "") {
                     cityGeolocService.getGeolocCity()
                         .then(function(city) {
@@ -95,7 +93,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 initCity();
             }
 
-            //FIXME to be replaced by ionicHistory
             $scope.$on('$ionicView.enter', function() {
                 _this.error = null;
                 _this.city = null;

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.factory('radarService', ['$q', '$http', function ($q, $http) {
+cloudApp.factory('radarService', ['$q', '$http', 'BASE_URL_GET_RADAR', function ($q, $http, BASE_URL_GET_RADAR) {
 
     function prepareImgUrl(imgUrl, radar, indexCountryRadar) {
         if(imgUrl.indexOf("file://") == 0) {
@@ -39,13 +39,12 @@ cloudApp.factory('radarService', ['$q', '$http', function ($q, $http) {
         return radar;
     }
 
-    const BASE_URL = "https://www.meteoblue.com/en/weather/forecast/week/";
     var serviceAPI = {
         getPrecipitationRadar: function (cityUrl) {
             console.log("get Precipitation Radar");
             var deferred = $q.defer();
 
-            $http.get(BASE_URL + cityUrl)
+            $http.get(BASE_URL_GET_RADAR + cityUrl)
                     .success(function(data, status, headers, config) {
                         deferred.resolve(scrappingData(data));
                     })

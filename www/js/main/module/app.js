@@ -1,12 +1,12 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in CitiesController.js
-cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova'])
 
-    .run(function ($ionicPlatform) {
+cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'])
+
+    .run(function ($ionicPlatform, gettextCatalog) {
+
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -17,12 +17,32 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova'])
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
             }
+            // load current language
+            if(typeof navigator.globalization !== "undefined") {
+                navigator.globalization.getPreferredLanguage(function (languageLocation) {
+                    var language = languageLocation.value.substring(0,2);
+                    gettextCatalog.loadRemote("./languages/" + language + ".json")
+                        .then(function(){
+                            gettextCatalog.setCurrentLanguage(language);
+                        })
+                        .catch(function(config) {
+                            console.log("lang file not found");
+                        });
+                    gettextCatalog.debug = true;
+                });
+            }
         });
     })
 
-    .config(function ($stateProvider, $urlRouterProvider) {
-        $stateProvider
+    .constant('$ionicLoadingConfig', {
+        template: '<ion-spinner icon="spiral"></ion-spinner>'
+    })
+    .constant('BASE_URL_SEARCH_CITY', 'http://www.meteoblue.com/en/server/search/query3?query=')
+    .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
 
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+        $stateProvider
             .state('app', {
                 url: "/app",
                 abstract: true,
@@ -44,15 +64,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova'])
                     'menuContent': {
                         templateUrl: "templates/intro/intro.html",
                         controller: 'IntroController as introCtrl'
-                    }
-                }
-            })
-            .state('app.city-geoloc', {
-                url: "/city-geoloc",
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/cities/cityGeoloc.html",
-                        controller: 'CityGeolocController as CityGeolocCtrl'
                     }
                 }
             })

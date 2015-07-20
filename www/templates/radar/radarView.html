@@ -1,4 +1,4 @@
-<ion-view view-title="Rain Radar">
+<ion-view view-title="{{'Rain Radar'|translate}}">
 
     <ion-nav-buttons side="right">
         <button class="button icon ion-refresh" ng-click="radarCtrl.refreshRadar()">
@@ -15,7 +15,7 @@
                 {{radarCtrl.error}}
             </div>
 
-            <div class="item" ng-show="radarCtrl.isNoDataAvailable">
+            <div class="item" ng-show="radarCtrl.isNoDataAvailable" translate>
                 No data for the city {{radarCtrl.city.name}}.
             </div>
 

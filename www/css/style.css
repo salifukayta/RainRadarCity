@@ -1,14 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
-.slider {
-    /*height: 100%;*/
-    height: 600px; /* slider height you want */
-}
-
-.slider-slide {
-    height: 100%;
-}
 
 .center{
     text-align:center;
+}
+
+.loading-container .loading {
+    background-color: inherit;
 }
