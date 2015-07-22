@@ -7,7 +7,4 @@
 cloudApp.controller('AboutController', ['$scope', function ($scope) {
     var _this = this;
 
-    //TODO
-
-
 }]);

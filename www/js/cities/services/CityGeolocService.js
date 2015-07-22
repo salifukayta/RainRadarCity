@@ -4,13 +4,12 @@
 
 'use strict';
 
-cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', 'citiesService', function ($q, $ionicPlatform, $cordovaGeolocation, citiesService) {
+cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', 'citiesService', 'gettextCatalog', function ($q, $ionicPlatform, $cordovaGeolocation, citiesService, gettextCatalog) {
 
     function getCityInformation(cityToSearch, callback) {
         // get city information for raining radar
         citiesService.searchOne(cityToSearch.name, cityToSearch.country)
             .then(function (city) {
-                //$state.go('app.radar', {'city': angular.toJson(city) });
                 callback(null, city);
             })
             .catch(function (err) {
@@ -23,7 +22,6 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
         // get reverse geo-coding for city name
         citiesService.reverseCoding(position)
             .then(function(cityToSearch) {
-                //getCityInformation(cityToSearch);
                 callback(null, cityToSearch);
             })
             .catch(function(err) {
@@ -34,14 +32,14 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
 
     function getCurrentPosition (x, callback) {
         // get position geo-localisation
+        //TODO enableHighAccuracy test to true
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
         $cordovaGeolocation.getCurrentPosition(posOptions)
             .then(function (position) {
-                //getReverseGeoCoding(position);
                 callback(null, position);
             }, function (err) {
                 console.log(err.message);
-                callback("Please verify your GPS is activated", null);
+                callback(gettextCatalog.getString("Please check your GPS is enabled"), null);
             });
     }
 

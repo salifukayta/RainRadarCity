@@ -1,7 +1,7 @@
 <ion-view view-title="{{'Select City'|translate}}">
     <ion-content>
 
-        <div class="item" ng-if="favoritesCtrl.cities.length == 0" translate>
+        <div class="item item-text-wrap" ng-show="favoritesCtrl.hasNoFavoriteCities()" translate>
             No favorite cities
         </div>
 

@@ -4,7 +4,7 @@
 
 'use strict';
 
-cloudApp.controller('IntroController', ['$scope', '$state', '$ionicViewService', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
+cloudApp.controller('IntroController', ['$scope', '$state', '$ionicHistory', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
 
     this.startApp = function() {
         $ionicHistory.nextViewOptions({

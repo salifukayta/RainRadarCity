@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.factory('radarService', ['$q', '$http', 'BASE_URL_GET_RADAR', function ($q, $http, BASE_URL_GET_RADAR) {
+cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET_RADAR', function ($q, $http, gettextCatalog, BASE_URL_GET_RADAR) {
 
     function prepareImgUrl(imgUrl, radar, indexCountryRadar) {
         if(imgUrl.indexOf("file://") == 0) {
@@ -49,8 +49,8 @@ cloudApp.factory('radarService', ['$q', '$http', 'BASE_URL_GET_RADAR', function 
                         deferred.resolve(scrappingData(data));
                     })
                     .error(function(data, status, headers, config) {
-                    console.log("error get city radar");
-                        deferred.reject('Please verify you network connection');
+                        console.log("error get city radar");
+                        deferred.reject(gettextCatalog.getString('Please check you internet connection is enabled'));
                     });
 
                 return deferred.promise;

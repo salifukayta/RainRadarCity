@@ -28,9 +28,14 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                         .catch(function(config) {
                             console.log("lang file not found");
                         });
-                    gettextCatalog.debug = true;
                 });
             }
+            gettextCatalog.debug = true;
+            // Load the strings automatically during initialization.
+            gettextCatalog.setStrings("fr", {
+                "Hello": "Hallo",
+                "One boat": ["Een boot", "{{$count}} boats"]
+            });
         });
     })
 

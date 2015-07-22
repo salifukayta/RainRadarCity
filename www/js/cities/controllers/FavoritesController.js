@@ -4,7 +4,12 @@
 'use strict';
 
 cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage', function ($scope, $state, $localstorage) {
+    this.cities = {};
     var _this = this;
+
+    this.hasNoFavoriteCities = function () {
+        return angular.equals({}, _this.cities);
+    };
 
     $scope.$on('$ionicView.enter', function() {
         _this.cities = $localstorage.get('favoriteCities');
