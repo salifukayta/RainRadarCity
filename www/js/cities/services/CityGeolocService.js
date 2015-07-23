@@ -39,7 +39,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 callback(null, position);
             }, function (err) {
                 console.log(err.message);
-                callback(gettextCatalog.getString("Please check your GPS is enabled"), null);
+                callback(gettextCatalog.getString("Check your GPS"), null);
             });
     }
 

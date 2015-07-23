@@ -50,7 +50,7 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
                     })
                     .error(function(data, status, headers, config) {
                         console.log("error get city radar");
-                        deferred.reject(gettextCatalog.getString('Please check you internet connection is enabled'));
+                        deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
                     });
 
                 return deferred.promise;

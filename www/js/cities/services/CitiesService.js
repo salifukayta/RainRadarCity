@@ -16,14 +16,14 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                     })
                     .error(function(data, status, headers, config) {
                         console.log("error get cities");
-                        deferred.reject(gettextCatalog.getString('Please check you internet connection is enabled'));
+                        deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
                     });
                 return deferred.promise;
             },
             reverseCoding: function (position) {
                 var deferred = $q.defer();
                 if (angular.isUndefined(google)) {
-                    deferred.reject(gettextCatalog.getString("Please check you internet connection is enabled"));
+                    deferred.reject(gettextCatalog.getString("Check you Internet Connection"));
                     return;
                 }
                 var geocoder = new google.maps.Geocoder();
@@ -41,9 +41,9 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                         console.log(cityToSearch);
                         deferred.resolve(cityToSearch);
                     } else if(status == google.maps.GeocoderStatus.ERROR) {
-                        deferred.reject(gettextCatalog.getString("Please check you internet connection is enabled"));
+                        deferred.reject(gettextCatalog.getString("Check you Internet Connection"));
                     } else {
-                        deferred.reject(gettextCatalog.getString("Please check your GPS is enabled"));
+                        deferred.reject(gettextCatalog.getString("Check your GPS"));
                     }
                 });
                 return deferred.promise;
@@ -64,11 +64,11 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                             }
                         }
                         console.log("City not found");
-                        deferred.reject(gettextCatalog.getString('City not found'));
+                        deferred.reject(gettextCatalog.getString('City not Found'));
                     })
                     .error(function(data, status, headers, config) {
                         console.log("error get cities");
-                        deferred.reject(gettextCatalog.getString('Please check you internet connection is enabled'));
+                        deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
                     });
                 return deferred.promise;
             },

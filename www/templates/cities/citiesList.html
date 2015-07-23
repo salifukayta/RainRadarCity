@@ -6,7 +6,7 @@
             <input type="search" placeholder="{{'Search City'|translate}}" ng-model="citiesCtrl.cityToSearch" ng-keyup="citiesCtrl.search()">
         </label>
 
-        <div class="item item-text-wrap" ng-if="citiesCtrl.error != null">
+        <div class="item item-text-wrap error" ng-if="citiesCtrl.error != null">
             {{citiesCtrl.error}}
         </div>
 
