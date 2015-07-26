@@ -7,15 +7,25 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
         function($scope, $stateParams, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService) {
 
             var _this = this;
-            var city = null;
-            var indexCity = 0;
-            var indexCountry = 0;
+            this.city = null;
+            this.indexCity = -1;
+            this.indexCountry = -1;
             this.isFavorite = false;
             this.isNoDataAvailable = false;
             this.radar = {
                 country: [],
                 city: []
             };
+            //
+            //this.progressCity = function () {
+            //    console.log("_this.radar.city.length= " + _this.radar.city.length);
+            //    return indexCity + 1 / _this.radar.city.length;
+            //};
+            //
+            //this.progressCountry = function () {
+            //    console.log("_this.radar.country.length= " + _this.radar.country.length);
+            //    return indexCountry + 1 / _this.radar.country.length;
+            //};
 
             this.addRemoveFavorite = function () {
                 var favorites = $localstorage.get('favoriteCities');
@@ -32,17 +42,17 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             };
 
             var nexPicture = function () {
-                _this.radarCity = _this.radar.city[indexCity];
-                _this.radarCountry = _this.radar.country[indexCountry];
+                _this.indexCity++;
+                _this.indexCountry++;
+                if (_this.indexCity === _this.radar.city.length) {
+                    _this.indexCity = 0;
+                }
+                if (_this.indexCountry === _this.radar.country.length) {
+                    _this.indexCountry = 0;
+                }
 
-                indexCity++;
-                indexCountry++;
-                if (indexCity === _this.radar.city.length) {
-                    indexCity = 0;
-                }
-                if (indexCountry === _this.radar.country.length) {
-                    indexCountry = 0;
-                }
+                _this.radarCity = _this.radar.city[_this.indexCity];
+                _this.radarCountry = _this.radar.country[_this.indexCountry];
             };
 
             function getRainingRadar() {

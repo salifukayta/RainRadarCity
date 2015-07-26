@@ -46,7 +46,8 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
 
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
-        $compileProvider.imgSrcSanitizationWhitelist('img/');
+        // Do not work, used for windowsphone ?
+//        $compileProvider.imgSrcSanitizationWhitelist('img/');
 
         $stateProvider
             .state('app', {

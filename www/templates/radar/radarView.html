@@ -21,6 +21,7 @@
 
             <div class="item" ng-show="radarCtrl.radarCity != null">
                 <h1>{{radarCtrl.city.name}}</h1>
+                <meter class="meter-style" value="{{radarCtrl.indexCity}}" max="{{radarCtrl.radar.city.length - 1}}">{{radarCtrl.indexCity}}/{{radarCtrl.radar.city.length - 1}}</meter>
                 <div class="item-image">
                     <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City">
                 </div>
@@ -28,6 +29,7 @@
 
             <div class="item" ng-show="radarCtrl.radarCountry != null">
                 <h1>{{radarCtrl.city.country}}</h1>
+                <meter value="{{radarCtrl.indexCountry}}" max="{{radarCtrl.radar.country.length - 1}}">{{radarCtrl.indexCountry}}/{{radarCtrl.radar.country.length - 1}}</meter>
                 <div class="item-image">
                     <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country">
                 </div>
