@@ -9,6 +9,8 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             var _this = this;
             this.city = null;
             this.indexCity = -1;
+            this.indexCityIncremental = 0;
+            this.indexCountryIncremental = 0;
             this.indexCountry = -1;
             this.isFavorite = false;
             this.isNoDataAvailable = false;
@@ -16,16 +18,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 country: [],
                 city: []
             };
-            //
-            //this.progressCity = function () {
-            //    console.log("_this.radar.city.length= " + _this.radar.city.length);
-            //    return indexCity + 1 / _this.radar.city.length;
-            //};
-            //
-            //this.progressCountry = function () {
-            //    console.log("_this.radar.country.length= " + _this.radar.country.length);
-            //    return indexCountry + 1 / _this.radar.country.length;
-            //};
 
             this.addRemoveFavorite = function () {
                 var favorites = $localstorage.get('favoriteCities');
@@ -41,14 +33,36 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 console.log(favorites[_this.city.name]);
             };
 
+            var nextIndexCity = function() {
+                if (_this.indexCityIncremental < _this.indexCity + 1) {
+                    _this.indexCityIncremental = _this.indexCityIncremental + 0.025;
+                    $interval(nextIndexCity, 75, 1);
+                }
+            };
+
+            var nextIndexCountry = function() {
+                if (_this.indexCountryIncremental < _this.indexCountry + 1) {
+                    _this.indexCountryIncremental = _this.indexCountryIncremental + 0.025;
+                    $interval(nextIndexCountry, 75, 1);
+                }
+            };
+
             var nexPicture = function () {
                 _this.indexCity++;
+                _this.indexCityIncremental = _this.indexCity;
                 _this.indexCountry++;
+                _this.indexCountryIncremental = _this.indexCountry;
+
+                $interval(nextIndexCity, 75, 1);
+                $interval(nextIndexCountry, 75, 1);
+
                 if (_this.indexCity === _this.radar.city.length) {
                     _this.indexCity = 0;
+                    _this.indexCityIncremental = 0;
                 }
                 if (_this.indexCountry === _this.radar.country.length) {
                     _this.indexCountry = 0;
+                    _this.indexCountryIncremental = 0;
                 }
 
                 _this.radarCity = _this.radar.city[_this.indexCity];

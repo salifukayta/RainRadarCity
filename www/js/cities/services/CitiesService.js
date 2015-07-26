@@ -23,6 +23,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
             reverseCoding: function (position) {
                 var deferred = $q.defer();
                 if (angular.isUndefined(google)) {
+                    console.log("google is undefined");
                     deferred.reject(gettextCatalog.getString("Check you Internet Connection"));
                     return;
                 }
