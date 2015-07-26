@@ -35,15 +35,13 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                     if (status == google.maps.GeocoderStatus.OK) {
                         console.log(results);
                         var cityToSearch = {};
-                        if (results[1].address_components.length == 6) {
-                            // Cas de Nantes
-                            cityToSearch.name = results[1].address_components[1].long_name;
-                            cityToSearch.country = results[1].address_components[4].long_name;
-                        } else {
-                            // Cas de Limoges
-                            cityToSearch.name = results[1].address_components[0].long_name;
-                            cityToSearch.country = results[1].address_components[3].long_name;
-                        }
+                        results[1].address_components.forEach(function (address_component) {
+                            if(address_component.type === "locality") {
+                                cityToSearch.name = address_component.long_name;
+                            } else if (address_component.type === "country") {
+                                cityToSearch.country = address_component.long_name;
+                            }
+                        });
                         console.log(cityToSearch);
                         deferred.resolve(cityToSearch);
                     } else if(status == google.maps.GeocoderStatus.ERROR) {

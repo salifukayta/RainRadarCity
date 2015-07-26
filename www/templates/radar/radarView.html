@@ -22,7 +22,7 @@
             <div class="item" ng-show="radarCtrl.radarCity != null">
                 <h1>{{radarCtrl.city.name}}</h1>
                 <p>{{radarCtrl.indexCityIncremental}}/{{radarCtrl.radar.city.length}}</p>
-                <meter class="meter-style" value="{{radarCtrl.indexCityIncremental}}" max="{{radarCtrl.radar.city.length}}">{{radarCtrl.indexCityIncremental}}/{{radarCtrl.radar.city.length }}</meter>
+                <meter class="meter-style" value="{{radarCtrl.indexCity}}" max="{{radarCtrl.radar.city.length}}">{{radarCtrl.indexCity}}/{{radarCtrl.radar.city.length }}</meter>
                 <p class="center value-meter-bar">{{radarCtrl.indexCity + 1}}/{{radarCtrl.radar.city.length}}</p>
                 <div class="item-image">
                     <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City">
@@ -32,7 +32,7 @@
             <div class="item" ng-show="radarCtrl.radarCountry != null">
                 <h1>{{radarCtrl.city.country}}</h1>
                 <p>{{radarCtrl.indexCountryIncremental}}/{{radarCtrl.radar.country.length}}</p>
-                <meter value="{{radarCtrl.indexCountryIncremental}}" max="{{radarCtrl.radar.country.length}}">{{radarCtrl.indexCountryIncremental}}/{{radarCtrl.radar.country.length}}</meter>
+                <meter value="{{radarCtrl.indexCountry}}" max="{{radarCtrl.radar.country.length}}">{{radarCtrl.indexCountry}}/{{radarCtrl.radar.country.length}}</meter>
                 <p class="center value-meter-bar">{{radarCtrl.indexCountry + 1}}/{{radarCtrl.radar.country.length}}</p>
                 <div class="item-image">
                     <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country">

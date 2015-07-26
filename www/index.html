@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<!--cordova plugin add cordova-plugin-geolocation-->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -18,6 +19,7 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmXRiilXO5F60sFNfXs7M9AKoBc-9hTQc&sensor=true"></script>
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -35,9 +37,6 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
-
-    <!-- jQuary -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <!-- module js -->
     <script src="js/main/module/app.js"></script>
@@ -61,6 +60,5 @@
 
   <body ng-app="cloudPrecipitation">
     <ion-nav-view></ion-nav-view>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmXRiilXO5F60sFNfXs7M9AKoBc-9hTQc&sensor=true"></script>
   </body>
 </html>
