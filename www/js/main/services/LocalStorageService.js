@@ -15,5 +15,8 @@ cloudApp.factory('$localstorage', ['$window', function($window) {
         getArray: function(key) {
             return angular.fromJson($window.localStorage[key] || []);
         },
+        getObject: function(key) {
+            return angular.fromJson($window.localStorage[key] || {});
+        },
     }
 }]);

@@ -21,7 +21,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             };
 
             this.addRemoveFavorite = function () {
-                var favorites = $localstorage.getArray('favoriteCities');
+                var favorites = $localstorage.getObject('favoriteCities');
 
                 if (angular.isUndefined(favorites[_this.city.name])) {
                     favorites[_this.city.name] = _this.city;
