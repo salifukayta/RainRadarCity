@@ -9,7 +9,7 @@ To get this project working (ionic already installed with its dependencies) :
 - cordova plugin add cordova-plugin-geolocation
 - cordova plugin add cordova-plugin-globalization
 
-- And these commands for translations :
+And these commands for translations:
 - npm install -g grunt-cli
 - npm install grunt --save-dev
 - npm install grunt-angular-gettext --save-dev
