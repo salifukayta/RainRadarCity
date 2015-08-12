@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.radarprecipitation587032" version="0.0.1" xmlns="http://www.w3.org/ns/widgets"
         xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Rain Radar</name>
+    <name>Rain Radar City</name>
     <description>
-        An Ionic Framework and Cordova project.
+        Rain Radar City shows the raining spot on cities and countries
     </description>
     <author email="solsalim@gmail.com" href="http://ionicframework.com/">
         Salim FEKI

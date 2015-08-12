@@ -9,7 +9,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
 
         function getCityInformation(cityToSearch, callback) {
             // get city information for raining radar
-            citiesService.searchOne(cityToSearch.name, cityToSearch.country)
+            citiesService.searchOne(cityToSearch.name, cityToSearch.country, false)
                 .then(function (city) {
                     callback(null, city);
                 })

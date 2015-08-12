@@ -10,7 +10,7 @@ cloudApp.controller('RootController', ['$scope', '$state', '$ionicHistory', '$lo
         disableBack: true
     });
 
-    if ( angular.isUndefined($localstorage.get("initDone"))) {
+    if ($localstorage.get("initDone") == null) {
         $state.go('app.intro');
     } else {
         $state.go('app.cities');

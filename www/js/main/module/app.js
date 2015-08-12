@@ -8,11 +8,10 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     .run(function ($ionicPlatform, gettextCatalog) {
 
         $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
-            if (window.cordova && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            }
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
+            //if (window.cordova && window.cordova.plugins.Keyboard) {
+            //    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            //}
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
                 StatusBar.styleDefault();
@@ -20,22 +19,26 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             // load current language
             if(typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function (languageLocation) {
+                    console.log("getPreferredLanguage");
                     var language = languageLocation.value.substring(0,2);
                     gettextCatalog.loadRemote("./languages/" + language + ".json")
                         .then(function(){
+                            console.log("language " + language);
                             gettextCatalog.setCurrentLanguage(language);
                         })
                         .catch(function(config) {
-                            console.log("lang file not found");
+                            console.error("lang file not found");
                         });
                 });
+            } else {
+                console.error("navigator.globalization is undefined ");
             }
             gettextCatalog.debug = true;
             // Load the strings automatically during initialization.
-            gettextCatalog.setStrings("fr", {
-                "Hello": "Hallo",
-                "One boat": ["Een boot", "{{$count}} boats"]
-            });
+//            gettextCatalog.setStrings("fr", {
+//                "Hello": "Hallo",
+//                "One boat": ["Een boot", "{{$count}} boats"]
+//            });
         });
     })
 
