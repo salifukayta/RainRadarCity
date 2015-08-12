@@ -8,6 +8,7 @@ cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage',
     var _this = this;
 
     this.hasNoFavoriteCities = function () {
+        console.log(_this.cities);
         return angular.equals({}, _this.cities);
     };
 

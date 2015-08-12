@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET_RADAR', function ($q, $http, gettextCatalog, BASE_URL_GET_RADAR) {
+cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET_RADAR', 'TIME_OUT', function ($q, $http, gettextCatalog, BASE_URL_GET_RADAR, TIME_OUT) {
 
     function prepareImgUrl(imgUrl, radar, indexCountryRadar) {
         if(imgUrl.indexOf("file://") == 0) {
@@ -44,7 +44,7 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
             console.log("get Precipitation Radar");
             var deferred = $q.defer();
 
-            $http.get(BASE_URL_GET_RADAR + cityUrl)
+            $http.get(BASE_URL_GET_RADAR + cityUrl, {timeout: TIME_OUT})
                     .success(function(data, status, headers, config) {
                         deferred.resolve(scrappingData(data));
                     })

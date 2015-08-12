@@ -3,13 +3,13 @@
  */
 'use strict';
 
-cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', function ($q, $http, gettextCatalog, BASE_URL_SEARCH_CITY) {
+cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', 'TIME_OUT', function ($q, $http, gettextCatalog, BASE_URL_SEARCH_CITY, TIME_OUT) {
         //TODO use can custom this
         var nbCityPerPage = 20;
         var serviceAPI = {
             search: function (cityToSearch) {
                 var deferred = $q.defer();
-                $http.get(BASE_URL_SEARCH_CITY + cityToSearch)// + '&itemsPerPage=' + nbCityPerPage)
+                $http.get(BASE_URL_SEARCH_CITY + cityToSearch, {timeout: TIME_OUT})// + '&itemsPerPage=' + nbCityPerPage)
                     .success(function(data, status, headers, config) {
                         // data.results contains a city array
                         deferred.resolve(data.results);
@@ -36,9 +36,9 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                         console.log(results);
                         var cityToSearch = {};
                         results[1].address_components.forEach(function (address_component) {
-                            if(address_component.type === "locality") {
+                            if(address_component.types[0] === "locality") {
                                 cityToSearch.name = address_component.long_name;
-                            } else if (address_component.type === "country") {
+                            } else if (address_component.types[0] === "country") {
                                 cityToSearch.country = address_component.long_name;
                             }
                         });
@@ -55,7 +55,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
             searchOne: function (city, country) {
                 var deferred = $q.defer();
                 console.log("Search by " + city);
-                $http.get(BASE_URL_SEARCH_CITY + city) // + '&itemsPerPage=' + nbCityPerPage)
+                $http.get(BASE_URL_SEARCH_CITY + city, {timeout: TIME_OUT}) // + '&itemsPerPage=' + nbCityPerPage)
                     .success(function(data, status, headers, config) {
                         console.log("Search city in");
                         console.log(data.results);

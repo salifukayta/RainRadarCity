@@ -14,13 +14,14 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             this.indexCountry = -1;
             this.isFavorite = false;
             this.isNoDataAvailable = false;
+            this.stopNextPicture = null;
             this.radar = {
                 country: [],
                 city: []
             };
 
             this.addRemoveFavorite = function () {
-                var favorites = $localstorage.get('favoriteCities');
+                var favorites = $localstorage.getArray('favoriteCities');
 
                 if (angular.isUndefined(favorites[_this.city.name])) {
                     favorites[_this.city.name] = _this.city;
@@ -33,19 +34,15 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 console.log(favorites[_this.city.name]);
             };
 
-            //var nextIndexCity = function() {
-            //    if (_this.indexCityIncremental < _this.indexCity + 1) {
-            //        _this.indexCityIncremental = _this.indexCityIncremental + 0.025;
-            //        $interval(nextIndexCity, 75, 1);
-            //    }
-            //};
-            //
-            //var nextIndexCountry = function() {
-            //    if (_this.indexCountryIncremental < _this.indexCountry + 1) {
-            //        _this.indexCountryIncremental = _this.indexCountryIncremental + 0.025;
-            //        $interval(nextIndexCountry, 75, 1);
-            //    }
-            //};
+            var nextIndexCity = function() {
+                _this.indexCityIncremental = _this.indexCityIncremental + 0.025;
+                console.log(_this.indexCityIncremental + "/" + _this.radar.city.length);
+            };
+
+            var nextIndexCountry = function() {
+                _this.indexCountryIncremental = _this.indexCountryIncremental + 0.025;
+                console.log(_this.indexCountryIncremental + "/" + _this.radar.country.length);
+            };
 
             var nexPicture = function () {
                 _this.indexCity++;
@@ -53,8 +50,8 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 _this.indexCountry++;
                 _this.indexCountryIncremental = _this.indexCountry;
 
-                //$interval(nextIndexCity, 75, 1);
-                //$interval(nextIndexCountry, 75, 1);
+                $interval(nextIndexCity, 75, 40);
+                $interval(nextIndexCountry, 75, 40);
 
                 if (_this.indexCity === _this.radar.city.length) {
                     _this.indexCity = 0;
@@ -81,7 +78,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                         if (_this.radar.country.length != 0) {
                             _this.isNoDataAvailable = false;
                             nexPicture();
-                            $interval(nexPicture, 3000);
+                            _this.stopNextPicture = $interval(nexPicture, 3000);
                         } else {
                             _this.isNoDataAvailable = true;
                         }
@@ -114,6 +111,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
 
             this.refreshRadar = function () {
                 _this.error = null;
+                $interval.cancel(_this.stopNextPicture);
                 initCity();
             }
 

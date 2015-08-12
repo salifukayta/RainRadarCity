@@ -1,7 +1,7 @@
 {
-  "name": "radarprecipitation",
+  "name": "RadarRainCity",
   "version": "1.0.0",
-  "description": "radarPrecipitation: An Ionic project",
+  "description": "Radar Rain City: Meteo rain project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^1.3.3",
