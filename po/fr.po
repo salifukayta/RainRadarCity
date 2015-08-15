@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: www/templates/menu.html:31
+msgid "About"
+msgstr "A propos"
+
+#: www/templates/about/about.html:1
+msgid "About Raining Radar"
+msgstr "A propos de Raining Radar"
+
+#: www/templates/intro/intro.html:91
+msgid ""
+"By activating your GPS, you can have directy the radar on the geolocated "
+"city."
+msgstr ""
+"En activant votre GPS, vous pouvez avoir directement le radar de pluie de la "
+"ville géolocalisée."
+
+#: www/templates/msgs.html:4
+msgid "Check you Internet Connection"
+msgstr "Vérifiez votre Connection Internet"
+
+#: www/templates/msgs.html:2
+msgid "Check your GPS"
+msgstr "Vérifier votre GPS"
+
+#: www/templates/intro/intro.html:77
+msgid "City marked as favorite."
+msgstr "Ville marquée comme favori."
+
+#: www/templates/cities/citiesList.html:6
+msgid "City Name"
+msgstr "Nom de Ville"
+
+#: www/templates/msgs.html:6
+msgid "City not Found"
+msgstr "Aucune Ville Trouvée"
+
+#: www/templates/intro/intro.html:69
+msgid "City not marked as favorite."
+msgstr "Ville pas marquée comme favori."
+
+#: www/templates/intro/intro.html:26
+msgid "Consult Rain Radar"
+msgstr "Consultez le Radar de Pluie"
+
+#: www/templates/menu.html:25
+msgid "Favorites"
+msgstr "Favoris"
+
+#: www/templates/intro/intro.html:11
+msgid "First, enter your city name and click on it."
+msgstr "Commencez par saisir le nom de votre ville et cliquez dessus."
+
+#: www/templates/menu.html:28
+msgid "Geolocation"
+msgstr "Géolocalisation"
+
+#: www/templates/menu.html:17
+msgid "Menu"
+msgstr "Menu"
+
+#: www/templates/radar/radarView.html:18
+msgid "No data for the city {{radarCtrl.city.name}}."
+msgstr "Pas de données pour la ville {{radarCtrl.city.name}}."
+
+#: www/templates/cities/favorites.html:4
+msgid "No favorite cities"
+msgstr "Aucune villes favorites"
+
+#: www/templates/radar/radarView.html:1
+msgid "Rain Radar"
+msgstr "Radar de Pluie"
+
+#: www/templates/about/about.html:4
+msgid ""
+"Raining Radar uses data from meteoblue.com. This app simplifies and "
+"facilitates the use of the Map Raining Cloud."
+msgstr ""
+"Raining Radar utilise les données de meteoblue.com. Cette appli simplifie et "
+"facilite l'utilisation de la Carte des nuages de pluie."
+
+#: www/templates/intro/intro.html:58
+msgid "Save your favourit cities"
+msgstr "Enregistrer vos villes favories"
+
+#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:9
+#: www/templates/menu.html:22
+msgid "Search City"
+msgstr "Rechercher une Ville"
+
+#: www/templates/cities/favorites.html:1
+msgid "Select City"
+msgstr "Sélectionnez une ville"
+
+#: www/templates/intro/intro.html:99
+msgid "Start Search City"
+msgstr "Commencez la recherche de ville"
+
+#: www/templates/intro/intro.html:89
+msgid "Use GPS to Geolocate your city"
+msgstr "Utilisez le GPS pour géolocaliser votre ville"
+
+#: www/templates/intro/intro.html:60
+msgid ""
+"You can also save your favourite cities to check them quicker from the menu."
+msgstr ""
+"Vous pouvez sauvegarder mes villes favorites pour les consulter plus "
+"rapidement depuis le menu."
+
+#~ msgid ""
+#~ "Raining Radar uses data from meteoblue.com. This app simplifies and "
+#~ "facilitates the use of the Raining Cloud."
+#~ msgstr ""
+#~ "Raining Radar utilise les données de meteoblue.com. Cette appli simplifie "
+#~ "et facilitate l'utilisation des nuages de pluie."
+
+#~ msgid "First, enter your city name and click on the wanted one."
+#~ msgstr "Commencer par saisir le nom de votre ville et cliquez dessus."
+
+#~ msgid "Check you internet connection"
+#~ msgstr "Vérifiez votre connexion Internet"
+
+#~ msgid "City not found"
+#~ msgstr "Ville non trouvée"
+
+#~ msgid "Consult Radar City"
+#~ msgstr "Consulté le radar de pluie"
+
+#~ msgid "Please check you internet connection is enabled"
+#~ msgstr "Veuillez vérifiez la connexion Internet est activée"
+
+#~ msgid "Please check your GPS is enabled"
+#~ msgstr "Veuillez vérifier que le GPS est activé"
+
+#~ msgid "Please check you network connection is enabled"
+#~ msgstr "Veuillez vérifier la connexion réseau est activée"
+
+#~ msgid ""
+#~ "Raining Radar uses data from \"meteoblue.com\". This app simplifies and "
+#~ "facilitates the use of the Raining Cloud."
+#~ msgstr ""
+#~ "Raining Radar utilise les données de \"meteoblue.com\". Cette appli "
+#~ "simplifie et facilitate l'utilisation des nuages de pluie."
+
+#~ msgid "ABOUT_MSG"
+#~ msgstr ""
+#~ "Raining Radar utilise les données de \\\"meteoblue.com\\\". Cette appli "
+#~ "simplifie et facilitate l'utilisation des nuages de pluie"
+
+#~ msgid "ABOUT MSG"
+#~ msgstr "ceci est le messaaaaaage !!!!!!"
+
+#~ msgid "ABOUT TITLE"
+#~ msgstr "a propo"
+
+#~ msgid "ABOUT_TITLE"
+#~ msgstr "A propos Raining Radar"
