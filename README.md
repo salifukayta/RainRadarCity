@@ -9,10 +9,10 @@ To get this project working (ionic already installed with its dependencies) :
 - cordova plugin add cordova-plugin-geolocation
 - cordova plugin add cordova-plugin-globalization
 
-And these commands for translations:
+To add a translations:
 - npm install -g grunt-cli
 - npm install grunt --save-dev
 - npm install grunt-angular-gettext --save-dev
 - grunt
-- open template.pot and translate, creating the fr.po file
+- open template.pot and translate, this will create the fr.po file
 - grunt
