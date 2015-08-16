@@ -1,10 +1,12 @@
 /** CitiesController **/
 'use strict';
 
-cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', function ($scope, $state, citiesService) {
+cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', function ($scope, $state, $localstorage, citiesService) {
     var _this = this;
     this.cities = [];
     this.error = null;
+
+    this.cityToSearch = $localstorage.get("recentCity");
 
     this.goTo = function (city) {
         $state.go('app.radar', {'city': angular.toJson(city) });
@@ -26,4 +28,5 @@ cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', fu
                 });
         }
     };
+    this.search();
 }]);

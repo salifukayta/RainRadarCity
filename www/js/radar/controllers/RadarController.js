@@ -67,6 +67,8 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             };
 
             function getRainingRadar() {
+                // save recent city in local storage
+                $localstorage.set("recentCity", _this.city.name);
                 // init favorite icon
                 if($localstorage.get('favoriteCities') != null && !angular.isUndefined($localstorage.get('favoriteCities')[_this.city.name])) {
                     _this.isFavorite = true;

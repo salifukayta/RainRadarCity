@@ -14,7 +14,8 @@
 }
 
 .image-intro-2-radars img{
-    width: 60%;
+/*    width: 60%; */
+    height: 300px;
 }
 
 
@@ -37,7 +38,8 @@
 }
 
 .image-intro-raining-right img, .image-intro-raining-center img, .image-intro-raining-left img {
-    width: 42%;
+/*    width: 42%; */
+    height: 300px;
 }
 
 .image-intro-menu {
@@ -46,5 +48,6 @@
 }
 
 .image-intro-menu img {
-    width: 80%;
+/*    width: 80%; */
+    height: 300px;
 }

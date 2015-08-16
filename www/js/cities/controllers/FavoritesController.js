@@ -13,7 +13,7 @@ cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage',
     };
 
     $scope.$on('$ionicView.enter', function() {
-        _this.cities = $localstorage.get('favoriteCities');
+        _this.cities = $localstorage.getObject('favoriteCities');
     });
 
     this.goTo = function (city) {
