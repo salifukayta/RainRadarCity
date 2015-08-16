@@ -19,11 +19,9 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             // load current language
             if(typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function (languageLocation) {
-                    console.log("getPreferredLanguage");
                     var language = languageLocation.value.substring(0,2);
                     gettextCatalog.loadRemote("./languages/" + language + ".json")
                         .then(function(){
-                            console.log("language " + language);
                             gettextCatalog.setCurrentLanguage(language);
                         })
                         .catch(function(config) {

@@ -23,8 +23,10 @@
                 <h1>{{radarCtrl.city.name}}</h1>
                 <meter value="{{radarCtrl.indexCityIncremental}}" max="{{radarCtrl.radar.city.length}}">{{radarCtrl.indexCityIncremental}}/{{radarCtrl.radar.city.length }}</meter>
                 <p class="center value-meter-bar">{{radarCtrl.indexCity + 1}}/{{radarCtrl.radar.city.length}}</p>
-                <div class="item-image">
-                    <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City">
+                <div id="radar-city" class="item-image" ng-click="radarCtrl.pause()">
+                    <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City"><br/>
+                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animated fadeIn': radarCtrl.isPaused}"><br/>
+                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animated fadeIn': !radarCtrl.isPaused}">
                 </div>
             </div>
 
@@ -32,8 +34,10 @@
                 <h1>{{radarCtrl.city.country}}</h1>
                 <meter value="{{radarCtrl.indexCountryIncremental}}" max="{{radarCtrl.radar.country.length}}">{{radarCtrl.indexCountryIncremental}}/{{radarCtrl.radar.country.length}}</meter>
                 <p class="center value-meter-bar">{{radarCtrl.indexCountry + 1}}/{{radarCtrl.radar.country.length}}</p>
-                <div class="item-image">
-                    <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country">
+                <div id="radar-country" class="item-image" ng-click="radarCtrl.pause()">
+                    <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country"><br/>
+                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animated fadeIn': radarCtrl.isPaused}"><br/>
+                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animated fadeIn': !radarCtrl.isPaused}">
                 </div>
             </div>
         </div>

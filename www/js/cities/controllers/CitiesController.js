@@ -5,8 +5,7 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
     var _this = this;
     this.cities = [];
     this.error = null;
-
-    this.cityToSearch = $localstorage.get("recentCity");
+    this.cityToSearch = " ";
 
     this.goTo = function (city) {
         $state.go('app.radar', {'city': angular.toJson(city) });

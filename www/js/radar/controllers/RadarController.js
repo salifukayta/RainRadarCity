@@ -15,6 +15,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             this.isFavorite = false;
             this.isNoDataAvailable = false;
             this.stopNextPicture = null;
+            this.isPaused = false;
             this.radar = {
                 country: [],
                 city: []
@@ -67,8 +68,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
             };
 
             function getRainingRadar() {
-                // save recent city in local storage
-                $localstorage.set("recentCity", _this.city.name);
                 // init favorite icon
                 if($localstorage.get('favoriteCities') != null && !angular.isUndefined($localstorage.get('favoriteCities')[_this.city.name])) {
                     _this.isFavorite = true;
@@ -122,5 +121,16 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 _this.city = null;
                 initCity();
             });
+
+            this.pause = function() {
+                if(_this.isPaused) {
+                    nexPicture();
+                    _this.stopNextPicture = $interval(nexPicture, 3000);
+                } else {
+                    $interval.cancel(_this.stopNextPicture);
+                }
+                _this.isPaused = !_this.isPaused;
+            };
+
         }
 ])
