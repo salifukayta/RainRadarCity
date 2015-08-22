@@ -86,7 +86,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                 }
             })
             .state('app.radar', {
-                url: "/radar/:city",
+                url: "/radar/:useGeoloc",
                 cache: false,
                 views: {
                     'menuContent': {
@@ -95,7 +95,16 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     },
                 }
             })
-
+            .state('app.radar2', {
+                url: "/radar?useGeoloc=true",
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/radar/radarView.html",
+                        controller: 'RadarController as radarCtrl',
+                    },
+                }
+            })
             .state('app.favorites', {
                 url: "/favorites",
                 views: {
@@ -105,7 +114,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     }
                 }
             })
-
             .state('app.about', {
                 url: "/about",
                 views: {

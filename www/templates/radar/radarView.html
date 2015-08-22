@@ -1,9 +1,9 @@
 <ion-view view-title="{{'Rain Radar'|translate}}">
 
-    <ion-nav-buttons side="right">
-        <button class="button icon ion-refresh" ng-click="radarCtrl.refreshRadar()">
+    <ion-nav-buttons side="secondary">
+        <button class="button icon ion-refresh btn-refresh button-calm" ng-click="radarCtrl.refreshRadar()">
         </button>
-        <button class="button icon" ng-class="radarCtrl.isFavorite ? 'ion-android-favorite' : 'ion-android-favorite-outline'"
+        <button class="button icon button-royal" ng-class="radarCtrl.isFavorite ? 'ion-android-favorite' : 'ion-android-favorite-outline'"
                 ng-show="radarCtrl.city != null" ng-click="radarCtrl.addRemoveFavorite()">
         </button>
     </ion-nav-buttons>
@@ -25,8 +25,8 @@
                 <p class="center value-meter-bar">{{radarCtrl.indexCity + 1}}/{{radarCtrl.radar.city.length}}</p>
                 <div id="radar-city" class="item-image" ng-click="radarCtrl.pause()">
                     <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City"><br/>
-                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animated fadeIn': radarCtrl.isPaused}"><br/>
-                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animated fadeIn': !radarCtrl.isPaused}">
+                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animate-pause fadeIn': radarCtrl.isPaused}"><br/>
+                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animate-play fadeIn': !radarCtrl.isPaused}">
                 </div>
             </div>
 
@@ -36,8 +36,8 @@
                 <p class="center value-meter-bar">{{radarCtrl.indexCountry + 1}}/{{radarCtrl.radar.country.length}}</p>
                 <div id="radar-country" class="item-image" ng-click="radarCtrl.pause()">
                     <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country"><br/>
-                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animated fadeIn': radarCtrl.isPaused}"><br/>
-                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animated fadeIn': !radarCtrl.isPaused}">
+                    <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animate-pause fadeIn': radarCtrl.isPaused}"><br/>
+                    <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animate-play fadeIn': !radarCtrl.isPaused}">
                 </div>
             </div>
         </div>

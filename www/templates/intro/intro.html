@@ -1,7 +1,7 @@
 <ion-view hide-nav-bar="true">
 
     <ion-content>
-        <ion-slide-box>
+        <ion-slide-box show-pager="true" pager-click="introCtrl.goToPage(index)">
 
             <ion-slide>
                 <div class="card">
@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="item item-image">
+                    <div class="item item-image responsive-md responsive-lg">
                         <img src="img/intro/citiesList.png">
                     </div>
                 </div>
@@ -85,18 +85,19 @@
 
             <ion-slide>
                 <div class="card">
-                    <div class="item item-divider">
-                        <h2 class="center" translate>Use GPS to Geolocate your city</h2>
+                    <div class="item item-text-wrap item-divider  row">
+                        <h2 class="center col" translate>Use GPS to Geolocate your city</h2>
+                        <button id="gotostart" class="button button-balanced ion-chevron-down btn-scroll-down" ng-click="introCtrl.scrollBottom()"/>
                     </div>
                     <div class="item item-text-wrap" translate>
-                        By activating your GPS, you can have directy the radar on the geolocated city.
+                        By activating your GPS, you can have directly the radar on the geolocated city.
                     </div>
                     <div class="item image-intro-menu">
                         <img src="img/intro/menuGeolo.png">
                     </div>
                 </div>
                 <br>
-                <button class="button button-block button-full button-positive" ui-sref="app.cities" ng-click="introCtrl.startApp()" translate>
+                <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities" ng-click="introCtrl.startApp()" translate>
                     Start Search City
                 </button>
             </ion-slide>

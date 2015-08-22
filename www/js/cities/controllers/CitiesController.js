@@ -1,14 +1,15 @@
 /** CitiesController **/
 'use strict';
 
-cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', function ($scope, $state, $localstorage, citiesService) {
+cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', 'cityPassService', function ($scope, $state, citiesService, cityPassService) {
     var _this = this;
     this.cities = [];
     this.error = null;
     this.cityToSearch = " ";
 
     this.goTo = function (city) {
-        $state.go('app.radar', {'city': angular.toJson(city) });
+        cityPassService.set(city);
+        $state.go('app.radar', ({useGeoloc: false}));
     }
 
     this.search = function() {
@@ -27,5 +28,8 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
                 });
         }
     };
+
     this.search();
+    this.cityToSearch = "";
+
 }]);

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.3\n"
+"X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: www/templates/menu.html:31
@@ -20,9 +20,9 @@ msgstr "A propos"
 msgid "About Raining Radar"
 msgstr "A propos de Raining Radar"
 
-#: www/templates/intro/intro.html:91
+#: www/templates/intro/intro.html:92
 msgid ""
-"By activating your GPS, you can have directy the radar on the geolocated "
+"By activating your GPS, you can have directly the radar on the geolocated "
 "city."
 msgstr ""
 "En activant votre GPS, vous pouvez avoir directement le radar de pluie de la "
@@ -105,7 +105,7 @@ msgstr "Rechercher une Ville"
 msgid "Select City"
 msgstr "Sélectionnez une ville"
 
-#: www/templates/intro/intro.html:99
+#: www/templates/intro/intro.html:100
 msgid "Start Search City"
 msgstr "Commencez la recherche de ville"
 

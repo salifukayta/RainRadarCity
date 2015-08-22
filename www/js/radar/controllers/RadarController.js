@@ -3,8 +3,8 @@
  */
 'use strict';
 
-cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '$ionicLoading', '$localstorage', 'radarService', 'cityGeolocService',
-        function($scope, $stateParams, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService) {
+cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$localstorage', 'radarService', 'cityGeolocService', 'cityPassService',
+        function($scope, $stateParams, $state, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService, cityPassService) {
 
             var _this = this;
             this.city = null;
@@ -92,7 +92,13 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
 
             function initCity() {
                 $ionicLoading.show();
-                if ($stateParams.city == "") {
+                console.log("use geolocation " + $stateParams.useGeoloc);
+                console.log("$stateParams");
+                console.log($stateParams);
+                console.log("$state");
+                console.log($state);
+
+                if (angular.fromJson($stateParams.useGeoloc)) {
                     cityGeolocService.getGeolocCity()
                         .then(function(city) {
                             // init city
@@ -105,7 +111,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                             $ionicLoading.hide();
                         });
                 } else {
-                    _this.city = angular.fromJson($stateParams.city);
+                    _this.city = cityPassService.get();
                     getRainingRadar.call(this);
                 }
             }

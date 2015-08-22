@@ -1,21 +1,20 @@
 
-.img-pause {
-    vertical-align: middle;
-    width: 100%;
-    margin-top: -330px;
-}
-
-.img-play {
-    vertical-align: middle;
-    width: 100%;
-    margin-top: -370px;
+.btn-refresh {
+    margin-right: 10px;
 }
 
 .transparent {
     opacity: 0;
 }
 
-.animated {
+.animate-play {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animate-pause {
     -webkit-animation-duration: 3s;
     animation-duration: 3s;
     -webkit-animation-fill-mode: both;
@@ -58,4 +57,32 @@
 .fadeIn {
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+}
+
+@media screen and (orientation:portrait) {
+    .img-pause {
+        vertical-align: middle;
+        width: 100%;
+        margin-top: -330px;
+    }
+
+    .img-play {
+        vertical-align: middle;
+        width: 100%;
+        margin-top: -370px;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .img-pause {
+        vertical-align: middle;
+        width: 100%;
+        margin-top: -600px;
+    }
+
+    .img-play {
+        vertical-align: middle;
+        width: 100%;
+        margin-top: -650px;
+    }
 }

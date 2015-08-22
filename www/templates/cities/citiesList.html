@@ -1,5 +1,10 @@
 <ion-view view-title="{{'Search City'|translate}}">
 
+    <ion-nav-buttons side="secondary">
+        <button class="button icon ion-refresh" ng-if="citiesCtrl.error != null" ng-click="citiesCtrl.search()">
+        </button>
+    </ion-nav-buttons>
+
     <ion-content>
         <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>

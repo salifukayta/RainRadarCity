@@ -4,14 +4,26 @@
 
 'use strict';
 
-cloudApp.controller('IntroController', ['$scope', '$state', '$ionicHistory', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
+cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$ionicScrollDelegate', '$location', '$state',
+    function ($scope, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $ionicScrollDelegate, $location, $state) {
 
-    this.startApp = function() {
-        $ionicHistory.nextViewOptions({
-            disableBack: true
-        });
-        $localstorage.set("initDone", true);
-        $state.go('app.cities');
-    };
+        this.startApp = function() {
+            $ionicHistory.nextViewOptions({
+                disableBack: true
+            });
+            $localstorage.set("initDone", true);
+            $state.go('app.cities');
+        };
 
-}]);
+        this.goToPage = function (index) {
+            $ionicSlideBoxDelegate.slide(index);
+        };
+
+        this.scrollBottom = function () {
+            $location.hash(0);
+            $ionicScrollDelegate.anchorScroll(true);
+//            $ionicScrollDelegate.scrollBottom(true);
+        };
+
+    }
+]);

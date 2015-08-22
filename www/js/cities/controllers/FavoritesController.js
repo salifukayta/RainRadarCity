@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage', function ($scope, $state, $localstorage) {
+cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage', 'cityPassService', function ($scope, $state, $localstorage, cityPassService) {
     this.cities = {};
     var _this = this;
 
@@ -17,7 +17,8 @@ cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage',
     });
 
     this.goTo = function (city) {
-        $state.go('app.radar', {'city': angular.toJson(city) });
+        cityPassService.set(city);
+        $state.go('app.radar', false);
     };
 
 }]);

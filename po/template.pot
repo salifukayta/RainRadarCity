@@ -12,8 +12,8 @@ msgstr ""
 msgid "About Raining Radar"
 msgstr ""
 
-#: www/templates/intro/intro.html:91
-msgid "By activating your GPS, you can have directy the radar on the geolocated city."
+#: www/templates/intro/intro.html:92
+msgid "By activating your GPS, you can have directly the radar on the geolocated city."
 msgstr ""
 
 #: www/templates/msgs.html:4
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Select City"
 msgstr ""
 
-#: www/templates/intro/intro.html:99
+#: www/templates/intro/intro.html:100
 msgid "Start Search City"
 msgstr ""
 

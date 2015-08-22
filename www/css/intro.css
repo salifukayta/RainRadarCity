@@ -1,23 +1,17 @@
 
 .slider {
     /*height: 100%;*/
-    height: 600px; /* slider height you want */
+/*    height: 600px; /* slider height i want */
 }
 
 .slider-slide {
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .image-intro-2-radars {
     text-align: center;
     padding: 0;
 }
-
-.image-intro-2-radars img{
-/*    width: 60%; */
-    height: 300px;
-}
-
 
 .image-intro-raining-left {
     text-align: left;
@@ -37,17 +31,41 @@
     margin-bottom: -9px;
 }
 
-.image-intro-raining-right img, .image-intro-raining-center img, .image-intro-raining-left img {
-/*    width: 42%; */
-    height: 300px;
-}
-
 .image-intro-menu {
     text-align: center;
     padding: 0;
 }
 
 .image-intro-menu img {
-/*    width: 80%; */
-    height: 300px;
+    width: 80%;
+}
+
+.image-intro-raining-right img, .image-intro-raining-center img, .image-intro-raining-left img {
+    width: 42%;
+}
+.image-intro-2-radars img{
+    width: 60%;
+}
+
+.button-bar2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-box-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 100%;
+}
+
+/* masck scroll down button on portrait view */
+@media screen and (orientation:portrait) {
+    .btn-scroll-down {
+        visibility: hidden;
+        margin: -20px;
+    }
 }
