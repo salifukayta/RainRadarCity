@@ -9,7 +9,7 @@ cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', 'c
 
     this.goTo = function (city) {
         cityPassService.set(city);
-        $state.go('app.radar', ({useGeoloc: false}));
+        $state.go('app.radar', ({'useGeoloc': false}));
     }
 
     this.search = function() {

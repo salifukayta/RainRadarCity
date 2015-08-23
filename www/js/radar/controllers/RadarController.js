@@ -10,11 +10,13 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
             this.city = null;
             this.indexCity = -1;
             this.indexCityIncremental = 0;
-            this.indexCountryIncremental = 0;
             this.indexCountry = -1;
+            this.indexCountryIncremental = 0;
             this.isFavorite = false;
             this.isNoDataAvailable = false;
             this.stopNextPicture = null;
+            this.stopNextCty = null;
+            this.stopNextCountry = null;
             this.isPaused = false;
             this.radar = {
                 country: [],
@@ -37,23 +39,29 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
 
             var nextIndexCity = function() {
                 _this.indexCityIncremental = _this.indexCityIncremental + 0.025;
-                console.log(_this.indexCityIncremental + "/" + _this.radar.city.length);
+                //console.log(_this.indexCityIncremental + "/" + _this.radar.city.length);
             };
 
             var nextIndexCountry = function() {
                 _this.indexCountryIncremental = _this.indexCountryIncremental + 0.025;
-                console.log(_this.indexCountryIncremental + "/" + _this.radar.country.length);
+                //console.log(_this.indexCountryIncremental + "/" + _this.radar.country.length);
             };
 
             var nexPicture = function () {
+                // Increment index city, country for radar array
+                // And init index for meter view
                 _this.indexCity++;
                 _this.indexCityIncremental = _this.indexCity;
                 _this.indexCountry++;
                 _this.indexCountryIncremental = _this.indexCountry;
 
-                $interval(nextIndexCity, 75, 40);
-                $interval(nextIndexCountry, 75, 40);
+                // Start meter view animation
+                $interval.cancel(_this.stopNextCity);
+                _this.stopNextCity = $interval(nextIndexCity, 75, 40);
+                $interval.cancel(_this.stopNextCountry);
+                _this.stopNextCountry = $interval(nextIndexCountry, 75, 40);
 
+                // Reset index
                 if (_this.indexCity === _this.radar.city.length) {
                     _this.indexCity = 0;
                     _this.indexCityIncremental = 0;
@@ -62,9 +70,16 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                     _this.indexCountry = 0;
                     _this.indexCountryIncremental = 0;
                 }
+                console.log("radar ity " + _this.indexCity);
 
+                // Get radar to show
                 _this.radarCity = _this.radar.city[_this.indexCity];
                 _this.radarCountry = _this.radar.country[_this.indexCountry];
+            };
+
+            var initIndex = function () {
+                _this.indexCity = -1;
+                _this.indexCountry = -1;
             };
 
             function getRainingRadar() {
@@ -78,6 +93,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                         _this.radar = data;
                         if (_this.radar.country.length != 0) {
                             _this.isNoDataAvailable = false;
+                            initIndex();
                             nexPicture();
                             _this.stopNextPicture = $interval(nexPicture, 3000);
                         } else {
@@ -92,12 +108,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
 
             function initCity() {
                 $ionicLoading.show();
-                console.log("use geolocation " + $stateParams.useGeoloc);
-                console.log("$stateParams");
-                console.log($stateParams);
-                console.log("$state");
-                console.log($state);
-
                 if (angular.fromJson($stateParams.useGeoloc)) {
                     cityGeolocService.getGeolocCity()
                         .then(function(city) {
@@ -126,6 +136,12 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.error = null;
                 _this.city = null;
                 initCity();
+            });
+
+            $scope.$on('$ionicView.beforeLeave', function() {
+                $interval.cancel(_this.stopNextPicture);
+                $interval.cancel(_this.stopNextCity);
+                $interval.cancel(_this.stopNextCountry);
             });
 
             this.pause = function() {

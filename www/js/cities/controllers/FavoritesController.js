@@ -8,17 +8,18 @@ cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage',
     var _this = this;
 
     this.hasNoFavoriteCities = function () {
-        console.log(_this.cities);
         return angular.equals({}, _this.cities);
     };
 
     $scope.$on('$ionicView.enter', function() {
         _this.cities = $localstorage.getObject('favoriteCities');
+        console.log("Favourit cities");
+        console.log(_this.cities);
     });
 
     this.goTo = function (city) {
         cityPassService.set(city);
-        $state.go('app.radar', false);
+        $state.go('app.radar', ({'useGeoloc': false}));
     };
 
 }]);

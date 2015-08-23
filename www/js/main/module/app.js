@@ -95,16 +95,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     },
                 }
             })
-            .state('app.radar2', {
-                url: "/radar?useGeoloc=true",
-                cache: false,
-                views: {
-                    'menuContent': {
-                        templateUrl: "templates/radar/radarView.html",
-                        controller: 'RadarController as radarCtrl',
-                    },
-                }
-            })
             .state('app.favorites', {
                 url: "/favorites",
                 views: {

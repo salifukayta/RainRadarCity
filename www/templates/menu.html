@@ -18,16 +18,16 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href="#/app/cities">
+        <ion-item menu-close ui-sref="app.cities">
           <translate>Search City</translate>
         </ion-item>
-        <ion-item menu-close href="#/app/favorites">
+        <ion-item menu-close ui-sref="app.favorites">
           <translate>Favorites</translate>
         </ion-item>
-        <ion-item menu-close href="#/app/radar?useGeoloc=true">
+        <ion-item menu-close ui-sref="app.radar({'useGeoloc': true})">
           <translate>Geolocation</translate>
         </ion-item>
-        <ion-item menu-close href="#/app/about">
+        <ion-item menu-close ui-sref="app.about">
           <translate>About</translate>
         </ion-item>
       </ion-list>
