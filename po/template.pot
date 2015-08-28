@@ -24,7 +24,7 @@ msgstr ""
 msgid "Check your GPS"
 msgstr ""
 
-#: www/templates/intro/intro.html:98
+#: www/templates/intro/intro.html:90
 msgid "City marked as favorite."
 msgstr ""
 
@@ -36,7 +36,7 @@ msgstr ""
 msgid "City not Found"
 msgstr ""
 
-#: www/templates/intro/intro.html:90
+#: www/templates/intro/intro.html:98
 msgid "City not marked as favorite."
 msgstr ""
 
@@ -94,7 +94,7 @@ msgid "Rain Radar City uses data from meteoblue.com. This app simplifies and fac
 msgstr ""
 
 #: www/templates/intro/intro.html:79
-msgid "Save your favourit cities"
+msgid "Save your favourite cities"
 msgstr ""
 
 #: www/templates/cities/citiesList.html:1
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Select City"
 msgstr ""
 
-#: www/templates/option/option.html:13
+#: www/templates/option/option.html:18
 msgid "Select the most viewed city. It will be searched by default on app launch."
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Swipe right to move to the next page."
 msgstr ""
 
-#: www/templates/option/option.html:20
+#: www/templates/option/option.html:6
 msgid "The most viewed city is"
 msgstr ""
 
@@ -131,6 +131,6 @@ msgstr ""
 msgid "You can also save your favourite cities to check them quicker from the menu."
 msgstr ""
 
-#: www/templates/option/option.html:7
+#: www/templates/option/option.html:12
 msgid "You have to add favorites cities before choosing the most viewed one. Then it will be searched by default."
 msgstr ""

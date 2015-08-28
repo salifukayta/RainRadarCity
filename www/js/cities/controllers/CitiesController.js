@@ -17,8 +17,8 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
         if (this.cityToSearch == "") {
             this.cities = [];
         } else {
-            //console.log("city to search");
-            //console.log(this.cityToSearch);
+            console.log("city to search");
+            console.log(this.cityToSearch);
             citiesService.search(this.cityToSearch)
                 .then(function(cities){
                     _this.cities = cities;
@@ -34,7 +34,8 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
         }
     };
 
-    if ($localstorage.getObject('mostViewedCity') != {}) {
+    if ($localstorage.get('mostViewedCity') != null) {
+        console.log($localstorage.getObject('mostViewedCity'));
         this.cityToSearch = $localstorage.getObject('mostViewedCity').name;
     }
 

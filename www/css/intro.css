@@ -31,13 +31,17 @@
     margin-bottom: -9px;
 }
 
-.image-intro-menu {
+.image-intro-menu-geoloc, .image-intro-menu-fav {
     text-align: center;
     padding: 0;
 }
 
-.image-intro-menu img {
+.image-intro-menu-geoloc img {
     width: 80%;
+}
+
+.image-intro-menu-fav img {
+    width: 70%;
 }
 
 .image-intro-raining-right img, .image-intro-raining-center img, .image-intro-raining-left img {

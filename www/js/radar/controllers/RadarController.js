@@ -30,9 +30,8 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                     favorites[_this.city.name] = _this.city;
                     _this.isFavorite = true;
                     // put the city as mostViewedCity if it's empty
-                    var mostViewedCity = $localstorage.getObject('mostViewedCity');
-                    if (mostViewedCity == {}) {
-                        $localstorage.set('mostViewedCity', mostViewedCity);
+                    if ($localstorage.get('mostViewedCity') == null) {
+                        $localstorage.set('mostViewedCity', _this.city);
                     }
 
                 } else {
@@ -89,7 +88,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
             };
 
             function isCityFacourite() {
-                if( $localstorage.get('favoriteCities') != null && !angular.isUndefined($localstorage.get('favoriteCities')[_this.city.name])) {
+                if( !angular.isUndefined($localstorage.getObject('favoriteCities')[_this.city.name])) {
                     return $localstorage.get('favoriteCities')[_this.city.name].iso2 == _this.city.iso2;
                 } else {
                     return false;

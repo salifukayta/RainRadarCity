@@ -36,7 +36,7 @@ msgstr "Vérifiez votre Connection Internet"
 msgid "Check your GPS"
 msgstr "Vérifier votre GPS"
 
-#: www/templates/intro/intro.html:98
+#: www/templates/intro/intro.html:90
 msgid "City marked as favorite."
 msgstr "Ville marquée comme favori."
 
@@ -48,7 +48,7 @@ msgstr "Nom de Ville"
 msgid "City not Found"
 msgstr "Aucune Ville Trouvée"
 
-#: www/templates/intro/intro.html:90
+#: www/templates/intro/intro.html:98
 msgid "City not marked as favorite."
 msgstr "Ville pas marquée comme favori."
 
@@ -114,19 +114,19 @@ msgstr ""
 "simplifie et facilite l'utilisation de la carte de nuages de pluie."
 
 #: www/templates/intro/intro.html:79
-msgid "Save your favourit cities"
-msgstr "Enregistrer vos villes favories"
+msgid "Save your favourite cities"
+msgstr "Sauvegardez vos villes préférées"
 
 #: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:30
 #: www/templates/menu.html:22
 msgid "Search City"
-msgstr "Rechercher une Ville"
+msgstr "Recherchez une Ville"
 
 #: www/templates/cities/favorites.html:1
 msgid "Select City"
 msgstr "Sélectionnez une ville"
 
-#: www/templates/option/option.html:13
+#: www/templates/option/option.html:18
 msgid ""
 "Select the most viewed city. It will be searched by default on app launch."
 msgstr ""
@@ -141,7 +141,7 @@ msgstr "Commencez la recherche de ville"
 msgid "Swipe right to move to the next page."
 msgstr "Glissez vers la droite pour passer à la page suivante."
 
-#: www/templates/option/option.html:20
+#: www/templates/option/option.html:6
 msgid "The most viewed city is"
 msgstr "La ville la plus consultée est"
 
@@ -156,13 +156,16 @@ msgstr ""
 "Vous pouvez sauvegarder mes villes favorites pour les consulter plus "
 "rapidement depuis le menu."
 
-#: www/templates/option/option.html:7
+#: www/templates/option/option.html:12
 msgid ""
 "You have to add favorites cities before choosing the most viewed one. Then "
 "it will be searched by default."
 msgstr ""
 "Il faut ajouter des villes favoris avant de pouvoir en choisir la plus "
 "consultée. Ensuite, elle sera recherchée par défaut."
+
+#~ msgid "Save your favourit cities"
+#~ msgstr "Enregistrer vos villes favories"
 
 #~ msgid "Setting"
 #~ msgstr "Paramètres"
