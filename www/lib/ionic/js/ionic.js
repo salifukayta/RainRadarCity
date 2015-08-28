@@ -3491,10 +3491,10 @@ ionic.DomUtil.ready(function() {
  *   `<preference name="Fullscreen" value="true" />` in your `config.xml` file
  *   you will need to set `ionic.Platform.isFullScreen = true` manually.
  *
- * - You can configure the behavior of the web view when the keyboard shows by setting
+ * - You can configure the behavior of the web view when the keyboard shows by option
  *   [android:windowSoftInputMode](http://developer.android.com/reference/android/R.attr.html#windowSoftInputMode)
  *   to either `adjustPan`, `adjustResize` or `adjustNothing` in your app's
- *   activity in `AndroidManifest.xml`. `adjustResize` is the recommended setting
+ *   activity in `AndroidManifest.xml`. `adjustResize` is the recommended option
  *   for Ionic, but if for some reason you do use `adjustPan` you will need to
  *   set `ionic.Platform.isFullScreen = true`.
  *
@@ -3505,7 +3505,7 @@ ionic.DomUtil.ready(function() {
  *
  * ### iOS Notes
  * - If the content of your app (including the header) is being pushed up and
- *   out of view on input focus, try setting `cordova.plugins.Keyboard.disableScroll(true)`.
+ *   out of view on input focus, try option `cordova.plugins.Keyboard.disableScroll(true)`.
  *   This does **not** disable scrolling in the Ionic scroll view, rather it
  *   disables the native overflow scrolling that happens automatically as a
  *   result of focusing on inputs below the keyboard.

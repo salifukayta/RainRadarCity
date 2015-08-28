@@ -1,0 +1,35 @@
+<ion-view view-title="{{'Option'|translate}}">
+    <ion-content>
+
+        <div class="bar bar-header bar-dark">
+            <div class="title" ng-class="{'option-big-tittle': optionCtrl.isBigText, 'option-middle-tittle': optionCtrl.isMiddleText}">
+                <span translate>The most viewed city is </span>&nbsp;<b> {{ optionCtrl.mostViewedCity.name }}</b>
+            </div>
+        </div>
+
+        <ul class="list">
+            <div class="card option-list-position" ng-show="optionCtrl.hasNoFavoriteCities()">
+                <div class="item item-text-wrap" translate>
+                    You have to add favorites cities before choosing the most viewed one. Then it will be searched by default.
+                </div>
+            </div>
+
+            <div class="card option-list-position" ng-hide="optionCtrl.hasNoFavoriteCities()">
+                <div class="row item-divider item-text-wrap" translate>
+                    Select the most viewed city. It will be searched by default on app launch.
+                </div>
+            </div>
+
+            <div class="card" ng-hide="optionCtrl.hasNoFavoriteCities()">
+                <ion-radio ng-repeat="city in optionCtrl.cities"
+                           ng-value="city.name"
+                           ng-change="optionCtrl.changeMostViewedCity(city)"
+                           ng-model="optionCtrl.mostViewedCity.name">
+                    <span class="flag-icon flag-icon-{{city.iso2 | lowercase}}"></span> {{city.name}}
+                </ion-radio>
+            </div>
+        </ul>
+
+    </ion-content>
+</ion-view>
+

@@ -1,7 +1,7 @@
 /** CitiesController **/
 'use strict';
 
-cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', 'cityPassService', function ($scope, $state, citiesService, cityPassService) {
+cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', 'cityPassService', function ($scope, $state, $localstorage, citiesService, cityPassService) {
     var _this = this;
     this.cities = [];
     this.error = null;
@@ -17,10 +17,15 @@ cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', 'c
         if (this.cityToSearch == "") {
             this.cities = [];
         } else {
+            //console.log("city to search");
+            //console.log(this.cityToSearch);
             citiesService.search(this.cityToSearch)
                 .then(function(cities){
                     _this.cities = cities;
-                    console.log(cities);
+                    //console.log("results: ");
+                    //data.results.forEach(function(city, index, array) {
+                    //    console.log(city.name + ", " + city.iso2);
+                    //});
                 })
                 .catch(function(err){
                     _this.error = err;
@@ -28,6 +33,10 @@ cloudApp.controller('CitiesController', ['$scope', '$state', 'citiesService', 'c
                 });
         }
     };
+
+    if ($localstorage.getObject('mostViewedCity') != {}) {
+        this.cityToSearch = $localstorage.getObject('mostViewedCity').name;
+    }
 
     this.search();
     this.cityToSearch = "";

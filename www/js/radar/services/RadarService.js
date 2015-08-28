@@ -18,7 +18,7 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
             country: [],
             city: []
         };
-        const CLASS_SELECTOR = ".imageanimator";
+        var CLASS_SELECTOR = ".imageanimator";
         var divImgList = $(data).find(CLASS_SELECTOR).get();
         for (var divIndex in divImgList) {
             var imgsHtml = divImgList[divIndex].innerHTML;

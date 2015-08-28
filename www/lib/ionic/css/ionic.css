@@ -2441,7 +2441,7 @@ button, input, select, textarea {
   /* 6 */ }
 
 /**
- * Address Firefox 4+ setting `line-height` on `input` using `importnt` in
+ * Address Firefox 4+ option `line-height` on `input` using `importnt` in
  * the UA stylesheet.
  */
 button, input {

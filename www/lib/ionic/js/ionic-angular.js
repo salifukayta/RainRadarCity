@@ -1160,7 +1160,7 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
     /**
      * @ngdoc method
      * @name $ionicHistory#goBack
-     * @param {number=} backCount Optional negative integer setting how many views to go
+     * @param {number=} backCount Optional negative integer option how many views to go
      * back. By default it'll go back one view by using the value `-1`. To go back two
      * views you would use `-2`. If the number goes farther back than the number of views
      * in the current history's stack then it'll go to the first view in the current history's
@@ -1466,7 +1466,7 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
  *
  * By default, all base config variables are set to `'platform'`, which means it'll take on the
  * default config of the platform on which it's running. Config variables can be set at this
- * level so all platforms follow the same setting, rather than its platform config.
+ * level so all platforms follow the same option, rather than its platform config.
  * The following code would set the same config variable for all platforms:
  *
  * ```js
@@ -1541,7 +1541,7 @@ function($rootScope, $state, $location, $document, $ionicPlatform, $ionicHistory
  * @ngdoc method
  * @name $ionicConfigProvider#scrolling.jsScrolling
  * @description  Whether to use JS or Native scrolling. Defaults to JS scrolling. Setting this to
- * `false` has the same effect as setting each `ion-content` to have `overflow-scroll='true'`.
+ * `false` has the same effect as option each `ion-content` to have `overflow-scroll='true'`.
  * @param {boolean} value Defaults to `true`
  * @returns {boolean}
  */
@@ -4195,7 +4195,7 @@ IonicModule
  * $ionicTemplateCache('myNgIncludeTemplate.html');
  * ```
  *
- * Optionally disable all preemptive caching with the `$ionicConfigProvider` or individual states by setting `prefetchTemplate`
+ * Optionally disable all preemptive caching with the `$ionicConfigProvider` or individual states by option `prefetchTemplate`
  * in the `$state` definition
  *
  * ```js
@@ -5011,7 +5011,7 @@ function($scope, $element, $attrs, $q, $ionicConfig, $ionicHistory) {
 
   self.showNavBack = function(shouldShow) {
     // different from showBack() because this is for the entire nav bar's
-    // setting for all of it's child headers. For internal use.
+    // option for all of it's child headers. For internal use.
     isNavBackShown = shouldShow;
     self.updateBackButton();
   };
@@ -8891,7 +8891,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
       view.refreshDirection();
       scrollViewSetDimensions();
 
-      // Create the pool of items for reuse, setting the size to (estimatedItemsOnScreen) * 2,
+      // Create the pool of items for reuse, option the size to (estimatedItemsOnScreen) * 2,
       // plus the size of the renderBuffer.
       if (!isLayoutReady) {
         var poolSize = Math.max(20, renderBuffer * 3);
@@ -9072,7 +9072,7 @@ function RepeatManagerFactory($rootScope, $window, $$rAF) {
         self.element.data('$$collectionRepeatItem', self);
         // TODO destroy
         self.node = clone[0];
-        // Batch style setting to lower repaints
+        // Batch style option to lower repaints
         self.node.style[ionic.CSS.TRANSFORM] = 'translate3d(-9999px,-9999px,0)';
         self.node.style.cssText += ' height: 0px; width: 0px;';
         ionic.Utils.disconnectScope(self.scope);
@@ -10843,7 +10843,7 @@ IonicModule
  * ### Button Hidden On Child Views
  * By default, the menu toggle button will only appear on a root
  * level side-menu page. Navigating in to child views will hide the menu-
- * toggle button. They can be made visible on child pages by setting the
+ * toggle button. They can be made visible on child pages by option the
  * enable-menu-with-back-views attribute of the {@link ionic.directive:ionSideMenus}
  * directive to true.
  *
@@ -11423,7 +11423,7 @@ IonicModule
  * #### Disable cache globally
  *
  * The {@link ionic.provider:$ionicConfigProvider} can be used to set the maximum allowable views
- * which can be cached, but this can also be use to disable all caching by setting it to 0.
+ * which can be cached, but this can also be use to disable all caching by option it to 0.
  *
  * ```js
  * $ionicConfigProvider.views.maxCache(0);
@@ -12680,7 +12680,7 @@ function($timeout, $compile, $ionicSlideBoxDelegate, $ionicHistory, $ionicScroll
  * <ion-spinner></ion-spinner>
  * ```
  *
- * By setting the `icon` attribute, you can specify which spinner to use, no matter what
+ * By option the `icon` attribute, you can specify which spinner to use, no matter what
  * the platform is.
  *
  * ```html

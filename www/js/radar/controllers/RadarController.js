@@ -29,6 +29,12 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 if (angular.isUndefined(favorites[_this.city.name])) {
                     favorites[_this.city.name] = _this.city;
                     _this.isFavorite = true;
+                    // put the city as mostViewedCity if it's empty
+                    var mostViewedCity = $localstorage.getObject('mostViewedCity');
+                    if (mostViewedCity == {}) {
+                        $localstorage.set('mostViewedCity', mostViewedCity);
+                    }
+
                 } else {
                     delete favorites[_this.city.name];
                     _this.isFavorite = false;
@@ -82,9 +88,17 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.indexCountry = -1;
             };
 
+            function isCityFacourite() {
+                if( $localstorage.get('favoriteCities') != null && !angular.isUndefined($localstorage.get('favoriteCities')[_this.city.name])) {
+                    return $localstorage.get('favoriteCities')[_this.city.name].iso2 == _this.city.iso2;
+                } else {
+                    return false;
+                }
+            }
+
             function getRainingRadar() {
                 // init favorite icon
-                if($localstorage.get('favoriteCities') != null && !angular.isUndefined($localstorage.get('favoriteCities')[_this.city.name])) {
+                if(isCityFacourite()) {
                     _this.isFavorite = true;
                 }
                 radarService.getPrecipitationRadar(_this.city.url)

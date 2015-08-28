@@ -43,7 +43,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     .constant('$ionicLoadingConfig', {
         template: '<ion-spinner icon="spiral"></ion-spinner>'
     })
-    .constant('BASE_URL_SEARCH_CITY', 'http://www.meteoblue.com/en/server/search/query3?query=')
+    .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
     .constant('TIME_OUT', 10000)
 
@@ -101,6 +101,15 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     'menuContent': {
                         templateUrl: "templates/cities/favorites.html",
                         controller: 'FavoritesController as favoritesCtrl'
+                    }
+                }
+            })
+            .state('app.option', {
+                url: "/option",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/option/option.html",
+                        controller: 'OptionController as optionCtrl'
                     }
                 }
             })

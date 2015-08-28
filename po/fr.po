@@ -12,7 +12,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.4\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: www/templates/menu.html:31
+#: www/templates/menu.html:34
 msgid "About"
 msgstr "A propos"
 
@@ -20,7 +20,7 @@ msgstr "A propos"
 msgid "About Raining Radar"
 msgstr "A propos de Raining Radar"
 
-#: www/templates/intro/intro.html:92
+#: www/templates/intro/intro.html:113
 msgid ""
 "By activating your GPS, you can have directly the radar on the geolocated "
 "city."
@@ -36,11 +36,11 @@ msgstr "Vérifiez votre Connection Internet"
 msgid "Check your GPS"
 msgstr "Vérifier votre GPS"
 
-#: www/templates/intro/intro.html:77
+#: www/templates/intro/intro.html:98
 msgid "City marked as favorite."
 msgstr "Ville marquée comme favori."
 
-#: www/templates/cities/citiesList.html:6
+#: www/templates/cities/citiesList.html:11
 msgid "City Name"
 msgstr "Nom de Ville"
 
@@ -48,11 +48,11 @@ msgstr "Nom de Ville"
 msgid "City not Found"
 msgstr "Aucune Ville Trouvée"
 
-#: www/templates/intro/intro.html:69
+#: www/templates/intro/intro.html:90
 msgid "City not marked as favorite."
 msgstr "Ville pas marquée comme favori."
 
-#: www/templates/intro/intro.html:26
+#: www/templates/intro/intro.html:47
 msgid "Consult Rain Radar"
 msgstr "Consultez le Radar de Pluie"
 
@@ -60,7 +60,7 @@ msgstr "Consultez le Radar de Pluie"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: www/templates/intro/intro.html:11
+#: www/templates/intro/intro.html:32
 msgid "First, enter your city name and click on it."
 msgstr "Commencez par saisir le nom de votre ville et cliquez dessus."
 
@@ -68,9 +68,26 @@ msgstr "Commencez par saisir le nom de votre ville et cliquez dessus."
 msgid "Geolocation"
 msgstr "Géolocalisation"
 
+#: www/templates/intro/intro.html:9
+msgid "Introduction"
+msgstr "Introduction"
+
+#: www/templates/intro/intro.html:12
+msgid ""
+"Let's begin with a presentation that explains how to use this application."
+msgstr ""
+"Commençons avec une introduction qui explique comment utiliser cette "
+"application."
+
 #: www/templates/menu.html:17
 msgid "Menu"
 msgstr "Menu"
+
+#: www/templates/intro/intro.html:14
+msgid "Next slides shows the main functionalities of Rain Radar City."
+msgstr ""
+"Les diapositives suivant montrent les principales fonctionnalités de Radar "
+"Rain City."
 
 #: www/templates/radar/radarView.html:18
 msgid "No data for the city {{radarCtrl.city.name}}."
@@ -80,23 +97,27 @@ msgstr "Pas de données pour la ville {{radarCtrl.city.name}}."
 msgid "No favorite cities"
 msgstr "Aucune villes favorites"
 
+#: www/templates/menu.html:31 www/templates/option/option.html:1
+msgid "Option"
+msgstr "Option"
+
 #: www/templates/radar/radarView.html:1
 msgid "Rain Radar"
 msgstr "Radar de Pluie"
 
 #: www/templates/about/about.html:4
 msgid ""
-"Raining Radar uses data from meteoblue.com. This app simplifies and "
-"facilitates the use of the Map Raining Cloud."
+"Rain Radar City uses data from meteoblue.com. This app simplifies and "
+"facilitates the use of the map of raining clouds."
 msgstr ""
-"Raining Radar utilise les données de meteoblue.com. Cette appli simplifie et "
-"facilite l'utilisation de la Carte des nuages de pluie."
+"Rain Radar City utilise les données de meteoblue.com. Cette application "
+"simplifie et facilite l'utilisation de la carte de nuages de pluie."
 
-#: www/templates/intro/intro.html:58
+#: www/templates/intro/intro.html:79
 msgid "Save your favourit cities"
 msgstr "Enregistrer vos villes favories"
 
-#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:9
+#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:30
 #: www/templates/menu.html:22
 msgid "Search City"
 msgstr "Rechercher une Ville"
@@ -105,20 +126,101 @@ msgstr "Rechercher une Ville"
 msgid "Select City"
 msgstr "Sélectionnez une ville"
 
-#: www/templates/intro/intro.html:100
+#: www/templates/option/option.html:13
+msgid ""
+"Select the most viewed city. It will be searched by default on app launch."
+msgstr ""
+"Sélectionnez la ville plus consultée. Elle sera recherchée par défaut au "
+"lancement de l'app."
+
+#: www/templates/intro/intro.html:121
 msgid "Start Search City"
 msgstr "Commencez la recherche de ville"
 
-#: www/templates/intro/intro.html:89
+#: www/templates/intro/intro.html:16
+msgid "Swipe right to move to the next page."
+msgstr "Glissez vers la droite pour passer à la page suivante."
+
+#: www/templates/option/option.html:20
+msgid "The most viewed city is"
+msgstr "La ville la plus consultée est"
+
+#: www/templates/intro/intro.html:110
 msgid "Use GPS to Geolocate your city"
 msgstr "Utilisez le GPS pour géolocaliser votre ville"
 
-#: www/templates/intro/intro.html:60
+#: www/templates/intro/intro.html:81
 msgid ""
 "You can also save your favourite cities to check them quicker from the menu."
 msgstr ""
 "Vous pouvez sauvegarder mes villes favorites pour les consulter plus "
 "rapidement depuis le menu."
+
+#: www/templates/option/option.html:7
+msgid ""
+"You have to add favorites cities before choosing the most viewed one. Then "
+"it will be searched by default."
+msgstr ""
+"Il faut ajouter des villes favoris avant de pouvoir en choisir la plus "
+"consultée. Ensuite, elle sera recherchée par défaut."
+
+#~ msgid "Setting"
+#~ msgstr "Paramètres"
+
+#~ msgid ""
+#~ "Select the most viewed city. Then it will be searched by default on app "
+#~ "launch."
+#~ msgstr ""
+#~ "Sélectionnez la ville plus consultée. Puis il sera recherché par défaut "
+#~ "au lancement de l'app."
+
+#~ msgid "Select the most viewed city"
+#~ msgstr "Sélectionnée la plus consultée"
+
+#~ msgid "The most viewed city is {{ settingCtrl.mostViewedCity.name }}"
+#~ msgstr "La ville la plus consultée est {{ settingCtrl.mostUsedCity.name }}"
+
+#~ msgid "No most viewed city has been defined."
+#~ msgstr "Aucune ville n'a été défini comme étant la plus utilisée."
+
+#~ msgid "Select the most used city"
+#~ msgstr "Sélectionnez la ville qui sera plus "
+
+#~ msgid "The most viewed city is {{ settingCtrl.mostUsedCity.name }}"
+#~ msgstr "La ville la plus consultée est {{ settingCtrl.mostUsedCity.name }}"
+
+#~ msgid ""
+#~ "You have to add favourit cities to choose the most viwed one. Then it "
+#~ "will be searched by deafault."
+#~ msgstr ""
+#~ "Il faut ajouter des villes favourites avant de pouvoir définir la plus "
+#~ "consultée. Ensuite, il sera recherché par défaut."
+
+#~ msgid "No city has been defined as the most used."
+#~ msgstr "Aucune ville n'a été défini comme étant la plus utilisée."
+
+#~ msgid ""
+#~ "Raining Radar City uses data from meteoblue.com. This app simplifies and "
+#~ "facilitates the use of the map of raining clouds."
+#~ msgstr ""
+#~ "Raining Radar utilise les données de meteoblue.com. Cette appli simplifie "
+#~ "et facilite l'utilisation de la Carte des nuages de pluie."
+
+#~ msgid ""
+#~ "Raining Radar uses data from meteoblue.com. This app simplifies and "
+#~ "facilitates the use of the Map Raining Cloud."
+#~ msgstr ""
+#~ "Raining Radar utilise les données de meteoblue.com. Cette appli simplifie "
+#~ "et facilite l'utilisation de la Carte des nuages de pluie."
+
+#~ msgid "How to"
+#~ msgstr "How to"
+
+#~ msgid ""
+#~ "Let's begin with an introduction to explain how to use this application."
+#~ msgstr ""
+#~ "Commençons avec une introduction pour expliquer comment utiliser cette "
+#~ "application."
 
 #~ msgid ""
 #~ "Raining Radar uses data from meteoblue.com. This app simplifies and "
