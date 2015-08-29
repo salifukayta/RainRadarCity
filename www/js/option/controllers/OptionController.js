@@ -7,12 +7,17 @@ cloudApp.controller('OptionController', ['$scope', '$localstorage', function ($s
 
     this.cities = {};
     this.mostViewedCity = {};
+    // boolean for css
     this.isBigText = false;
     this.isMiddleText = false;
     var _this = this;
 
     this.hasNoFavoriteCities = function () {
         return angular.equals({}, _this.cities);
+    };
+
+    this.hasNoMostViewedCity = function () {
+        return angular.equals({}, _this.mostViewedCity);
     };
 
     $scope.$on('$ionicView.enter', function() {

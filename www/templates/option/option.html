@@ -1,7 +1,7 @@
 <ion-view view-title="{{'Option'|translate}}">
     <ion-content>
 
-        <div class="bar bar-header bar-dark">
+        <div class="bar bar-header bar-dark" ng-hide="optionCtrl.hasNoMostViewedCity()">
             <div class="title" ng-class="{'option-big-tittle': optionCtrl.isBigText, 'option-middle-tittle': optionCtrl.isMiddleText}">
                 <span translate>The most viewed city is </span>&nbsp;<b> {{ optionCtrl.mostViewedCity.name }}</b>
             </div>
