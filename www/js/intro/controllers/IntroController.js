@@ -19,6 +19,9 @@ cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorag
             $ionicSlideBoxDelegate.slide(index);
         };
 
+        /**
+         * To scroll to the start button in landscape view
+         */
         this.scrollBottom = function () {
             $location.hash(0);
             $ionicScrollDelegate.anchorScroll(true);

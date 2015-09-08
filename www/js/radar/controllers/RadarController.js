@@ -75,7 +75,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                     _this.indexCountry = 0;
                     _this.indexCountryIncremental = 0;
                 }
-                console.log("radar ity " + _this.indexCity);
+                console.log("radar city " + _this.indexCity);
 
                 // Get radar to show
                 _this.radarCity = _this.radar.city[_this.indexCity];

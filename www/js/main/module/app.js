@@ -5,7 +5,7 @@
 
 cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'])
 
-    .run(function ($ionicPlatform, gettextCatalog) {
+    .run(function ($ionicPlatform, gettextCatalog, $localstorage) {
 
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -31,7 +31,31 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             } else {
                 console.error("navigator.globalization is undefined ");
             }
-            gettextCatalog.debug = true;
+            gettextCatalog.debug = false;
+
+            adbuddiz.setAndroidPublisherKey("76330e92-f3dc-4982-9040-3e5e196d5b98");
+            //TODO put key when app put on ios store
+            //adbuddiz.setIOSPublisherKey("TEST_PUBLISHER_KEY_IOS");
+            adbuddiz.cacheAds();
+
+            var showAd = $localstorage.get("showAd");
+
+            // First and second time, no ad. Then alternate ad show
+            if (showAd != null) {
+                showAd = !showAd;
+                $localstorage.set("showAd", showAd);
+                if (showAd) {
+                    //document.addEventListener("pause", showAdEvent, false);
+                    //document.addEventListener("backbutton", showAdEvent, false);
+                    document.addEventListener("resume", showAdEvent, false);
+                    function showAdEvent($event) {
+                        //FIXME on backbutton only on radar view
+                        console.log("on resume = " + $event);
+                        adbuddiz.showAd();
+                    }
+                    //showAdEvent();
+                }
+            }
             // Load the strings automatically during initialization.
 //            gettextCatalog.setStrings("fr", {
 //                "Hello": "Hallo",
@@ -45,7 +69,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     })
     .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
-    .constant('TIME_OUT', 10000)
+    .constant('TIME_OUT', 2000)
 
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
         // Do not work, used for windowsphone ?
