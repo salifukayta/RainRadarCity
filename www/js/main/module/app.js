@@ -34,7 +34,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             gettextCatalog.debug = false;
 
             adbuddiz.setAndroidPublisherKey("76330e92-f3dc-4982-9040-3e5e196d5b98");
-            //TODO put key when app put on ios store
             //adbuddiz.setIOSPublisherKey("TEST_PUBLISHER_KEY_IOS");
             adbuddiz.cacheAds();
 
@@ -49,7 +48,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     //document.addEventListener("backbutton", showAdEvent, false);
                     document.addEventListener("resume", showAdEvent, false);
                     function showAdEvent($event) {
-                        //FIXME on backbutton only on radar view
                         console.log("on resume = " + $event);
                         adbuddiz.showAd();
                     }
