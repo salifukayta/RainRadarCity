@@ -20,8 +20,10 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             if(typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function (languageLocation) {
                     var language = languageLocation.value.substring(0,2);
+                    console.info("get lang file " + language);
                     gettextCatalog.loadRemote("./languages/" + language + ".json")
                         .then(function(){
+                            console.info("lang file " + language + " found");
                             gettextCatalog.setCurrentLanguage(language);
                         })
                         .catch(function(config) {
@@ -31,7 +33,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             } else {
                 console.error("navigator.globalization is undefined ");
             }
-            gettextCatalog.debug = false;
+            gettextCatalog.debug = true;
 
             adbuddiz.setAndroidPublisherKey("76330e92-f3dc-4982-9040-3e5e196d5b98");
             //adbuddiz.setIOSPublisherKey("TEST_PUBLISHER_KEY_IOS");
@@ -67,7 +69,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     })
     .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
-    .constant('TIME_OUT', 2000)
+    .constant('TIME_OUT', 5000)
 
     .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
         // Do not work, used for windowsphone ?

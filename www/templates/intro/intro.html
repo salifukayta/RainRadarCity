@@ -11,9 +11,11 @@
                     <div class="item item-text-wrap">
                         <div translate>Let's begin with a presentation that explains how to use this application.</div>
                         <br>
+
                         <div translate>Next slides shows the main functionalities of Rain Radar City.</div>
                         <br>
-                        <div translate>Swipe right to move to the next page.</div>
+
+                        <div translate>Swipe left to move to the next page.</div>
                     </div>
                 </div>
 
@@ -47,7 +49,6 @@
                         <h2 class="center" translate>Consult Rain Radar</h2>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="item image-intro-2-radars">
                         <img src="img/intro/2radars.png">
@@ -56,33 +57,44 @@
             </ion-slide>
 
             <ion-slide>
-                <div class="card">
-                    <div class="item image-intro-raining-left">
-                        <img src="img/intro/rain1.png">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="item image-intro-raining-center">
-                        <img src="img/intro/rain2.png">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="item image-intro-raining-right">
-                        <img src="img/intro/rain3.png">
-                    </div>
-                </div>
-            </ion-slide>
+                <div class="card card-gallery-intro image-intro-raining-left">
 
-            <ion-slide>
-                <div class="card">
-                    Legende
+                        <div class="row">
+                            <div class="col">
+                                <!--<div class="image-intro-raining-left">-->
+                                <img src="img/intro/rain1.png">
+                                <!--</div>-->
+                            </div>
+
+                            <div class="card card-legend col">
+                                <div class="row">
+                                    <div class="col-25 col-center">
+                                        <img src="img/intro/red-circle.png">
+                                    </div>
+                                    <div class="col" translate>Raining Clouds</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25 col-center">
+                                        <img src="img/intro/green-circle.png">
+                                    </div>
+                                    <div class="col" translate>Date and Time</div>
+                                </div>
+                                <div class="row row-legend-last">
+                                    <div class="col-25 col-center">
+                                        <img src="img/intro/bleu-square.png">
+                                    </div>
+                                    <div class="col" translate>Current Forecast / Forecasts</div>
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
-                <div class="card">
+                <div class="card card-gallery-intro">
                     <div class="item image-intro-raining-center">
                         <img src="img/intro/rain2.png">
                     </div>
                 </div>
-                <div class="card">
+                <div class="card card-gallery-intro">
                     <div class="item image-intro-raining-right">
                         <img src="img/intro/rain3.png">
                     </div>
@@ -124,7 +136,8 @@
                 <div class="card">
                     <div class="item item-text-wrap item-divider row">
                         <h2 class="center col" translate>Use GPS to Geolocate your city</h2>
-                        <button id="gotostart" class="button button-balanced ion-chevron-down btn-scroll-down" ng-click="introCtrl.scrollBottom()"/>
+                        <button id="gotostart" class="button button-balanced ion-chevron-down btn-scroll-down"
+                                ng-click="introCtrl.scrollBottom()"/>
                     </div>
                     <div class="item item-text-wrap" translate>
                         By activating your GPS, you can have directly the radar on the geolocated city.
@@ -134,7 +147,8 @@
                     </div>
                 </div>
                 <br>
-                <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities" ng-click="introCtrl.startApp()" translate>
+                <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities"
+                        ng-click="introCtrl.startApp()" translate>
                     Start Search City
                 </button>
             </ion-slide>

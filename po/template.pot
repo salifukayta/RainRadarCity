@@ -12,7 +12,7 @@ msgstr ""
 msgid "About Raining Radar"
 msgstr ""
 
-#: www/templates/intro/intro.html:113
+#: www/templates/intro/intro.html:215
 msgid "By activating your GPS, you can have directly the radar on the geolocated city."
 msgstr ""
 
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Check your GPS"
 msgstr ""
 
-#: www/templates/intro/intro.html:90
+#: www/templates/intro/intro.html:191
 msgid "City marked as favorite."
 msgstr ""
 
@@ -36,19 +36,28 @@ msgstr ""
 msgid "City not Found"
 msgstr ""
 
-#: www/templates/intro/intro.html:98
+#: www/templates/intro/intro.html:199
 msgid "City not marked as favorite."
 msgstr ""
 
-#: www/templates/intro/intro.html:47
+#: www/templates/intro/intro.html:49
+#: www/templates/intro/intro.html:64
 msgid "Consult Rain Radar"
+msgstr ""
+
+#: www/templates/intro/intro.html:109
+msgid "Current Forecast / Forecasts"
+msgstr ""
+
+#: www/templates/intro/intro.html:103
+msgid "Date and Time"
 msgstr ""
 
 #: www/templates/menu.html:25
 msgid "Favorites"
 msgstr ""
 
-#: www/templates/intro/intro.html:32
+#: www/templates/intro/intro.html:34
 msgid "First, enter your city name and click on it."
 msgstr ""
 
@@ -68,7 +77,7 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: www/templates/intro/intro.html:14
+#: www/templates/intro/intro.html:15
 msgid "Next slides shows the main functionalities of Rain Radar City."
 msgstr ""
 
@@ -93,12 +102,16 @@ msgstr ""
 msgid "Rain Radar City uses data from meteoblue.com. This app simplifies and facilitates the use of the map of raining clouds."
 msgstr ""
 
-#: www/templates/intro/intro.html:79
+#: www/templates/intro/intro.html:97
+msgid "Raining Clouds"
+msgstr ""
+
+#: www/templates/intro/intro.html:180
 msgid "Save your favourite cities"
 msgstr ""
 
 #: www/templates/cities/citiesList.html:1
-#: www/templates/intro/intro.html:30
+#: www/templates/intro/intro.html:32
 #: www/templates/menu.html:22
 msgid "Search City"
 msgstr ""
@@ -111,23 +124,23 @@ msgstr ""
 msgid "Select the most viewed city. It will be searched by default on app launch."
 msgstr ""
 
-#: www/templates/intro/intro.html:121
+#: www/templates/intro/intro.html:223
 msgid "Start Search City"
 msgstr ""
 
-#: www/templates/intro/intro.html:16
-msgid "Swipe right to move to the next page."
+#: www/templates/intro/intro.html:18
+msgid "Swipe left to move to the next page."
 msgstr ""
 
 #: www/templates/option/option.html:6
 msgid "The most viewed city is"
 msgstr ""
 
-#: www/templates/intro/intro.html:110
+#: www/templates/intro/intro.html:211
 msgid "Use GPS to Geolocate your city"
 msgstr ""
 
-#: www/templates/intro/intro.html:81
+#: www/templates/intro/intro.html:182
 msgid "You can also save your favourite cities to check them quicker from the menu."
 msgstr ""
 

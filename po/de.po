@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: www/templates/menu.html:34
+msgid "About"
+msgstr "über"
+
+#: www/templates/about/about.html:1
+msgid "About Raining Radar"
+msgstr "über den regnenden Radar"
+
+#: www/templates/intro/intro.html:215
+msgid ""
+"By activating your GPS, you can have directly the radar on the geolocated "
+"city."
+msgstr ""
+"Indem Sie Ihren GPS aktivieren, können Sie direkt den Radar auf der "
+"geolocalisierten Stadt haben."
+
+#: www/templates/msgs.html:4
+msgid "Check you Internet Connection"
+msgstr "Überprüfen Sie Ihre Internetverbindung"
+
+#: www/templates/msgs.html:2
+msgid "Check your GPS"
+msgstr "Überprüfen Sie Ihre GPS"
+
+#: www/templates/intro/intro.html:191
+msgid "City marked as favorite."
+msgstr "Als Liebling gekennzeichnete Stadt."
+
+#: www/templates/cities/citiesList.html:11
+msgid "City Name"
+msgstr "Stadtname"
+
+#: www/templates/msgs.html:6
+msgid "City not Found"
+msgstr "Nicht gefundene Stadt"
+
+#: www/templates/intro/intro.html:199
+msgid "City not marked as favorite."
+msgstr "Nicht als Liebling gekennzeichnete Stadt."
+
+#: www/templates/intro/intro.html:49 www/templates/intro/intro.html:64
+msgid "Consult Rain Radar"
+msgstr "Sehen Sie Regenradar nach"
+
+#: www/templates/intro/intro.html:109
+msgid "Current Forecast / Forecasts"
+msgstr "Aktuelle Prognose / Prognosen"
+
+#: www/templates/intro/intro.html:103
+msgid "Date and Time"
+msgstr "Datum und Zeit"
+
+#: www/templates/menu.html:25
+msgid "Favorites"
+msgstr "Lieblinge"
+
+#: www/templates/intro/intro.html:34
+msgid "First, enter your city name and click on it."
+msgstr "Erstens , geben Sie Ihren Stadtnamen ein und klicken Sie darauf."
+
+#: www/templates/menu.html:28
+msgid "Geolocation"
+msgstr "Geolocation"
+
+#: www/templates/intro/intro.html:9
+msgid "Introduction"
+msgstr "Einleitung"
+
+#: www/templates/intro/intro.html:12
+msgid ""
+"Let's begin with a presentation that explains how to use this application."
+msgstr ""
+"Wollen wir mit einer Präsentation beginnen, die erklärt, wie man diese "
+"Application verwendet."
+
+#: www/templates/menu.html:17
+msgid "Menu"
+msgstr "Menü"
+
+#: www/templates/intro/intro.html:15
+msgid "Next slides shows the main functionalities of Rain Radar City."
+msgstr "Folgendes Gleiten zeigt die Hauptfunktionalitäten der Regenradarstadt."
+
+#: www/templates/radar/radarView.html:18
+msgid "No data for the city {{radarCtrl.city.name}}."
+msgstr "Keine Daten für die Stadt {{radarCtrl. city. name}}."
+
+#: www/templates/cities/favorites.html:4
+msgid "No favorite cities"
+msgstr "Keine lieblinge Städte"
+
+#: www/templates/menu.html:31 www/templates/option/option.html:1
+msgid "Option"
+msgstr "Option"
+
+#: www/templates/radar/radarView.html:1
+msgid "Rain Radar"
+msgstr "Regenradar"
+
+#: www/templates/about/about.html:4
+msgid ""
+"Rain Radar City uses data from meteoblue.com. This app simplifies and "
+"facilitates the use of the map of raining clouds."
+msgstr ""
+"Regenradarstadt verwendet Daten von meteoblue. com. Dieser app vereinfacht "
+"und erleichtert den Gebrauch der Karte von regnenden Wolken."
+
+#: www/templates/intro/intro.html:97
+msgid "Raining Clouds"
+msgstr "Regnende Wolken"
+
+#: www/templates/intro/intro.html:180
+msgid "Save your favourite cities"
+msgstr "Speichern Sie Ihre Lieblingsstädte"
+
+#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:32
+#: www/templates/menu.html:22
+msgid "Search City"
+msgstr "Suchen Sie Stadt"
+
+#: www/templates/cities/favorites.html:1
+msgid "Select City"
+msgstr "Wählen Sie Stadt aus"
+
+#: www/templates/option/option.html:18
+msgid ""
+"Select the most viewed city. It will be searched by default on app launch."
+msgstr ""
+"Wählen Sie die am meisten angesehene Stadt aus. Es wird standardmäßig auf "
+"dem App-Start gesucht."
+
+#: www/templates/intro/intro.html:223
+msgid "Start Search City"
+msgstr "Fangen Sie Suchstadt an"
+
+#: www/templates/intro/intro.html:18
+msgid "Swipe left to move to the next page."
+msgstr "Schlagen Sie Links drein, um sich zur folgenden Seite zu bewegen."
+
+#: www/templates/option/option.html:6
+msgid "The most viewed city is"
+msgstr "Die am meisten angesehene Stadt ist"
+
+#: www/templates/intro/intro.html:211
+msgid "Use GPS to Geolocate your city"
+msgstr "Verwenden Sie GPS ,um Ihre Stadt zu localisieren"
+
+#: www/templates/intro/intro.html:182
+msgid ""
+"You can also save your favourite cities to check them quicker from the menu."
+msgstr ""
+"Sie können auch Ihre Lieblingsstädte speichern, um sie schneller aus dem "
+"Menü zu überprüfen."
+
+#: www/templates/option/option.html:12
+msgid ""
+"You have to add favorites cities before choosing the most viewed one. Then "
+"it will be searched by default."
+msgstr ""
+"Sie müssen Lieblingsstädte vor der Auswahl der am meisten angesehenen "
+"hinzufügen. Dann wird es standardmäßig gesucht."

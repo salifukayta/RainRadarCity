@@ -10,10 +10,10 @@ cloudApp.controller('RootController', ['$scope', '$state', '$ionicHistory', '$lo
         disableBack: true
     });
 
-//    if ($localstorage.get("initDone") == null) {
-//        $state.go('app.intro');
-    //} else {
+    if ($localstorage.get("initDone") == null) {
+        $state.go('app.intro');
+    } else {
         $state.go('app.cities');
-    //}
+    }
 
 }]);

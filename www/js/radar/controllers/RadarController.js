@@ -139,6 +139,10 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 }
             }
 
+            function initPosition() {
+
+            }
+
             this.refreshRadar = function () {
                 _this.error = null;
                 $interval.cancel(_this.stopNextPicture);
@@ -149,12 +153,19 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.error = null;
                 _this.city = null;
                 initCity();
+                initPosition();
             });
 
             $scope.$on('$ionicView.beforeLeave', function() {
                 $interval.cancel(_this.stopNextPicture);
                 $interval.cancel(_this.stopNextCity);
                 $interval.cancel(_this.stopNextCountry);
+                var showAd = $localstorage.get("showAd");
+                if (showAd == null) {
+                    $localstorage.set("showAd", true);
+                } else if (showAd) {
+                    adbuddiz.showAd();
+                }
             });
 
             this.pause = function() {

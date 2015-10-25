@@ -44,11 +44,35 @@
     width: 70%;
 }
 
-.image-intro-raining-right img, .image-intro-raining-center img, .image-intro-raining-left img {
+.image-intro-raining-left img {
+    width: 100%;
+}
+
+.image-intro-raining-right img, .image-intro-raining-center img {
     width: 42%;
 }
+
 .image-intro-2-radars img{
     width: 60%;
+}
+
+.card-gallery-intro {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.card-legend {
+    margin-top: 5px;
+    margin-bottom: 7px;
+    padding-bottom: 0px;
+}
+
+.card-legend img {
+    width: 100%;
+}
+
+.row-legend-last {
+    margin-bottom: -10px;
 }
 
 .button-bar2 {

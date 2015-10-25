@@ -50,12 +50,23 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
                     })
                     .error(function(data, status, headers, config) {
                         console.log("error get city radar");
-                        deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
+                        deferred.reject(gettextCatalog.getString('Check your Internet Connection'));
                     });
+            return deferred.promise;
+        },
+        getOnMapGpsPosition: function () {
+            console.log("get on Map GPS position");
+            var deferred = $q.defer();
 
-                return deferred.promise;
-            },
-        };
-        return serviceAPI;
-    }
-]);
+            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
+                .then(function (position) {
+                    deferred.resolve(scrappingData(data));
+                    console.log(angular.toJson(position));
+                }, function (err) {
+                    console.log(err.message);
+                    deferred.reject(gettextCatalog.getString('Check GPS'));
+                });
+        },
+    };
+    return serviceAPI;
+}]);

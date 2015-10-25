@@ -15,7 +15,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                     })
                     .error(function(data, status, headers, config) {
                         console.log("error get cities");
-                        deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
+                        deferred.reject(gettextCatalog.getString('Check your Internet Connection'));
                     });
                 return deferred.promise;
             },
@@ -23,7 +23,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                 var deferred = $q.defer();
                 if (angular.isUndefined(google)) {
                     console.error("google is undefined");
-                    deferred.reject(gettextCatalog.getString("Check you Internet Connection"));
+                    deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
                     return;
                 }
                 var geocoder = new google.maps.Geocoder();
@@ -44,7 +44,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                         console.log(cityToSearch);
                         deferred.resolve(cityToSearch);
                     } else if(status == google.maps.GeocoderStatus.ERROR) {
-                        deferred.reject(gettextCatalog.getString("Check you Internet Connection"));
+                        deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
                     } else {
                         deferred.reject(gettextCatalog.getString("Check your GPS"));
                     }
@@ -76,7 +76,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                         })
                         .error(function(data, status, headers, config) {
                             console.log("error get cities");
-                            deferred.reject(gettextCatalog.getString('Check you Internet Connection'));
+                            deferred.reject(gettextCatalog.getString('Check your Internet Connection'));
                         });
                 };
                 searchOneCity(city, country, isVerified);
