@@ -60,8 +60,8 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
 
             $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
                 .then(function (position) {
-                    deferred.resolve(scrappingData(data));
                     console.log(angular.toJson(position));
+                    deferred.resolve(scrappingData(data));
                 }, function (err) {
                     console.log(err.message);
                     deferred.reject(gettextCatalog.getString('Check GPS'));

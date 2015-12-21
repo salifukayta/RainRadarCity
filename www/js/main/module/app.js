@@ -17,18 +17,20 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                 StatusBar.styleDefault();
             }
             // load current language
-            if(typeof navigator.globalization !== "undefined") {
+            if (typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function (languageLocation) {
-                    var language = languageLocation.value.substring(0,2);
+                    var language = languageLocation.value.substring(0, 2);
                     console.info("get lang file " + language);
-                    gettextCatalog.loadRemote("./languages/" + language + ".json")
-                        .then(function(){
-                            console.info("lang file " + language + " found");
-                            gettextCatalog.setCurrentLanguage(language);
-                        })
-                        .catch(function(config) {
-                            console.error("lang file not found");
-                        });
+                    if (language != "en") {
+                        gettextCatalog.loadRemote("./languages/" + language + ".json")
+                            .then(function () {
+                                console.info("lang file " + language + " found");
+                                gettextCatalog.setCurrentLanguage(language);
+                            })
+                            .catch(function (config) {
+                                console.error("lang file not found");
+                            });
+                    }
                 });
             } else {
                 console.error("navigator.globalization is undefined ");
@@ -50,9 +52,10 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     //document.addEventListener("backbutton", showAdEvent, false);
                     document.addEventListener("resume", showAdEvent, false);
                     function showAdEvent($event) {
-                        console.log("on resume = " + $event);
+                        console.log("on resume = " + angular.toJson($event));
                         adbuddiz.showAd();
                     }
+
                     //showAdEvent();
                 }
             }

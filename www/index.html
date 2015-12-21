@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <!--cordova plugin add cordova-plugin-geolocation-->
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/* http://ajax.googleapis.com/* http://meteoblue.com/* https://meteoblue.com/*  'unsafe-inline' 'unsafe-eval'">-->
+    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/* http://ajax.googleapis.com/* https://meteoblue.com/*  'unsafe-inline' 'unsafe-eval'">-->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com/* http://ajax.googleapis.com/* https://meteoblue.com/* *; style-src  'self' 'unsafe-inline' *">-->
+
     <title></title>
 
     <!-- ionic angular css -->
@@ -16,6 +18,7 @@
     <link href="css/intro.css" rel="stylesheet">
     <link href="css/radar.css" rel="stylesheet">
     <link href="css/option.css" rel="stylesheet">
+    <link href="css/userPosition.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -39,7 +42,7 @@
     <script src="lib/angular-cookies/angular-cookies.js"></script>
     <script src="lib/angular-gettext/dist/angular-gettext.js"></script>
     <script src="lib/async/lib/async.js"></script>
-    
+
     <!-- cordova script (this will be a 404 during development) used for geocoding -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
@@ -63,10 +66,14 @@
     <script src="js/cities/services/CityGeolocService.js"></script>
     <script src="js/cities/services/CityPassService.js"></script>
     <script src="js/main/services/LocalStorageService.js"></script>
+    <script src="js/cities/services/GSSearchLocationService.js"></script>
 
-  </head>
+    <!-- directives js -->
+    <script src="js/radar/directives/placePosition.js"></script>
 
-  <body ng-app="cloudPrecipitation">
-    <ion-nav-view></ion-nav-view>
-  </body>
+</head>
+
+<body ng-app="cloudPrecipitation">
+<ion-nav-view></ion-nav-view>
+</body>
 </html>

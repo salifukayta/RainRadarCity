@@ -34,13 +34,20 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
         function getCurrentPosition (x, callback) {
             // get position geo-localisation
             //test enableHighAccuracy test to true ?
-            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
+            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
                 .then(function (position) {
                     callback(null, position);
                 }, function (err) {
                     console.log(err.message);
                     callback(gettextCatalog.getString("Check your GPS"), null);
                 });
+        }
+
+        function projectionOnRadar (userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
+            return {
+                x: cityLocationOnRadar.x + cityLocationOnMap.longitude - userLocationOnMap.longitude,
+                y: cityLocationOnRadar.y + cityLocationOnMap.latitude - userLocationOnMap.latitude,
+            };
         }
 
         var serviceAPI = {
@@ -60,7 +67,27 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
                 return deferred.promise;
             },
+            getUserLocationOnRadar: function(cityLocationOnMap, cityLocationOnRadar) {
+                var deferred = $q.defer();
+                $ionicPlatform.ready(function () {
+                    getCurrentPosition(null, function(err, userLocationOnMap) {
+                        //TODO only when the chosen city and the user city are the same ====> 2
+                        // if gps activated do all this work.
+                        // TODO geoloc user by wifi =====> 1
+                        if (userLocationOnMap != null) {
+                            var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
+                            // accuracy in meters, not used for now
+                            console.log("userLocationOnRadar= " + angular.toJson(userLocationOnRadar));
+                            deferred.resolve(userLocationOnRadar);
+                        } else {
+                            console.log("Error: " + err);
+                            deferred.reject(err);
+                        }
+                    });
+                });
+                return deferred.promise;
+            },
         };
-
+0
         return serviceAPI;
     }]);

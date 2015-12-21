@@ -3,8 +3,9 @@
  */
 'use strict';
 
-cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$localstorage', 'radarService', 'cityGeolocService', 'cityPassService',
-        function($scope, $stateParams, $state, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService, cityPassService) {
+cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$localstorage', 'radarService',
+    'cityGeolocService', 'cityPassService', 'GSSearchLocationService',
+        function($scope, $stateParams, $state, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService, cityPassService, GSSearchLocationService) {
 
             var _this = this;
             this.city = null;
@@ -18,6 +19,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
             this.stopNextCty = null;
             this.stopNextCountry = null;
             this.isPaused = false;
+            this.userPosition = null;
             this.radar = {
                 country: [],
                 city: []
@@ -87,7 +89,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.indexCountry = -1;
             };
 
-            function isCityFacourite() {
+            function isCityFavourite() {
                 if( !angular.isUndefined($localstorage.getObject('favoriteCities')[_this.city.name])) {
                     return $localstorage.get('favoriteCities')[_this.city.name].iso2 == _this.city.iso2;
                 } else {
@@ -97,7 +99,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
 
             function getRainingRadar() {
                 // init favorite icon
-                if(isCityFacourite()) {
+                if(isCityFavourite()) {
                     _this.isFavorite = true;
                 }
                 radarService.getPrecipitationRadar(_this.city.url)
@@ -128,6 +130,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                             _this.city = city;
                             // init radars
                             getRainingRadar.call(this);
+                            initUserPosition();
                         })
                         .catch(function(err) {
                             _this.error = err;
@@ -136,11 +139,54 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 } else {
                     _this.city = cityPassService.get();
                     getRainingRadar.call(this);
+                    initUserPosition();
                 }
             }
 
-            function initPosition() {
+            function initUserPosition() {
+                var cityLocationOnMap = {latitude: _this.city.lat, longitude: _this.city.lon};
+                // half pictue size
+                //FIXME put real dimension ====> 3
+                var cityLocationOnRadar = {x: 154, y: 154};
 
+                //TODO to be continued
+                GSSearchLocationService.getCurrentLocation({timeout: 60000, gps: enableHighAccuracy: true})
+                    .then(function (data) {
+                        console.log(data);
+                    }, function (err) {
+                        console.log(err);
+                    });
+
+                //function getCP (options) {
+                //    var q = $q.defer();
+                //
+                //    navigator.geolocation.getCurrentPosition(function (result) {
+                //        q.resolve(result);
+                //    }, function (err) {
+                //        q.reject(err);
+                //    }, options);
+                //
+                //    return q.promise;
+                //};
+                //
+                //getCP({timeout: 60000, enableHighAccuracy: true})
+                //    .then(function (result) {
+                //        console.log(result);
+                //    })
+                //    .catch(function (err) {
+                //        console.log(err);
+                //    });
+
+                cityGeolocService.getUserLocationOnRadar(cityLocationOnMap, cityLocationOnRadar)
+                    .then(function(position) {
+                        console.log(angular.toJson(position));
+                        _this.userPosition = position;
+                        $ionicLoading.hide();
+                    })
+                    .catch(function(err) {
+                        _this.error = err;
+                        $ionicLoading.hide();
+                    });
             }
 
             this.refreshRadar = function () {
@@ -153,7 +199,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.error = null;
                 _this.city = null;
                 initCity();
-                initPosition();
             });
 
             $scope.$on('$ionicView.beforeLeave', function() {
@@ -177,6 +222,8 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 }
                 _this.isPaused = !_this.isPaused;
             };
+
+            //TODO on back press cancel the loading ... =====> 4
 
         }
 ])

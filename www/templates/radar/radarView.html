@@ -23,10 +23,12 @@
                 <h1>{{radarCtrl.city.name}}</h1>
                 <p class="center value-meter-bar">{{radarCtrl.indexCity + 1}}/{{radarCtrl.radar.city.length}}</p>
                 <meter value="{{radarCtrl.indexCityIncremental}}" max="{{radarCtrl.radar.city.length}}"></meter>
-                <div id="radar-city" class="item-image" ng-click="radarCtrl.pause()">
+                <div id="radar-city" class="item-image card-block" ng-click="radarCtrl.pause()">
                     <img ng-src="{{radarCtrl.radarCity}}" alt="Radar City"><br/>
                     <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animate-pause fadeIn': radarCtrl.isPaused}"><br/>
                     <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animate-play fadeIn': !radarCtrl.isPaused}">
+                    <div place-position="radarCtrl.userPosition" class="location-marker">
+                        <div class="gmnoprint"></div></div><br/>
                 </div>
             </div>
 

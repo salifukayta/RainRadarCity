@@ -21,6 +21,10 @@
     animation-fill-mode: both;
 }
 
+.card-block {
+    position: relative;
+}
+
 @-webkit-keyframes fadeIn {
     0% {
         opacity: 0;

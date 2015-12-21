@@ -1,0 +1,40 @@
+@-webkit-keyframes pulsated {
+    from {
+        -webkit-transform: scale(0.25);
+        opacity: 1.0;
+    }
+    95% {
+        -webkit-transform: scale(1.3);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: scale(0.3);
+        opacity: 0;
+    }
+}
+.gmnoprint {
+    -webkit-animation: pulsated 1.5s ease-in-out infinite;
+    border:3pt solid #f3172d;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    border-radius:25px;
+    -moz-box-shadow:inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d;
+    -webkit-box-shadow:inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d;
+    box-shadow:inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, inset 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d, 0 0 5px #f3172d;
+    height:25px !important;
+    margin:-10px 0 0 -10px;
+    margin-left: -8px;
+    margin-top: -8px;
+    width:25px !important;
+}
+.location-marker {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    height:10px !important;
+    width:10px !important;
+    background-color: #f3172d;
+}
