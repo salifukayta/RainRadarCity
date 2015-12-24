@@ -47,11 +47,11 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
         function projectionOnRadar (userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
             return {
                 x: cityLocationOnRadar.x + cityLocationOnMap.lon - userLocationOnMap.longitude,
-                y: cityLocationOnRadar.y + cityLocationOnMap.lat - userLocationOnMap.latitude
+                y: cityLocationOnRadar.y + cityLocationOnMap.lat - userLocationOnMap.latitude,
             };
         }
 
-        return {
+        var serviceAPI = {
             getGeolocCity: function () {
                 var deferred = $q.defer();
                 $ionicPlatform.ready(function () {
@@ -92,6 +92,8 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                     });
                 });
                 return deferred.promise;
-            }
+            },
         };
+
+        return serviceAPI;
     }]);
