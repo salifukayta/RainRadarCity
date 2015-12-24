@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
+<!--cordova plugin add cordova-plugin-whitelist-->
 <!--cordova plugin add cordova-plugin-geolocation-->
+<!--cordova plugin add cordova-plugin-globalization-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/* http://ajax.googleapis.com/* https://meteoblue.com/*  'unsafe-inline' 'unsafe-eval'">-->
-    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com/* http://ajax.googleapis.com/* https://meteoblue.com/* *; style-src  'self' 'unsafe-inline' *">-->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap:
+          https://www.meteoblue.com https://static.meteoblue.com https://ajax.googleapis.com https://maps.googleapis.com https://csi.gstatic.com;
+          style-src 'self' 'unsafe-inline'; media-src *">
 
     <title></title>
 
@@ -24,13 +28,13 @@
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!--Google Map Api used for reverse geocoding-->
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCmXRiilXO5F60sFNfXs7M9AKoBc-9hTQc&sensor=true"></script>
+    <!--Google Map Api used for reverse geocoding -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmXRiilXO5F60sFNfXs7M9AKoBc-9hTQc"></script>
 
-    <!-- jQuary used for websrapping -->
+    <!-- jQuery used for web-scrapping -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-    <!-- ionic/angularjs js -->
+    <!-- Ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-sanitize/angular-sanitize.js"></script>
@@ -43,7 +47,7 @@
     <script src="lib/angular-gettext/dist/angular-gettext.js"></script>
     <script src="lib/async/lib/async.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) used for geocoding -->
+    <!-- Cordova script (this will be a 404 during development) used for geocoding -->
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
@@ -66,10 +70,10 @@
     <script src="js/cities/services/CityGeolocService.js"></script>
     <script src="js/cities/services/CityPassService.js"></script>
     <script src="js/main/services/LocalStorageService.js"></script>
-    <script src="js/cities/services/GSSearchLocationService.js"></script>
 
     <!-- directives js -->
     <script src="js/radar/directives/placePosition.js"></script>
+    <script src="js/radar/directives/radarImg.js"></script>
 
 </head>
 

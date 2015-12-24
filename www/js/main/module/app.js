@@ -27,7 +27,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                                 console.info("lang file " + language + " found");
                                 gettextCatalog.setCurrentLanguage(language);
                             })
-                            .catch(function (config) {
+                            .catch(function () {
                                 console.error("lang file not found");
                             });
                     }
@@ -38,7 +38,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
             gettextCatalog.debug = true;
 
             adbuddiz.setAndroidPublisherKey("76330e92-f3dc-4982-9040-3e5e196d5b98");
-            //adbuddiz.setIOSPublisherKey("TEST_PUBLISHER_KEY_IOS");
             adbuddiz.cacheAds();
 
             var showAd = $localstorage.get("showAd");
@@ -55,7 +54,6 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                         console.log("on resume = " + angular.toJson($event));
                         adbuddiz.showAd();
                     }
-
                     //showAdEvent();
                 }
             }
@@ -74,9 +72,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
     .constant('TIME_OUT', 5000)
 
-    .config(function ($stateProvider, $urlRouterProvider, $compileProvider) {
-        // Do not work, used for windowsphone ?
-//        $compileProvider.imgSrcSanitizationWhitelist('img/');
+    .config(function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('app', {
@@ -118,8 +114,8 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                 views: {
                     'menuContent': {
                         templateUrl: "templates/radar/radarView.html",
-                        controller: 'RadarController as radarCtrl',
-                    },
+                        controller: 'RadarController as radarCtrl'
+                    }
                 }
             })
             .state('app.favorites', {

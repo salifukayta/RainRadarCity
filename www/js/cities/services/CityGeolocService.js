@@ -23,6 +23,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
             // get reverse geo-coding for city name
             citiesService.reverseCoding(position)
                 .then(function(cityToSearch) {
+                    cityToSearch.coords = position.coords;
                     callback(null, cityToSearch);
                 })
                 .catch(function(err) {
@@ -34,7 +35,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
         function getCurrentPosition (x, callback) {
             // get position geo-localisation
             //test enableHighAccuracy test to true ?
-            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
+            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
                 .then(function (position) {
                     callback(null, position);
                 }, function (err) {
@@ -45,12 +46,12 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
 
         function projectionOnRadar (userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
             return {
-                x: cityLocationOnRadar.x + cityLocationOnMap.longitude - userLocationOnMap.longitude,
-                y: cityLocationOnRadar.y + cityLocationOnMap.latitude - userLocationOnMap.latitude,
+                x: cityLocationOnRadar.x + cityLocationOnMap.lon - userLocationOnMap.longitude,
+                y: cityLocationOnRadar.y + cityLocationOnMap.lat - userLocationOnMap.latitude
             };
         }
 
-        var serviceAPI = {
+        return {
             getGeolocCity: function () {
                 var deferred = $q.defer();
                 $ionicPlatform.ready(function () {
@@ -70,15 +71,20 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
             getUserLocationOnRadar: function(cityLocationOnMap, cityLocationOnRadar) {
                 var deferred = $q.defer();
                 $ionicPlatform.ready(function () {
-                    getCurrentPosition(null, function(err, userLocationOnMap) {
-                        //TODO only when the chosen city and the user city are the same ====> 2
-                        // if gps activated do all this work.
-                        // TODO geoloc user by wifi =====> 1
+                    var getUserCurrentPosition = async.compose(getReverseGeoCoding, getCurrentPosition);
+
+                    getUserCurrentPosition(null, function(err, userLocationOnMap) {
                         if (userLocationOnMap != null) {
-                            var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
-                            // accuracy in meters, not used for now
-                            console.log("userLocationOnRadar= " + angular.toJson(userLocationOnRadar));
-                            deferred.resolve(userLocationOnRadar);
+                            if (cityLocationOnMap.country === userLocationOnMap.country
+                                && cityLocationOnMap.name === userLocationOnMap.name) {
+                                var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
+                                // accuracy in meters, not used for now
+                                console.log("userLocationOnRadar= " + angular.toJson(userLocationOnRadar));
+                                deferred.resolve(userLocationOnRadar);
+                            } else {
+                                console.log("Warning: the user location is not in the selected city");
+                                deferred.reject("Warning: the user location is not in the selected city");
+                            }
                         } else {
                             console.log("Error: " + err);
                             deferred.reject(err);
@@ -86,8 +92,6 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                     });
                 });
                 return deferred.promise;
-            },
+            }
         };
-0
-        return serviceAPI;
     }]);

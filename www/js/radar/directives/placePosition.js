@@ -2,15 +2,15 @@
  * Created by Salifukayta on 19/12/2015.
  */
 
-cloudApp.directive("placePosition", ["$interval", function ($interval) {
+cloudApp.directive("placePosition", function () {
     return {
         restrict: "A",
         scope: {
             position: "=placePosition"
         },
-        link: function (scope, element) {
+        link: function(scope, element) {
             element[0].style.display = "none";
-            scope.$watch('position', function (newValue, oldValue) {
+            scope.$watch('position', function (newValue) {
                 if (newValue) {
                     element[0].style.left = newValue.x + "px";
                     element[0].style.top = newValue.y + "px";
@@ -19,6 +19,4 @@ cloudApp.directive("placePosition", ["$interval", function ($interval) {
             }, true);
         }
     }
-}]);
-
-//TODO cancel loading when back is clicked
+});

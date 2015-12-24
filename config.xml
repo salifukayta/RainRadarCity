@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.radarprecipitation587032" version="1.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.radarprecipitation587032" version="1.7">
+        <!--xmlns="http://www.w3.org/ns/widgets"-->
+        <!--xmlns:gap="http://phonegap.com/ns/1.0"-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:cdv="http://cordova.apache.org/ns/1.0">-->
   <name>Rain Radar City</name>
   <description>
         Rain Radar City shows the raining spot on cities and countries
     </description>
-  <author email="solsalim@gmail.com" href="http://ionicframework.com/">
+  <author email="solsalim@gmail.com" href="https://play.google.com/store/apps/developer?id=Salim+Feki">
         Salim FEKI
     </author>
   <content src="index.html"/>
-  <allow-navigation href="http://meteoblue.com/*"/>
-  <allow-navigation href="https://meteoblue.com/*"/>
-  <allow-navigation href="http://ajax.googleapis.com/*"/>
-  <allow-navigation href="http://maps.googleapis.com/*"/>
-  <allow-navigation href="*"/>
+    <access origin="https://www.meteoblue.com/*" />
+    <access origin="https://static.meteoblue.com/*" />
+    <access origin="https://ajax.googleapis.com/*" />
+    <access origin="https://maps.googleapis.com/*" />
+    <access origin="https://csi.gstatic.com/*" />
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="SplashScreenDelay" value="2000"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>

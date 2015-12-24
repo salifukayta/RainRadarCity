@@ -3,9 +3,9 @@
  */
 'use strict';
 
-cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$localstorage', 'radarService',
-    'cityGeolocService', 'cityPassService', 'GSSearchLocationService',
-        function($scope, $stateParams, $state, $interval, $ionicLoading, $localstorage, radarService, cityGeolocService, cityPassService, GSSearchLocationService) {
+cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$ionicPlatform', '$localstorage',
+        'radarService', 'cityGeolocService', 'cityPassService',
+    function($scope, $stateParams, $state, $interval, $ionicLoading, $ionicPlatform, $localstorage, radarService, cityGeolocService, cityPassService) {
 
             var _this = this;
             this.city = null;
@@ -16,10 +16,9 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
             this.isFavorite = false;
             this.isNoDataAvailable = false;
             this.stopNextPicture = null;
-            this.stopNextCty = null;
             this.stopNextCountry = null;
             this.isPaused = false;
-            this.userPosition = null;
+            this.radarImgWidth = -1;
             this.radar = {
                 country: [],
                 city: []
@@ -144,49 +143,20 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
             }
 
             function initUserPosition() {
-                var cityLocationOnMap = {latitude: _this.city.lat, longitude: _this.city.lon};
-                // half pictue size
-                //FIXME put real dimension ====> 3
-                var cityLocationOnRadar = {x: 154, y: 154};
-
-                //TODO to be continued
-                GSSearchLocationService.getCurrentLocation({timeout: 60000, gps: enableHighAccuracy: true})
-                    .then(function (data) {
-                        console.log(data);
-                    }, function (err) {
-                        console.log(err);
-                    });
-
-                //function getCP (options) {
-                //    var q = $q.defer();
-                //
-                //    navigator.geolocation.getCurrentPosition(function (result) {
-                //        q.resolve(result);
-                //    }, function (err) {
-                //        q.reject(err);
-                //    }, options);
-                //
-                //    return q.promise;
-                //};
-                //
-                //getCP({timeout: 60000, enableHighAccuracy: true})
-                //    .then(function (result) {
-                //        console.log(result);
-                //    })
-                //    .catch(function (err) {
-                //        console.log(err);
-                //    });
-
-                cityGeolocService.getUserLocationOnRadar(cityLocationOnMap, cityLocationOnRadar)
-                    .then(function(position) {
-                        console.log(angular.toJson(position));
-                        _this.userPosition = position;
-                        $ionicLoading.hide();
-                    })
-                    .catch(function(err) {
-                        _this.error = err;
-                        $ionicLoading.hide();
-                    });
+                if(_this.radarImgWidth > 0) {
+                    var cityLocationOnRadar = {x: _this.radarImgWidth / 2, y: _this.radarImgWidth / 2};
+                    cityGeolocService.getUserLocationOnRadar(_this.city, cityLocationOnRadar)
+                        .then(function (position) {
+                            console.log(angular.toJson(position));
+                            _this.userPosition = position;
+                        })
+                        .catch(function (err) {
+                            // Can't get user position, or user's city isn't the same as the current city
+                            // Do nothing ...
+                        });
+                } else {
+                    console.error("ERROR: img radar not yet initialised while initialising user position on the img radar");
+                }
             }
 
             this.refreshRadar = function () {
@@ -223,7 +193,9 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 _this.isPaused = !_this.isPaused;
             };
 
-            //TODO on back press cancel the loading ... =====> 4
+            $ionicPlatform.onHardwareBackButton(function() {
+                $ionicLoading.hide();
+            });
 
         }
-])
+]);

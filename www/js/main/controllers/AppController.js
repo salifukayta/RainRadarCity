@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.controller('AppController', ['$scope', '$ionicHistory', '$localstorage', function($scope, $ionicHistory, $localstorage) {
+cloudApp.controller('AppController', ['$scope', '$ionicHistory', function($scope, $ionicHistory) {
 
     $scope.goBack = function() {
 /*        var showAd = $localstorage.get("showAd");
@@ -12,7 +12,9 @@ cloudApp.controller('AppController', ['$scope', '$ionicHistory', '$localstorage'
         } else if (showAd) {
             adbuddiz.showAd();
         }
-*/        $ionicHistory.goBack();
+*/
+        $ionicHistory.goBack();
+
     };
 
 }]);
