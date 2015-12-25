@@ -14,7 +14,6 @@
   <content src="index.html"/>
     <access origin="https://www.meteoblue.com/*" />
     <access origin="https://static.meteoblue.com/*" />
-    <access origin="https://ajax.googleapis.com/*" />
     <access origin="https://maps.googleapis.com/*" />
     <access origin="https://csi.gstatic.com/*" />
 

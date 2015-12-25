@@ -1,6 +1,12 @@
 {
   "name": "radarPrecipitation",
   "app_id": "",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": " https://www.meteoblue.com"
+    }
+  ],
   "browsers": [
     {
       "platform": "android",

@@ -70,6 +70,8 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     })
     .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
+    //.constant('BASE_URL_SEARCH_CITY', 'http://localhost:8100/api/en/server/search/query3?query=')
+    //.constant('BASE_URL_GET_RADAR', 'http://localhost:8100/api/en/weather/forecast/week/')
     .constant('TIME_OUT', 5000)
 
     .config(function ($stateProvider, $urlRouterProvider) {

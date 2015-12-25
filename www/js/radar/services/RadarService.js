@@ -13,9 +13,11 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
         var IMG_TAG = "img";
 
         function prepareImgUrl(imgUrl, radar, indexCountryRadar) {
-            if (imgUrl.indexOf(FILE) == 0) {
+            // To work on device or by emulating on navigator
+            if (imgUrl.indexOf(FILE) == 0 || radar.country[0] === undefined) {
                 return HTTPS + imgUrl.substr(7, imgUrl.length);
-            } else if (radar.country.length != 0) {
+            //} else if (radar.country.length != 0) {
+            } else {
                 return radar.country[0].substr(0, radar.country[0].length - 5) + indexCountryRadar + JPG;
             }
         }

@@ -146,7 +146,6 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 var cityLocationOnRadar = {x: _this.radarImgWidth / 2, y: _this.radarImgWidth / 2};
                 cityGeolocService.getUserLocationOnRadar(_this.city, cityLocationOnRadar)
                     .then(function (position) {
-                        console.log(angular.toJson(position));
                         _this.userPosition = position;
                     })
                     .catch(function (err) {
