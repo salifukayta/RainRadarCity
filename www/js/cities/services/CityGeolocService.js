@@ -78,7 +78,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                             if (cityLocationOnMap.country === userLocationOnMap.country
                                 && cityLocationOnMap.name === userLocationOnMap.name) {
                                 var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
-                                // accuracy in meters, not used for now
+                                // Accuracy in meters, not used for now
                                 console.log("userLocationOnRadar= " + angular.toJson(userLocationOnRadar));
                                 deferred.resolve(userLocationOnRadar);
                             } else {

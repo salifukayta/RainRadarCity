@@ -51,7 +51,7 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
                     //document.addEventListener("backbutton", showAdEvent, false);
                     document.addEventListener("resume", showAdEvent, false);
                     function showAdEvent($event) {
-                        console.log("on resume = " + angular.toJson($event));
+                        //console.log("on resume = " + angular.toJson($event));
                         adbuddiz.showAd();
                     }
                     //showAdEvent();
