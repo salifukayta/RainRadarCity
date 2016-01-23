@@ -24,7 +24,7 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
                 if (angular.isUndefined(google)) {
                     console.error("google is undefined");
                     deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
-                    return;
+                    return deferred.promise;
                 }
                 var geocoder = new google.maps.Geocoder();
                 var LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);

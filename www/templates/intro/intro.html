@@ -1,11 +1,10 @@
 <ion-view hide-nav-bar="true">
-
     <ion-content>
         <ion-slide-box show-pager="true" pager-click="introCtrl.goToPage(index)">
 
             <ion-slide>
                 <div class="card">
-                    <div class="item item-divider">
+                    <div class="item item-divider divider-royal">
                         <h2 class="center" translate>Introduction</h2>
                     </div>
                     <div class="item item-text-wrap">
@@ -28,11 +27,11 @@
 
             <ion-slide>
                 <div class="card">
-                    <div class="item item-divider">
+                    <div class="item item-divider divider-royal">
                         <h2 class="center" translate>Search City</h2>
                     </div>
                     <div class="item item-text-wrap" translate>
-                        First, enter your city name and click on it.
+                        First, enter your city name then click on it.
                     </div>
                 </div>
 
@@ -44,112 +43,84 @@
             </ion-slide>
 
             <ion-slide>
-                <div class="card">
-                    <div class="item item-divider">
+                <div class="card card-gallery-intro">
+                    <div class="item item-divider divider-royal">
                         <h2 class="center" translate>Consult Rain Radar</h2>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="item image-intro-2-radars">
-                        <img src="img/intro/2radars.png">
-                    </div>
-                </div>
-            </ion-slide>
-
-            <ion-slide>
-                <div class="card card-gallery-intro image-intro-raining-left">
-
+                    <div class="card-legend image-intro-raining-center">
                         <div class="row">
-                            <div class="col">
-                                <!--<div class="image-intro-raining-left">-->
-                                <img src="img/intro/rain1.png">
-                                <!--</div>-->
+                            <div class="col-25 col-center">
+                                <img src="img/intro/red-circle.png">
                             </div>
-
-                            <div class="card card-legend col">
-                                <div class="row">
-                                    <div class="col-25 col-center">
-                                        <img src="img/intro/red-circle.png">
-                                    </div>
-                                    <div class="col" translate>Raining Clouds</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-25 col-center">
-                                        <img src="img/intro/green-circle.png">
-                                    </div>
-                                    <div class="col" translate>Date and Time</div>
-                                </div>
-                                <div class="row row-legend-last">
-                                    <div class="col-25 col-center">
-                                        <img src="img/intro/bleu-square.png">
-                                    </div>
-                                    <div class="col" translate>Current Forecast / Forecasts</div>
-                                </div>
-                            </div>
+                            <div class="col" translate>Raining Clouds</div>
                         </div>
-
-                </div>
-                <div class="card card-gallery-intro">
-                    <div class="item image-intro-raining-center">
-                        <img src="img/intro/rain2.png">
+                        <div class="row">
+                            <div class="col-25 col-center">
+                                <img src="img/intro/green-circle.png">
+                            </div>
+                            <div class="col" translate>Date and Time</div>
+                        </div>
+                        <div class="row row-legend-last">
+                            <div class="col-25 col-center">
+                                <img src="img/intro/bleu-square.png">
+                            </div>
+                            <div class="col" translate>Forecast index / All</div>
+                        </div>
                     </div>
                 </div>
                 <div class="card card-gallery-intro">
-                    <div class="item image-intro-raining-right">
-                        <img src="img/intro/rain3.png">
+                    <div class="row">
+                        <div class="image-intro-raining-left">
+                            <img src="img/intro/rain_legend.png">
+                        </div>
+                        <div class="image-intro-raining-right">
+                            <img src="img/intro/london2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-gallery-intro">
+                    <div class="row">
+                        <div class="image-intro-raining-left">
+                            <img src="img/intro/london3.png">
+                        </div>
+                        <div class="image-intro-raining-right">
+                            <img src="img/intro/london4.png">
+                        </div>
                     </div>
                 </div>
             </ion-slide>
 
             <ion-slide>
                 <div class="card">
-                    <div class="item item-divider">
-                        <h2 class="center" translate>Save your favourite cities</h2>
-                    </div>
-                    <div class="item item-text-wrap" translate>
-                        You can also save your favourite cities to check them quicker from the menu.
-                    </div>
-                    <div class="item image-intro-menu-fav">
-                        <img src="img/intro/menuFav.png">
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="item item-text-wrap" translate>
-                        City marked as favorite.
-                    </div>
-                    <div class="item item-image">
-                        <img src="img/intro/favorite.png">
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="item item-text-wrap" translate>
-                        City not marked as favorite.
-                    </div>
-                    <div class="item item-image">
-                        <img src="img/intro/noFavorite.png">
-                    </div>
-                </div>
-            </ion-slide>
-
-            <ion-slide>
-                <div class="card">
-                    <div class="item item-text-wrap item-divider row">
+                    <div class="item item-text-wrap item-divider divider-royal row">
                         <h2 class="center col" translate>Use GPS to Geolocate your city</h2>
                         <button id="gotostart" class="button button-balanced ion-chevron-down btn-scroll-down"
                                 ng-click="introCtrl.scrollBottom()"/>
                     </div>
-                    <div class="item item-text-wrap" translate>
-                        By activating your GPS, you can have directly the radar on the geolocated city.
-                    </div>
-                    <div class="item image-intro-menu-geoloc">
-                        <img src="img/intro/menuGeoloc.png">
+                    <div class="item item-text-wrap">
+                        <div translate>By activating your GPS :</div>
+                        <div class="list-gps-features">
+                            <ul>
+                                <li translate>You can have directly the forecast radar on the geolocated city.</li>
+                                <li translate>You can view your location in a city and the rain clouds around you</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <br>
-                <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities"
-                        ng-click="introCtrl.startApp()" translate>
-                    Start Search City
+                <div class="card">
+                    <div class="row">
+                        <div class="image-intro-menu-geoloc-left">
+                            <img src="img/intro/menu_geoloc.png">
+                        </div>
+                        <img src="img/intro/divider3.png" class="vertical-divider">
+                        <div class="image-intro-menu-geoloc-right">
+                            <img src="img/intro/nantes_gps.png">
+                        </div>
+                    </div>
+                </div>
+                    <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities"
+                            ng-click="introCtrl.startApp()" translate>
+                        Start Search City
                 </button>
             </ion-slide>
 

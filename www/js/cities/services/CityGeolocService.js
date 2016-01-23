@@ -22,17 +22,17 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
         function getReverseGeoCoding(position, callback) {
             // get reverse geo-coding for city name
             citiesService.reverseCoding(position)
-                .then(function(cityToSearch) {
+                .then(function (cityToSearch) {
                     cityToSearch.coords = position.coords;
                     callback(null, cityToSearch);
                 })
-                .catch(function(err) {
+                .catch(function (err) {
                     console.log(err);
                     callback(err, null);
                 });
         }
 
-        function getCurrentPosition (x, callback) {
+        function getCurrentPosition(x, callback) {
             // get position geo-localisation
             //test enableHighAccuracy test to true ?
             $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
@@ -44,7 +44,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
         }
 
-        function projectionOnRadar (userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
+        function projectionOnRadar(userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
             return {
                 x: cityLocationOnRadar.x + cityLocationOnMap.lon - userLocationOnMap.longitude,
                 y: cityLocationOnRadar.y + cityLocationOnMap.lat - userLocationOnMap.latitude,
@@ -58,7 +58,6 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                     var getPositionThenCity = async.compose(getCityInformation, getReverseGeoCoding, getCurrentPosition);
                     getPositionThenCity(null, function (err, result) {
                         if (result != null) {
-                            console.log(result);
                             deferred.resolve(result);
                         } else {
                             console.log("Error: " + err);
@@ -68,18 +67,17 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
                 return deferred.promise;
             },
-            getUserLocationOnRadar: function(cityLocationOnMap, cityLocationOnRadar) {
+            getUserLocationOnRadar: function (cityLocationOnMap, cityLocationOnRadar) {
                 var deferred = $q.defer();
                 $ionicPlatform.ready(function () {
                     var getUserCurrentPosition = async.compose(getReverseGeoCoding, getCurrentPosition);
 
-                    getUserCurrentPosition(null, function(err, userLocationOnMap) {
+                    getUserCurrentPosition(null, function (err, userLocationOnMap) {
                         if (userLocationOnMap != null) {
-                            if (cityLocationOnMap.country === userLocationOnMap.country
-                                && cityLocationOnMap.name === userLocationOnMap.name) {
+                            if (cityLocationOnMap.country === userLocationOnMap.country && cityLocationOnMap.name === userLocationOnMap.name) {
                                 var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
                                 // Accuracy in meters, not used for now
-                                console.log("userLocationOnRadar= " + angular.toJson(userLocationOnRadar));
+                                console.log("user Location On Radar= " + angular.toJson(userLocationOnRadar));
                                 deferred.resolve(userLocationOnRadar);
                             } else {
                                 console.log("Warning: the user location is not in the selected city");

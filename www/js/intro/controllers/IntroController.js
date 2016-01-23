@@ -11,7 +11,7 @@ cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorag
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
-            $localstorage.set("initDone", true);
+            $localstorage.set("initDone_2.0", true);
             $state.go('app.cities');
         };
 

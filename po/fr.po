@@ -20,27 +20,19 @@ msgstr "A propos"
 msgid "About Raining Radar"
 msgstr "A propos de Raining Radar"
 
-#: www/templates/intro/intro.html:215
-msgid ""
-"By activating your GPS, you can have directly the radar on the geolocated "
-"city."
-msgstr ""
-"En activant votre GPS, vous pouvez avoir directement le radar de pluie de la "
-"ville géolocalisée."
-
-#: www/templates/msgs.html:4
-msgid "Check you Internet Connection"
-msgstr "Vérifiez votre Connection Internet"
+#: www/templates/intro/intro.html:101
+msgid "By activating your GPS :"
+msgstr "En activant le GPS :"
 
 #: www/templates/msgs.html:2
 msgid "Check your GPS"
-msgstr "Vérifier votre GPS"
+msgstr "Activer le GPS"
 
-#: www/templates/intro/intro.html:191
-msgid "City marked as favorite."
-msgstr "Ville marquée comme favori."
+#: www/templates/msgs.html:4
+msgid "Check your Internet Connection"
+msgstr "Activer la Connexion Internet"
 
-#: www/templates/cities/citiesList.html:11
+#: www/templates/cities/citiesList.html:13
 msgid "City Name"
 msgstr "Nom de Ville"
 
@@ -48,19 +40,11 @@ msgstr "Nom de Ville"
 msgid "City not Found"
 msgstr "Aucune Ville Trouvée"
 
-#: www/templates/intro/intro.html:199
-msgid "City not marked as favorite."
-msgstr "Ville pas marquée comme favori."
-
-#: www/templates/intro/intro.html:49 www/templates/intro/intro.html:64
+#: www/templates/intro/intro.html:48
 msgid "Consult Rain Radar"
 msgstr "Consultez le Radar de Pluie"
 
-#: www/templates/intro/intro.html:109
-msgid "Current Forecast / Forecasts"
-msgstr "Prévision Courant / Prévisions"
-
-#: www/templates/intro/intro.html:103
+#: www/templates/intro/intro.html:61
 msgid "Date and Time"
 msgstr "Date et heure"
 
@@ -68,19 +52,23 @@ msgstr "Date et heure"
 msgid "Favorites"
 msgstr "Favoris"
 
-#: www/templates/intro/intro.html:34
-msgid "First, enter your city name and click on it."
+#: www/templates/intro/intro.html:33
+msgid "First, enter your city name then click on it."
 msgstr "Commencez par saisir le nom de votre ville et cliquez dessus."
+
+#: www/templates/intro/intro.html:67
+msgid "Forecast index / All"
+msgstr "Indice de prévisions / Toutes"
 
 #: www/templates/menu.html:28
 msgid "Geolocation"
 msgstr "Géolocalisation"
 
-#: www/templates/intro/intro.html:9
+#: www/templates/intro/intro.html:8
 msgid "Introduction"
 msgstr "Introduction"
 
-#: www/templates/intro/intro.html:12
+#: www/templates/intro/intro.html:11
 msgid ""
 "Let's begin with a presentation that explains how to use this application."
 msgstr ""
@@ -91,7 +79,7 @@ msgstr ""
 msgid "Menu"
 msgstr "Menu"
 
-#: www/templates/intro/intro.html:15
+#: www/templates/intro/intro.html:14
 msgid "Next slides shows the main functionalities of Rain Radar City."
 msgstr ""
 "Les diapositives suivant montrent les principales fonctionnalités de Radar "
@@ -121,15 +109,11 @@ msgstr ""
 "Rain Radar City utilise les données de meteoblue.com. Cette application "
 "simplifie et facilite l'utilisation de la carte de nuages de pluie."
 
-#: www/templates/intro/intro.html:97
+#: www/templates/intro/intro.html:55
 msgid "Raining Clouds"
 msgstr "Nuages de pluie"
 
-#: www/templates/intro/intro.html:180
-msgid "Save your favourite cities"
-msgstr "Sauvegardez vos villes préférées"
-
-#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:32
+#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:31
 #: www/templates/menu.html:22
 msgid "Search City"
 msgstr "Recherchez une Ville"
@@ -145,11 +129,11 @@ msgstr ""
 "Sélectionnez la ville plus consultée. Elle sera recherchée par défaut au "
 "lancement de l'app."
 
-#: www/templates/intro/intro.html:223
+#: www/templates/intro/intro.html:121
 msgid "Start Search City"
 msgstr "Commencez la recherche de ville"
 
-#: www/templates/intro/intro.html:18
+#: www/templates/intro/intro.html:17
 msgid "Swipe left to move to the next page."
 msgstr "Glissez vers la gauche pour passer à la page suivante."
 
@@ -157,16 +141,20 @@ msgstr "Glissez vers la gauche pour passer à la page suivante."
 msgid "The most viewed city is"
 msgstr "La ville la plus consultée est"
 
-#: www/templates/intro/intro.html:211
+#: www/templates/intro/intro.html:96
 msgid "Use GPS to Geolocate your city"
 msgstr "Utilisez le GPS pour géolocaliser votre ville"
 
-#: www/templates/intro/intro.html:182
-msgid ""
-"You can also save your favourite cities to check them quicker from the menu."
+#: www/templates/intro/intro.html:104
+msgid "You can have directly the forecast radar on the geolocated city."
 msgstr ""
-"Vous pouvez sauvegarder mes villes favorites pour les consulter plus "
-"rapidement depuis le menu."
+"vous pouvez avoir directement le radar de pluie de la ville géolocalisée."
+
+#: www/templates/intro/intro.html:105
+msgid "You can view your location in a city and the rain clouds around you"
+msgstr ""
+"Vous pouvez voir votre emplacement dans une ville et les nuages de pluie qui "
+"vous entourent"
 
 #: www/templates/option/option.html:12
 msgid ""
@@ -175,6 +163,42 @@ msgid ""
 msgstr ""
 "Il faut ajouter des villes favoris avant de pouvoir en choisir la plus "
 "consultée. Ensuite, elle sera recherchée par défaut."
+
+#~ msgid "You can get your location on your city and between raining clouds"
+#~ msgstr ""
+#~ "Vous pouvez visualiser les nuages pluvieux à l'emplacement de votre ville"
+
+#~ msgid ""
+#~ "By activating your GPS, you can have directly the radar on the geolocated "
+#~ "city."
+#~ msgstr ""
+#~ "En activant votre GPS, vous pouvez avoir directement le radar de pluie de "
+#~ "la ville géolocalisée."
+
+#~ msgid "Check you Internet Connection"
+#~ msgstr "Vérifiez votre Connection Internet"
+
+#~ msgid "City marked as favorite."
+#~ msgstr "Ville marquée comme favori."
+
+#~ msgid "City not marked as favorite."
+#~ msgstr "Ville pas marquée comme favori."
+
+#~ msgid "Current Forecast / Forecasts"
+#~ msgstr "Prévision Courant / Prévisions"
+
+#~ msgid "First, enter your city name and click on it."
+#~ msgstr "Commencez par saisir le nom de votre ville et cliquez dessus."
+
+#~ msgid "Save your favourite cities"
+#~ msgstr "Sauvegardez vos villes préférées"
+
+#~ msgid ""
+#~ "You can also save your favourite cities to check them quicker from the "
+#~ "menu."
+#~ msgstr ""
+#~ "Vous pouvez sauvegarder mes villes favorites pour les consulter plus "
+#~ "rapidement depuis le menu."
 
 #~ msgid "date and time"
 #~ msgstr "date et heure"

@@ -1,9 +1,5 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// the 2nd parameter is an array of 'requires'
-
-cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'])
+var cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'])
 
     .run(function ($ionicPlatform, gettextCatalog, $localstorage) {
 
@@ -68,11 +64,12 @@ cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'gettext'
     .constant('$ionicLoadingConfig', {
         template: '<ion-spinner icon="spiral"></ion-spinner>'
     })
+    .constant('TIME_OUT', 5000)
     .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
     .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
+    // Replace thease commented lines for ionic serve --lab command !
     //.constant('BASE_URL_SEARCH_CITY', 'http://localhost:8100/api/en/server/search/query3?query=')
     //.constant('BASE_URL_GET_RADAR', 'http://localhost:8100/api/en/weather/forecast/week/')
-    .constant('TIME_OUT', 5000)
 
     .config(function ($stateProvider, $urlRouterProvider) {
 

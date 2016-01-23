@@ -1,26 +1,20 @@
 
-.slider {
-    /*height: 100%;*/
-/*    height: 600px; /* slider height i want */
+.divider-royal {
+    background-color: #673AB7;
 }
 
-.slider-slide {
-    /*height: 100%;*/
-}
-
-.image-intro-2-radars {
-    text-align: center;
-    padding: 0;
-}
-
-.image-intro-raining-left {
-    text-align: left;
-    padding: 0;
-    margin-bottom: -9px;
+.divider-royal h2 {
+    color: #fff !important;
 }
 
 .image-intro-raining-center {
     text-align: center;
+    padding: 0;
+    margin-bottom: -9px;
+}
+
+.image-intro-raining-left {
+    text-align: left;
     padding: 0;
     margin-bottom: -9px;
 }
@@ -31,34 +25,27 @@
     margin-bottom: -9px;
 }
 
-.image-intro-menu-geoloc, .image-intro-menu-fav {
-    text-align: center;
+.image-intro-menu-geoloc-left {
+    text-align: left;
     padding: 0;
 }
 
-.image-intro-menu-geoloc img {
-    width: 80%;
+.image-intro-menu-geoloc-right {
+    text-align: right;
+    padding: 0;
 }
 
-.image-intro-menu-fav img {
-    width: 70%;
-}
-
-.image-intro-raining-left img {
+.image-intro-menu-geoloc-left img, .image-intro-menu-geoloc-right img, .image-intro-raining-right img, .image-intro-raining-left img {
     width: 100%;
 }
 
-.image-intro-raining-right img, .image-intro-raining-center img {
+.image-intro-raining-center img {
     width: 42%;
-}
-
-.image-intro-2-radars img{
-    width: 60%;
 }
 
 .card-gallery-intro {
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .card-legend {
@@ -68,7 +55,7 @@
 }
 
 .card-legend img {
-    width: 100%;
+    width: 50%;
 }
 
 .row-legend-last {
@@ -96,4 +83,24 @@
         visibility: hidden;
         margin: -20px;
     }
+}
+
+/* legend list */
+.list-gps-features {
+    margin-left: 25px;
+    margin-top: 5px;
+}
+.list-gps-features ul {
+    list-style-image: url("../img/intro/back.png"); color:#3A0078; font-size:18px;
+}
+.list-gps-features ul li {
+    line-height:30px;
+}
+
+.vertical-divider {
+    height: 215px;
+}
+
+.slider-pager {
+    margin-bottom: -20px;
 }
