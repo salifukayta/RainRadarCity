@@ -9,6 +9,10 @@ To get this project working (ionic already installed with its dependencies) :
 - cordova plugin add cordova-plugin-geolocation
 - cordova plugin add cordova-plugin-globalization
 
+To create a plug-in
+- (cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git)
+- npm install -g plugman
+
 To add a translations:
 - npm install -g grunt-cli
 - npm install grunt --save-dev
