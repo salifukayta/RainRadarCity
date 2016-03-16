@@ -8,6 +8,9 @@ To get this project working (ionic already installed with its dependencies) :
 - cordova plugin add cordova-plugin-whitelist
 - cordova plugin add cordova-plugin-geolocation
 - cordova plugin add cordova-plugin-globalization
+- cordova plugin add cordova-plugin-x-socialsharing
+- cordova plugin add cordova-plugin-x-toast
+- cordova prepare
 
 To create a plug-in
 - (cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git)
