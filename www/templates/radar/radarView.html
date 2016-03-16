@@ -1,6 +1,9 @@
 <ion-view view-title="{{'Rain Radar'|translate}}">
 
     <ion-nav-buttons side="secondary">
+        <button class="button icon ion-android-share-alt btn-share button-energized"
+                ng-show="radarCtrl.city !== null" ng-click="radarCtrl.shareRadar()">
+        </button>
         <button class="button icon ion-refresh btn-refresh button-assertive" ng-click="radarCtrl.refreshRadar()">
         </button>
         <button class="button icon button-royal" ng-class="radarCtrl.isFavorite ? 'ion-android-favorite' : 'ion-android-favorite-outline'"
@@ -11,7 +14,7 @@
     <ion-content>
         <div class="list card">
 
-            <div class="item item-text-wrap error" ng-hide="radarCtrl.error == null">
+            <div class="item item-text-wrap error enter-error headShake-error animated infinite" ng-if="radarCtrl.error != null">
                 {{radarCtrl.error}}
             </div>
 

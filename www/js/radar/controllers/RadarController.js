@@ -3,9 +3,11 @@
  */
 'use strict';
 
-cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$interval', '$ionicLoading', '$ionicPlatform', '$localstorage',
-    'radarService', 'cityGeolocService', 'cityPassService',
-    function ($scope, $stateParams, $state, $interval, $ionicLoading, $ionicPlatform, $localstorage, radarService, cityGeolocService, cityPassService) {
+cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '$ionicLoading', '$ionicPlatform', '$localstorage',
+    '$ionicPopup', '$cordovaSocialSharing', '$cordovaToast', 'gettextCatalog', 'radarService', 'cityGeolocService',
+    'cityPassService', 'moment', 'RAIN_RADAR_CITY_PLAY_STORE_URL',
+    function ($scope, $stateParams, $interval, $ionicLoading, $ionicPlatform, $localstorage, $ionicPopup, $cordovaSocialSharing,
+              $cordovaToast, gettextCatalog, radarService, cityGeolocService, cityPassService, moment, RAIN_RADAR_CITY_PLAY_STORE_URL) {
 
         var _this = this;
         this.city = null;
@@ -19,6 +21,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
         this.stopNextCountry = null;
         this.isPaused = false;
         this.radarImgWidth = -1;
+        this.choiceRadarToShare = "city";
         this.radar = {
             country: [],
             city: []
@@ -104,13 +107,11 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
                 .then(function (data) {
                     $ionicLoading.hide();
                     _this.radar = data;
-                    if (_this.radar.country.length != 0) {
-                        _this.isNoDataAvailable = false;
+                    _this.isNoDataAvailable = _this.radar.country.length == 0;
+                    if (!_this.isNoDataAvailable) {
                         initIndex();
                         nexPicture();
                         _this.stopNextPicture = $interval(nexPicture, 3000);
-                    } else {
-                        _this.isNoDataAvailable = true;
                     }
                 })
                 .catch(function (err) {
@@ -182,18 +183,78 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$state', '$in
         });
 
         this.pause = function () {
+            _this.isPaused = !_this.isPaused;
             if (_this.isPaused) {
+                $interval.cancel(_this.stopNextPicture);
+            } else {
                 nexPicture();
                 _this.stopNextPicture = $interval(nexPicture, 3000);
-            } else {
-                $interval.cancel(_this.stopNextPicture);
             }
-            _this.isPaused = !_this.isPaused;
+        };
+
+        function doShareRadarGif(choiceRadarToShare) {
+            var space = " ";
+            var shareMsg = gettextCatalog.getString("Rain Radar of") + space;
+            var radarsToShare;
+            if (choiceRadarToShare === "city") {
+                shareMsg = shareMsg + _this.city.name + space;
+                radarsToShare = _this.radar.city;
+            } else {
+                shareMsg = shareMsg + _this.city.country + space;
+                radarsToShare = _this.radar.country;
+            }
+            shareMsg = shareMsg + gettextCatalog.getString("on") + space + moment().format('LLLL') + ".";
+            console.log("shareMsg: ", shareMsg);
+            radarService.createGif(radarsToShare)
+                .then(function (radarsGif) {
+                    $cordovaSocialSharing.share(shareMsg, shareMsg, radarsGif, RAIN_RADAR_CITY_PLAY_STORE_URL)
+                        .then(function (result) {
+                            $cordovaToast.showLongBottom(gettextCatalog.getString('Sharing Done'));
+                        });
+                })
+                .catch(function (err) {
+                    $cordovaToast.showLongBottom(err);
+                });
+        }
+
+        this.shareRadar = function () {
+            if (_this.radar.city.length == 0) {
+                _this.choiceRadarToShare = "country";
+                doShareRadarGif(_this.choiceRadarToShare);
+            } else {
+                var popupShareRadar = $ionicPopup.show({
+                    title: gettextCatalog.getString('Which Rain Radar View do you want to share ?'),
+                    //subTitle: 'Please use normal things',
+                    scope: $scope,
+                    templateUrl: 'templates/radar/shareRadarPopup.html',
+                    buttons: [
+                        {
+                            text: gettextCatalog.getString('Cancel'),
+                            type: ' button-assertive',
+                            onTap: function (e) {
+                                return false;
+                            }
+                        },
+                        {
+                            text: '<b>' + gettextCatalog.getString('Share') + '</b>',
+                            type: 'button-positive',
+                            onTap: function (e) {
+                                return true;
+                            }
+                        }
+                    ]
+                });
+                popupShareRadar.then(function (result) {
+                    if (result === true) {
+                        doShareRadarGif(_this.choiceRadarToShare);
+                    }
+                });
+            }
         };
 
         $ionicPlatform.onHardwareBackButton(function () {
             $ionicLoading.hide();
         });
 
-    }
+    },
 ]);

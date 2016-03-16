@@ -16,7 +16,6 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
             // To work on device or by emulating on navigator
             if (imgUrl.indexOf(FILE) == 0 || radar.country[0] === undefined) {
                 return HTTPS + imgUrl.substr(7, imgUrl.length);
-            //} else if (radar.country.length != 0) {
             } else {
                 return radar.country[0].substr(0, radar.country[0].length - 5) + indexCountryRadar + JPG;
             }
@@ -66,7 +65,24 @@ cloudApp.factory('radarService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_GET
                         deferred.reject(gettextCatalog.getString('Check your Internet Connection'));
                     });
                 return deferred.promise;
-            }
+            },
+            createGif: function (radarsImgs) {
+                var deferred = $q.defer();
+                gifshot.createGIF({
+                    'images': radarsImgs,
+                    'interval': 1,
+                    //'text': "Rain Radar City",
+                }, function(result) {
+                    if(!result.error) {
+                        deferred.resolve(result.image);
+                    } else if (radarsImgs.length > 0) {
+                        deferred.resolve(radarsImgs);
+                    } else {
+                        deferred.reject(gettextCatalog.getString('Share Rain Radar failed'));
+                    }
+                });
+                return deferred.promise;
+            },
         };
     }
 ]);

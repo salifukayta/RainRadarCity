@@ -4,16 +4,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: www/templates/menu.html:34
+#: www/templates/menu.html:37
 msgid "About"
 msgstr ""
 
 #: www/templates/about/about.html:1
-msgid "About Raining Radar"
+msgid "About Rain Radar City"
 msgstr ""
 
-#: www/templates/intro/intro.html:101
+#: www/templates/intro/intro.html:106
 msgid "By activating your GPS :"
+msgstr ""
+
+#: www/templates/msgs.html:10
+msgid "Cancel"
 msgstr ""
 
 #: www/templates/msgs.html:2
@@ -32,11 +36,11 @@ msgstr ""
 msgid "City not Found"
 msgstr ""
 
-#: www/templates/intro/intro.html:48
+#: www/templates/intro/intro.html:53
 msgid "Consult Rain Radar"
 msgstr ""
 
-#: www/templates/intro/intro.html:61
+#: www/templates/intro/intro.html:66
 msgid "Date and Time"
 msgstr ""
 
@@ -44,16 +48,16 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: www/templates/intro/intro.html:33
-msgid "First, enter your city name then click on it."
-msgstr ""
-
-#: www/templates/intro/intro.html:67
+#: www/templates/intro/intro.html:72
 msgid "Forecast index / All"
 msgstr ""
 
 #: www/templates/menu.html:28
 msgid "Geolocation"
+msgstr ""
+
+#: www/templates/menu.html:34
+msgid "Help"
 msgstr ""
 
 #: www/templates/intro/intro.html:8
@@ -69,15 +73,19 @@ msgid "Menu"
 msgstr ""
 
 #: www/templates/intro/intro.html:14
-msgid "Next slides shows the main functionalities of Rain Radar City."
+msgid "Next slides shows the main features of Rain Radar City."
 msgstr ""
 
-#: www/templates/radar/radarView.html:18
+#: www/templates/radar/radarView.html:21
 msgid "No data for the city {{radarCtrl.city.name}}."
 msgstr ""
 
 #: www/templates/cities/favorites.html:4
 msgid "No favorite cities"
+msgstr ""
+
+#: www/templates/msgs.html:18
+msgid "on"
 msgstr ""
 
 #: www/templates/menu.html:31
@@ -86,19 +94,23 @@ msgid "Option"
 msgstr ""
 
 #: www/templates/radar/radarView.html:1
+#: www/templates/radar/shareRadarPopup.html:7
+#: www/templates/radar/shareRadarPopup.html:9
 msgid "Rain Radar"
 msgstr ""
 
-#: www/templates/about/about.html:4
-msgid "Rain Radar City uses data from meteoblue.com. This app simplifies and facilitates the use of the map of raining clouds."
+#: www/templates/about/about.html:5
+msgid "Rain Radar City uses data from meteoblue.com."
 msgstr ""
 
-#: www/templates/intro/intro.html:55
+#: www/templates/msgs.html:16
+msgid "Rain Radar of"
+msgstr ""
+
+#: www/templates/intro/intro.html:60
 msgid "Raining Clouds"
 msgstr ""
 
-#: www/templates/cities/citiesList.html:1
-#: www/templates/intro/intro.html:31
 #: www/templates/menu.html:22
 msgid "Search City"
 msgstr ""
@@ -111,11 +123,19 @@ msgstr ""
 msgid "Select the most viewed city. It will be searched by default on app launch."
 msgstr ""
 
-#: www/templates/intro/intro.html:121
+#: www/templates/msgs.html:12
+msgid "Share"
+msgstr ""
+
+#: www/templates/msgs.html:14
+msgid "Sharing Done"
+msgstr ""
+
+#: www/templates/intro/intro.html:126
 msgid "Start Search City"
 msgstr ""
 
-#: www/templates/intro/intro.html:17
+#: www/templates/intro/intro.html:18
 msgid "Swipe left to move to the next page."
 msgstr ""
 
@@ -123,15 +143,23 @@ msgstr ""
 msgid "The most viewed city is"
 msgstr ""
 
-#: www/templates/intro/intro.html:96
+#: www/templates/about/about.html:9
+msgid "This is a fast, easy-to-use application that displays animated rain radar around your current city, allowing you to see quickly if rain is coming around in the next hour."
+msgstr ""
+
+#: www/templates/intro/intro.html:101
 msgid "Use GPS to Geolocate your city"
 msgstr ""
 
-#: www/templates/intro/intro.html:104
+#: www/templates/msgs.html:8
+msgid "Which Rain Radar View do you want to share ?"
+msgstr ""
+
+#: www/templates/intro/intro.html:109
 msgid "You can have directly the forecast radar on the geolocated city."
 msgstr ""
 
-#: www/templates/intro/intro.html:105
+#: www/templates/intro/intro.html:110
 msgid "You can view your location in a city and the rain clouds around you"
 msgstr ""
 

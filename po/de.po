@@ -1,46 +1,42 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"X-Generator: Poedit 1.8.4\n"
 "Last-Translator: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language-Team: \n"
 "Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: www/templates/menu.html:34
+#: www/templates/menu.html:37
 msgid "About"
 msgstr "über"
 
 #: www/templates/about/about.html:1
-msgid "About Raining Radar"
-msgstr "über den regnenden Radar"
+msgid "About Rain Radar City"
+msgstr "Über Rain Radar City"
 
-#: www/templates/intro/intro.html:215
-msgid ""
-"By activating your GPS, you can have directly the radar on the geolocated "
-"city."
-msgstr ""
-"Indem Sie Ihren GPS aktivieren, können Sie direkt den Radar auf der "
-"geolocalisierten Stadt haben."
+#: www/templates/intro/intro.html:106
+msgid "By activating your GPS :"
+msgstr "Durch die Aktivierung Ihres GPS :"
 
-#: www/templates/msgs.html:4
-msgid "Check you Internet Connection"
-msgstr "Überprüfen Sie Ihre Internetverbindung"
+#: www/templates/msgs.html:10
+msgid "Cancel"
+msgstr "Stornieren"
 
 #: www/templates/msgs.html:2
 msgid "Check your GPS"
 msgstr "Überprüfen Sie Ihre GPS"
 
-#: www/templates/intro/intro.html:191
-msgid "City marked as favorite."
-msgstr "Als Liebling gekennzeichnete Stadt."
+#: www/templates/msgs.html:4
+msgid "Check your Internet Connection"
+msgstr "Prüfe deine Internetverbindung"
 
-#: www/templates/cities/citiesList.html:11
+#: www/templates/cities/citiesList.html:13
 msgid "City Name"
 msgstr "Stadtname"
 
@@ -48,19 +44,11 @@ msgstr "Stadtname"
 msgid "City not Found"
 msgstr "Nicht gefundene Stadt"
 
-#: www/templates/intro/intro.html:199
-msgid "City not marked as favorite."
-msgstr "Nicht als Liebling gekennzeichnete Stadt."
-
-#: www/templates/intro/intro.html:49 www/templates/intro/intro.html:64
+#: www/templates/intro/intro.html:53
 msgid "Consult Rain Radar"
 msgstr "Sehen Sie Regenradar nach"
 
-#: www/templates/intro/intro.html:109
-msgid "Current Forecast / Forecasts"
-msgstr "Aktuelle Prognose / Prognosen"
-
-#: www/templates/intro/intro.html:103
+#: www/templates/intro/intro.html:66
 msgid "Date and Time"
 msgstr "Datum und Zeit"
 
@@ -68,19 +56,23 @@ msgstr "Datum und Zeit"
 msgid "Favorites"
 msgstr "Lieblinge"
 
-#: www/templates/intro/intro.html:34
-msgid "First, enter your city name and click on it."
-msgstr "Erstens , geben Sie Ihren Stadtnamen ein und klicken Sie darauf."
+#: www/templates/intro/intro.html:72
+msgid "Forecast index / All"
+msgstr "Forecast Index / All"
 
 #: www/templates/menu.html:28
 msgid "Geolocation"
 msgstr "Geolocation"
 
-#: www/templates/intro/intro.html:9
+#: www/templates/menu.html:34
+msgid "Help"
+msgstr "Hilfe"
+
+#: www/templates/intro/intro.html:8
 msgid "Introduction"
 msgstr "Einleitung"
 
-#: www/templates/intro/intro.html:12
+#: www/templates/intro/intro.html:11
 msgid ""
 "Let's begin with a presentation that explains how to use this application."
 msgstr ""
@@ -91,11 +83,11 @@ msgstr ""
 msgid "Menu"
 msgstr "Menü"
 
-#: www/templates/intro/intro.html:15
-msgid "Next slides shows the main functionalities of Rain Radar City."
+#: www/templates/intro/intro.html:14
+msgid "Next slides shows the main features of Rain Radar City."
 msgstr "Folgendes Gleiten zeigt die Hauptfunktionalitäten der Regenradarstadt."
 
-#: www/templates/radar/radarView.html:18
+#: www/templates/radar/radarView.html:21
 msgid "No data for the city {{radarCtrl.city.name}}."
 msgstr "Keine Daten für die Stadt {{radarCtrl. city. name}}."
 
@@ -103,31 +95,32 @@ msgstr "Keine Daten für die Stadt {{radarCtrl. city. name}}."
 msgid "No favorite cities"
 msgstr "Keine lieblinge Städte"
 
+#: www/templates/msgs.html:18
+msgid "on"
+msgstr "auf"
+
 #: www/templates/menu.html:31 www/templates/option/option.html:1
 msgid "Option"
 msgstr "Option"
 
 #: www/templates/radar/radarView.html:1
+#: www/templates/radar/shareRadarPopup.html:7
+#: www/templates/radar/shareRadarPopup.html:9
 msgid "Rain Radar"
-msgstr "Regenradar"
+msgstr "Rain Radar"
 
-#: www/templates/about/about.html:4
-msgid ""
-"Rain Radar City uses data from meteoblue.com. This app simplifies and "
-"facilitates the use of the map of raining clouds."
-msgstr ""
-"Regenradarstadt verwendet Daten von meteoblue. com. Dieser app vereinfacht "
-"und erleichtert den Gebrauch der Karte von regnenden Wolken."
+#: www/templates/about/about.html:5
+msgid "Rain Radar City uses data from meteoblue.com."
+msgstr "Rain Radar City verwendet Daten von meteoblue.com."
 
-#: www/templates/intro/intro.html:97
+#: www/templates/msgs.html:16
+msgid "Rain Radar of"
+msgstr "regen Radar von"
+
+#: www/templates/intro/intro.html:60
 msgid "Raining Clouds"
 msgstr "Regnende Wolken"
 
-#: www/templates/intro/intro.html:180
-msgid "Save your favourite cities"
-msgstr "Speichern Sie Ihre Lieblingsstädte"
-
-#: www/templates/cities/citiesList.html:1 www/templates/intro/intro.html:32
 #: www/templates/menu.html:22
 msgid "Search City"
 msgstr "Suchen Sie Stadt"
@@ -143,7 +136,15 @@ msgstr ""
 "Wählen Sie die am meisten angesehene Stadt aus. Es wird standardmäßig auf "
 "dem App-Start gesucht."
 
-#: www/templates/intro/intro.html:223
+#: www/templates/msgs.html:12
+msgid "Share"
+msgstr "Aktie"
+
+#: www/templates/msgs.html:14
+msgid "Sharing Done"
+msgstr "Teilung angeht"
+
+#: www/templates/intro/intro.html:126
 msgid "Start Search City"
 msgstr "Fangen Sie Suchstadt an"
 
@@ -155,16 +156,33 @@ msgstr "Schlagen Sie Links drein, um sich zur folgenden Seite zu bewegen."
 msgid "The most viewed city is"
 msgstr "Die am meisten angesehene Stadt ist"
 
-#: www/templates/intro/intro.html:211
+#: www/templates/about/about.html:9
+msgid ""
+"This is a fast, easy-to-use application that displays animated rain radar "
+"around your current city, allowing you to see quickly if rain is coming "
+"around in the next hour."
+msgstr ""
+"Dies ist eine schnelle, einfach zu bedienende Anwendung, die zeigt animierte "
+"Regen Radar um deine aktuelle Stadt, so dass Sie schnell zu erkennen, wenn "
+"der Regen kommt um in der nächsten Stunde."
+
+#: www/templates/intro/intro.html:101
 msgid "Use GPS to Geolocate your city"
 msgstr "Verwenden Sie GPS ,um Ihre Stadt zu localisieren"
 
-#: www/templates/intro/intro.html:182
-msgid ""
-"You can also save your favourite cities to check them quicker from the menu."
+#: www/templates/msgs.html:8
+msgid "Which Rain Radar View do you want to share ?"
+msgstr "Welche Radar Regen werden Sie teilen ?"
+
+#: www/templates/intro/intro.html:109
+msgid "You can have directly the forecast radar on the geolocated city."
+msgstr "Sie können direkt auf dem geolocated Stadt die Prognose Radar haben."
+
+#: www/templates/intro/intro.html:110
+msgid "You can view your location in a city and the rain clouds around you"
 msgstr ""
-"Sie können auch Ihre Lieblingsstädte speichern, um sie schneller aus dem "
-"Menü zu überprüfen."
+"Sie können Ihren Standort in der Stadt und den regen Wolken um Sie herum "
+"sehen"
 
 #: www/templates/option/option.html:12
 msgid ""
@@ -173,3 +191,58 @@ msgid ""
 msgstr ""
 "Sie müssen Lieblingsstädte vor der Auswahl der am meisten angesehenen "
 "hinzufügen. Dann wird es standardmäßig gesucht."
+
+#~ msgid "About Raining Radar"
+#~ msgstr "über den regnenden Radar"
+
+#~ msgid "First, enter your city name then click on it."
+#~ msgstr "Zunächst Ihren Stadtnamen geben Sie darauf klicken."
+
+#~ msgid "Show intro for basics"
+#~ msgstr "Zeigen Intro für Grundlagen"
+
+#~ msgid "Next slides shows the main functionalities of Rain Radar City."
+#~ msgstr ""
+#~ "Folgendes Gleiten zeigt die Hauptfunktionalitäten der Regenradarstadt."
+
+#~ msgid ""
+#~ "Rain Radar City uses data from meteoblue.com. This app simplifies and "
+#~ "facilitates the use of the map of raining clouds."
+#~ msgstr ""
+#~ "Rain Radar verwendet Daten von meteoblue. com. Dieser app vereinfacht und "
+#~ "erleichtert den Gebrauch der Karte von regnenden Wolken."
+
+#~ msgid "of"
+#~ msgstr "von"
+
+#~ msgid ""
+#~ "By activating your GPS, you can have directly the radar on the geolocated "
+#~ "city."
+#~ msgstr ""
+#~ "Indem Sie Ihren GPS aktivieren, können Sie direkt den Radar auf der "
+#~ "geolocalisierten Stadt haben."
+
+#~ msgid "Check you Internet Connection"
+#~ msgstr "Überprüfen Sie Ihre Internetverbindung"
+
+#~ msgid "City marked as favorite."
+#~ msgstr "Als Liebling gekennzeichnete Stadt."
+
+#~ msgid "City not marked as favorite."
+#~ msgstr "Nicht als Liebling gekennzeichnete Stadt."
+
+#~ msgid "Current Forecast / Forecasts"
+#~ msgstr "Aktuelle Prognose / Prognosen"
+
+#~ msgid "First, enter your city name and click on it."
+#~ msgstr "Erstens , geben Sie Ihren Stadtnamen ein und klicken Sie darauf."
+
+#~ msgid "Save your favourite cities"
+#~ msgstr "Speichern Sie Ihre Lieblingsstädte"
+
+#~ msgid ""
+#~ "You can also save your favourite cities to check them quicker from the "
+#~ "menu."
+#~ msgstr ""
+#~ "Sie können auch Ihre Lieblingsstädte speichern, um sie schneller aus dem "
+#~ "Menü zu überprüfen."

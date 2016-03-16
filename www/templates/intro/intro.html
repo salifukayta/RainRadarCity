@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="{{introCtrl.hideNavBar()}}">
     <ion-content>
         <ion-slide-box show-pager="true" pager-click="introCtrl.goToPage(index)">
 
@@ -11,10 +11,15 @@
                         <div translate>Let's begin with a presentation that explains how to use this application.</div>
                         <br>
 
-                        <div translate>Next slides shows the main functionalities of Rain Radar City.</div>
+                        <div translate>Next slides shows the main features of Rain Radar City.</div>
                         <br>
 
-                        <div translate>Swipe left to move to the next page.</div>
+                        <div>
+                            <translate class="item-text-position-with-img">
+                                Swipe left to move to the next page.
+                            </translate>
+                            <img src="img/intro/swipe-left.png">
+                        </div>
                     </div>
                 </div>
 
@@ -25,25 +30,25 @@
                 </div>
             </ion-slide>
 
-            <ion-slide>
-                <div class="card">
-                    <div class="item item-divider divider-royal">
-                        <h2 class="center" translate>Search City</h2>
-                    </div>
-                    <div class="item item-text-wrap" translate>
-                        First, enter your city name then click on it.
-                    </div>
-                </div>
+            <!--<ion-slide>-->
+                <!--<div class="card">-->
+                    <!--<div class="item item-divider divider-royal">-->
+                        <!--<h2 class="center" translate>Search City</h2>-->
+                    <!--</div>-->
+                    <!--<div class="item item-text-wrap" translate>-->
+                        <!--First, enter your city name then click on it.-->
+                    <!--</div>-->
+                <!--</div>-->
 
-                <div class="card">
-                    <div class="item item-image">
-                        <img src="img/intro/citiesList.png">
-                    </div>
-                </div>
-            </ion-slide>
+                <!--<div class="card">-->
+                    <!--<div class="item item-image">-->
+                        <!--<img src="img/intro/citiesList.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</ion-slide>-->
 
             <ion-slide>
-                <div class="card card-gallery-intro">
+                <div class="card first-card-gallery-intro">
                     <div class="item item-divider divider-royal">
                         <h2 class="center" translate>Consult Rain Radar</h2>
                     </div>
@@ -118,9 +123,9 @@
                         </div>
                     </div>
                 </div>
-                    <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities"
-                            ng-click="introCtrl.startApp()" translate>
-                        Start Search City
+                <button id="0" class="button button-block button-full button-positive" ui-sref="app.cities"
+                        ng-click="introCtrl.startApp()" translate>
+                    Start Search City
                 </button>
             </ion-slide>
 

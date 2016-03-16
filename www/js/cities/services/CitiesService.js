@@ -3,7 +3,8 @@
  */
 'use strict';
 
-cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', 'TIME_OUT', function ($q, $http, gettextCatalog, BASE_URL_SEARCH_CITY, TIME_OUT) {
+cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', 'TIME_OUT',
+    function ($q, $http, gettextCatalog, BASE_URL_SEARCH_CITY, TIME_OUT) {
         var serviceAPI = {
             search: function (cityToSearch) {
                 var deferred = $q.defer();
@@ -21,11 +22,6 @@ cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SE
             },
             reverseCoding: function (position) {
                 var deferred = $q.defer();
-                if (angular.isUndefined(google)) {
-                    console.error("google is undefined");
-                    deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
-                    return deferred.promise;
-                }
                 var geocoder = new google.maps.Geocoder();
                 var LatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
                 // get reverse geo-coding for city name

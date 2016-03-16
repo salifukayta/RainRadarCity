@@ -4,9 +4,16 @@
 
 'use strict';
 
-cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', 'citiesService', 'gettextCatalog', 'TIME_OUT',
-    function ($q, $ionicPlatform, $cordovaGeolocation, citiesService, gettextCatalog, TIME_OUT) {
+cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', '$cordovaGeolocationWifi', 'citiesService',
+        'lazyLaodingService', 'gettextCatalog', 'TIME_OUT',
+    function ($q, $ionicPlatform, $cordovaGeolocation, $cordovaGeolocationWifi, citiesService, lazyLaodingService, gettextCatalog, TIME_OUT) {
 
+        /**
+         * Return cityToSearch information
+         *
+         * @param cityToSearch
+         * @param callback
+         */
         function getCityInformation(cityToSearch, callback) {
             // get city information for raining radar
             citiesService.searchOne(cityToSearch.name, cityToSearch.country, false)
@@ -19,12 +26,49 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
         }
 
+        function verifyGoogleMapLoaded() {
+            var deferred = $q.defer();
+            // reLoad google map api if not loaded
+            if (typeof google === "undefined") {
+                console.error("google is undefined");
+                lazyLaodingService.lazyLoadGoogleMapApi()
+                    .then(function(res) {
+                        console.log(res);
+                        if (typeof google === "undefined") {
+                            deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
+                        } else {
+                            deferred.resolve("google api loaded successfully");
+                        }
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                        deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
+                    });
+            } else {
+                deferred.resolve("google api loaded successfully");
+            }
+            return deferred.promise;
+        }
+
+        /**
+         * Return the address of a city by gps location
+         *
+         * @param position
+         * @param callback
+         */
         function getReverseGeoCoding(position, callback) {
-            // get reverse geo-coding for city name
-            citiesService.reverseCoding(position)
-                .then(function (cityToSearch) {
-                    cityToSearch.coords = position.coords;
-                    callback(null, cityToSearch);
+            verifyGoogleMapLoaded()
+                .then(function () {
+                    // get reverse geo-coding for city name
+                    citiesService.reverseCoding(position)
+                        .then(function (cityToSearch) {
+                            cityToSearch.coords = position.coords;
+                            callback(null, cityToSearch);
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                            callback(err, null);
+                        });
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -32,9 +76,33 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
         }
 
+        /**
+         * Get the user current position, get position geo-localisation
+         *
+         * @param x
+         * @param callback
+         */
         function getCurrentPosition(x, callback) {
-            // get position geo-localisation
             //test enableHighAccuracy test to true ?
+
+            //FIXME not finished and/or not to be finish, not working and may be will never
+            //$cordovaGeolocationWifi.getCurrentPosition(
+            //    function (position) {
+            //        callback(null, position);
+            //    }, function (err) {
+            //        console.log(err.message);
+            //        callback(gettextCatalog.getString("Check your GPS"), null);
+            //    }, {timeout: TIME_OUT, enableHighAccuracy: false});
+
+            //$cordovaGeolocationWifi.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
+            //    .then(function (position) {
+            //        console.log("success :)");
+            //        callback(null, position);
+            //    }, function (err) {
+            //        console.log(err.message);
+            //        callback(gettextCatalog.getString("Check your GPS"), null);
+            //    });
+
             $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
                 .then(function (position) {
                     callback(null, position);
@@ -44,6 +112,14 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
         }
 
+        /**
+         * Return the projection of the location of user from the map to the image radar
+         *
+         * @param userLocationOnMap
+         * @param cityLocationOnMap
+         * @param cityLocationOnRadar
+         * @returns {{x: number, y: number}}
+         */
         function projectionOnRadar(userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
             return {
                 x: cityLocationOnRadar.x + cityLocationOnMap.lon - userLocationOnMap.longitude,

@@ -1,12 +1,16 @@
-
-.btn-refresh {
+/* Margin right for header btns*/
+.btn-share, .btn-refresh {
     margin-right: 10px;
 }
+/* -------------------- */
 
+/* Transparency used for play/pause imgs to show when we do play/pause the animation*/
 .transparent {
     opacity: 0;
 }
+/* -------------------- */
 
+/* Animate the play/pause imgs */
 .animate-play {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -19,10 +23,6 @@
     animation-duration: 3s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-}
-
-.card-block {
-    position: relative;
 }
 
 @-webkit-keyframes fadeIn {
@@ -41,9 +41,6 @@
 }
 
 @keyframes fadeIn {
-/*    0% {opacity: 0;}
-    100% {opacity: 1;}
-    */
     0% {
         opacity: 0;
     }
@@ -89,4 +86,10 @@
         width: 100%;
         margin-top: -650px;
     }
+}
+/* -------------------- */
+
+/* Relative position for play/pause imgs */
+.card-block {
+    position: relative;
 }

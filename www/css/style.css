@@ -1,19 +1,188 @@
-.center{
-    text-align:center;
+/* error animate */
+.enter-error {
+    -webkit-transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -moz-transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -ms-transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    -o-transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    position: relative;
 }
 
-.loading-container .loading {
-    background-color: inherit;
+.enter-error.ng-leave.enter-error.ng-leave-active,
+.enter-error.ng-enter {
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    transform: scaleY(0);
+    height: 0px;
+    opacity: 0;
 }
 
+.enter-error.ng-enter.enter-error.ng-enter-active,
+.enter-error.ng-leave {
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+    height: 41px;
+    opacity: 1;
+}
+
+.headShake-error {
+    -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-name: headShake;
+    animation-name: headShake;
+
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-delay: 1000ms;
+    animation-delay: 1000ms;
+}
+
+/* --------------------------- */
+
+/* list items animate */
+.item-animate.ng-enter {
+    -webkit-animation: enter 500ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: enter 500ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    display: block;
+    position: relative;
+}
+@-webkit-keyframes enter {
+    from {
+        opacity: 0;
+        height: 0px;
+        left: -70px;
+    }
+    75% {
+        left: 15px;
+    }
+    to {
+        opacity: 1;
+        height: 54px;
+        left: 0px;
+    }
+}
+@keyframes enter {
+    from {
+        opacity: 0;
+        height: 0px;
+        left: -70px;
+    }
+    75% {
+        left: 15px;
+    }
+    to {
+        opacity: 1;
+        height: 54px;
+        left: 0px;
+    }
+}
+
+.item-animate.ng-leave {
+    -webkit-animation: leave 500ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave 500ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    display: block;
+    position: relative;
+}
+@-webkit-keyframes leave {
+    to {
+        opacity: 0;
+        height: 0px;
+        left: -70px;
+    }
+    25% {
+        left: 15px;
+    }
+    from {
+        opacity: 1;
+        height: 54px;
+        left: 0px;
+    }
+}
+@keyframes leave {
+    to {
+        opacity: 0;
+        height: 0px;
+        left: -70px;
+    }
+    25% {
+        left: 15px;
+    }
+    from {
+        opacity: 1;
+        height: 54px;
+        left: 0px;
+    }
+}
+/* --------------------------- */
+
+/* radio btns (shareRadarPopup) */
+.list .item-radio input:checked ~ .item-content, .list .item-radio .item-content    {
+    background-color: #6b46e5;
+    color: white;
+}
+
+.list .item-radio ~ .item-content, .list .item-radio .item-content    {
+    background-color: white;
+    color: black;
+}
+
+.list .item-radio .radio-icon {
+    color: white;
+}
+/* --------------------------- */
+
+/* Error text style */
 .error {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 15px;
     text-transform: uppercase;
     color: #F00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-height: 50px;
+}
+/*
+.errorimate-enter, .errorimate-leave {
+     -webkit-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     -moz-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     -ms-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     -o-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     position: relative;
+     display: block;
 }
 
-/** Value Color **/
+.errorimate-leave.errorimate-leave-active, .errorimate-enter {
+    -webkit-transform: scaleY(0);
+    -moz-transform: scaleY(0);
+    -ms-transform: scaleY(0);
+    -o-transform: scaleY(0);
+    transform: scaleY(0);
+    height: 0px;
+    opacity: 0;
+}
+
+.errorimate-enter.errorimate-enter-active, .errorimate-leave {
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1);
+    height: 30px;
+    opacity: 1;
+}*/
+/* --------------------------- */
+
+/* Meter-bar (timebar for radarView) */
 .value-meter-bar {
     margin-top: -15px;
     color: #2C3E50 !important;
@@ -36,9 +205,6 @@ meter::-webkit-meter-bar {
     background-color: whiteSmoke;
 
     border: 0px solid;
-    /*border: 1px solid #ccc;*/
-    /*border-radius: 7px; /!* 10px *!/*/
-    /*box-shadow: 0 5px 5px -5px #333 inset;*/
 }
 
 meter::-webkit-meter-optimum-value {
@@ -58,32 +224,14 @@ meter::-webkit-meter-optimum-value {
 @keyframes animate-stripes {
     to { background-position: -50px 0; }
 }
+/* --------------------------- */
 
-.ion-checkmark:before {
-    color: forestgreen;
-}
+ /* Loding view */
+ .loading-container .loading {
+     background-color: inherit;
+ }
+ /* --------------------------- */
 
-.has-bottom .scroll{
-    padding-bottom:150px !important;
-}
-
-.fixed-outside{
-    position: absolute;
-    bottom: 0;
-    color:white;
-    width: 100%;
-    height:  120px;
-    text-align:center;
-}
-
-.fixed-footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%
-}
-
-.search-input {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-right: 10px;
-}
+ .has-bottom .scroll{
+     padding-bottom:150px !important;
+ }

@@ -12793,6 +12793,8 @@ function createInjector(modulesToLoad, strictDi) {
 
       try {
         if (isString(module)) {
+//          console.log("1");
+//          console.log(module);
           moduleFn = angularModule(module);
           runBlocks = runBlocks.concat(loadModules(moduleFn.requires)).concat(moduleFn._runBlocks);
           runInvokeQueue(moduleFn._invokeQueue);
@@ -12805,6 +12807,8 @@ function createInjector(modulesToLoad, strictDi) {
           assertArgFn(module, 'module');
         }
       } catch (e) {
+        //console.log("erroooooooor start");
+        //console.log(module);
         if (isArray(module)) {
           module = module[module.length - 1];
         }

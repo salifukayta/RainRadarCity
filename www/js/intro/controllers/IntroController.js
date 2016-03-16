@@ -7,7 +7,11 @@
 cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$ionicScrollDelegate', '$location', '$state',
     function ($scope, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $ionicScrollDelegate, $location, $state) {
 
-        this.startApp = function() {
+        this.hideNavBar = function () {
+            return !$localstorage.getBoolean("initDone_2.0");
+        };
+
+        this.startApp = function () {
             $ionicHistory.nextViewOptions({
                 disableBack: true
             });
@@ -28,5 +32,8 @@ cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorag
 //            $ionicScrollDelegate.scrollBottom(true);
         };
 
+        $scope.$on('$ionicView.beforeEnter', function () {
+            $ionicSlideBoxDelegate.slide(0);
+        });
     }
 ]);

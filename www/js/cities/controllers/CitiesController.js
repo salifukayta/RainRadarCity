@@ -1,12 +1,17 @@
 /** CitiesController **/
 'use strict';
 
-cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', 'cityPassService',
-    function ($scope, $state, $localstorage, citiesService, cityPassService) {
+cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', 'cityPassService', 'gettextCatalog',
+    function ($scope, $state, $localstorage, citiesService, cityPassService, gettextCatalog) {
         var _this = this;
         this.cities = [];
         this.error = null;
         this.cityToSearch = "";
+
+
+        // Due to a problem during the first translation of the header of the first view, we do it manually
+        this.searchCityTranslated = gettextCatalog.getString("Search City");
+
 
         this.goTo = function (city) {
             cityPassService.set(city);
@@ -21,8 +26,8 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
                 console.log("city to search");
                 console.log(this.cityToSearch);
                 citiesService.search(this.cityToSearch)
-                    .then(function (cities) {
-                        _this.cities = cities;
+                    .then(function (newCities) {
+                        _this.cities = newCities;
                     })
                     .catch(function (err) {
                         _this.error = err;
@@ -37,7 +42,7 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
         };
 
         function initCitiesList() {
-            if ($localstorage.get('mostViewedCity') != null) {
+            if ($localstorage.get('mostViewedCity') !== null) {
                 console.log($localstorage.getObject('mostViewedCity'));
                 _this.cityToSearch = $localstorage.getObject('mostViewedCity').name;
             } else {
@@ -52,5 +57,5 @@ cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'c
         };
 
         initCitiesList();
-
-    }]);
+    }
+]);
