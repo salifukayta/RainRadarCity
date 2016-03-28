@@ -30,7 +30,7 @@
                     <img radar-img-width="radarCtrl.radarImgWidth" ng-src="{{radarCtrl.radarCity}}" alt="Radar City"><br/>
                     <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animate-pause fadeIn': radarCtrl.isPaused}"><br/>
                     <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animate-play fadeIn': !radarCtrl.isPaused}">
-                    <div user-location="radarCtrl.userPosition" class="location-marker">
+                    <div user-location="radarCtrl.userPositionInCity" class="location-marker">
                         <div class="gmnoprint"></div></div><br/>
                 </div>
             </div>
@@ -43,6 +43,8 @@
                     <img ng-src="{{radarCtrl.radarCountry}}" alt="Radar Country"><br/>
                     <img class="img-pause center transparent" src="img/radar/pause.png" ng-class="{'animate-pause fadeIn': radarCtrl.isPaused}"><br/>
                     <img class="img-play center transparent" src="img/radar/play.png" ng-class="{'animate-play fadeIn': !radarCtrl.isPaused}">
+                    <div user-location="radarCtrl.userPositionInCountry" class="location-marker">
+                        <div class="gmnoprint"></div></div><br/>
                 </div>
             </div>
         </div>

@@ -144,10 +144,10 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
 
         function initUserPosition() {
             if (_this.radarImgWidth > 0) {
-                var cityLocationOnRadar = {x: _this.radarImgWidth / 2, y: _this.radarImgWidth / 2};
-                cityGeolocService.getUserLocationOnRadar(_this.city, cityLocationOnRadar)
+                cityGeolocService.getUserLocationOnCityRadar(_this.city, _this.radarImgWidth)
                     .then(function (position) {
-                        _this.userPosition = position;
+                        _this.userPositionInCity = position.onCity;
+                        _this.userPositionInCountry = position.onCountry;
                     })
                     .catch(function (err) {
                         // Can't get user position, or user's city isn't the same as the current city

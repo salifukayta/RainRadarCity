@@ -10,6 +10,7 @@ cloudApp.directive("radarImgWidth", function() {
         },
         link: function(scope, element) {
             scope.imgWidth = element[0].width;
+            console.log(angular.toJson(element[0]));
         }
     }
 });

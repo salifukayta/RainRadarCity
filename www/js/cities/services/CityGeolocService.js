@@ -117,14 +117,39 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
          *
          * @param userLocationOnMap
          * @param cityLocationOnMap
-         * @param cityLocationOnRadar
+         * @param radarImgWidth
          * @returns {{x: number, y: number}}
          */
-        function projectionOnRadar(userLocationOnMap, cityLocationOnMap, cityLocationOnRadar) {
+        function gps2pixel(userLocationOnMap, cityLocationOnMap, radarImgWidth) {
+            // The red point that shows the user position is 10 pixel size
+            var redPointSize = 10;
+            // -45° heading to top left
+            var topLeftCorner = findPointAt60KmHeading(cityLocationOnMap, -45);
+            // 135° heading to bottom right
+            var bottomRightCorner = findPointAt60KmHeading(cityLocationOnMap, 135);
             return {
-                x: cityLocationOnRadar.x + cityLocationOnMap.lon - userLocationOnMap.longitude,
-                y: cityLocationOnRadar.y + cityLocationOnMap.lat - userLocationOnMap.latitude,
+                x: Math.round((radarImgWidth - redPointSize)* (userLocationOnMap.longitude - topLeftCorner.lng())
+                    / (bottomRightCorner.lng() - topLeftCorner.lng())),
+                y: Math.round((radarImgWidth - redPointSize) * (userLocationOnMap.latitude - topLeftCorner.lat())
+                    / (bottomRightCorner.lat() - topLeftCorner.lat()))
             };
+        }
+
+        /**
+         * Find the the end point from a start point, a heading at a distance of 60 km
+         *
+         * @param pointStart
+         * @param heading
+         * @returns {*}
+         */
+        function findPointAt60KmHeading(pointStart, heading) {
+            // 60 Km distance from the center to the edge of a radar image
+            var distance = 60000;
+            return google.maps.geometry.spherical.computeOffset(
+                new google.maps.LatLng(pointStart.lat, pointStart.lon),
+                distance,
+                heading
+            );
         }
 
         var serviceAPI = {
@@ -143,25 +168,40 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                 });
                 return deferred.promise;
             },
-            getUserLocationOnRadar: function (cityLocationOnMap, cityLocationOnRadar) {
+            // Show the coordinates on a map http://www.gps-coordinates.net/
+            // Calculate corners coordinates http://www.svennerberg.com/2011/04/calculating-distances-and-areas-in-google-maps-api-3/
+            // http://stackoverflow.com/questions/3225803/calculate-endpoint-given-distance-bearing-starting-point
+            // Convert gps coordinates to (x, y) screen pixel https://openclassrooms.com/forum/sujet/convertir-coordonnees-gps-en-coordonnees-pixel
+            getUserLocationOnCityRadar: function (cityLocationOnMap, radarImgWidth) {
                 var deferred = $q.defer();
                 $ionicPlatform.ready(function () {
                     var getUserCurrentPosition = async.compose(getReverseGeoCoding, getCurrentPosition);
 
                     getUserCurrentPosition(null, function (err, userLocationOnMap) {
                         if (userLocationOnMap != null) {
-                            if (cityLocationOnMap.country === userLocationOnMap.country && cityLocationOnMap.name === userLocationOnMap.name) {
-                                var userLocationOnRadar = projectionOnRadar(userLocationOnMap.coords, cityLocationOnMap, cityLocationOnRadar);
-                                // Accuracy in meters, not used for now
-                                console.log("user Location On Radar= " + angular.toJson(userLocationOnRadar));
-                                deferred.resolve(userLocationOnRadar);
+                            if (cityLocationOnMap.country === userLocationOnMap.country) {
+                                //TODO center of countries is not known, i will maybe search it manually for few countries.
+                                //TODO userLocationOnCountryRadar will be used to show user position in the country
+                                //TODO don't forget to  update the deferred instruction.
+                                var userLocationOnCountryRadar = null;
+                              if(cityLocationOnMap.name === userLocationOnMap.name) {
+                                  var userLocationOnCityRadar = gps2pixel(userLocationOnMap.coords, cityLocationOnMap, radarImgWidth);
+                                  console.log("user Location On City Radar= " + angular.toJson(userLocationOnCityRadar));
+                                  deferred.resolve({
+                                      onCity: userLocationOnCityRadar,
+                                      onCountry: userLocationOnCountryRadar
+                                  });
+                              } else {
+                                  console.warn("Warning: the user location is not in the selected city");
+                                  deferred.reject();
+                              }
                             } else {
-                                console.log("Warning: the user location is not in the selected city");
-                                deferred.reject("Warning: the user location is not in the selected city");
+                                console.warn("Warning: the user location is not in the selected country");
+                                deferred.reject();
                             }
                         } else {
-                            console.log("Error: " + err);
-                            deferred.reject(err);
+                            console.warn("Error: " + err);
+                            deferred.reject();
                         }
                     });
                 });
