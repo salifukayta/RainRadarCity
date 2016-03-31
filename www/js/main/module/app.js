@@ -64,11 +64,11 @@ var cloudApp = angular.module('cloudPrecipitation', ['ionic', 'ngCordova', 'ngAn
     .constant('TIME_OUT', 5000)
     .constant('GOOGLE_MAP_API_KEY', "AIzaSyCmXRiilXO5F60sFNfXs7M9AKoBc-9hTQc")
     .constant('RAIN_RADAR_CITY_PLAY_STORE_URL', "https://play.google.com/store/apps/details?id=com.ionicframework.radarprecipitation587032")
-    //.constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
-    //.constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
+    .constant('BASE_URL_SEARCH_CITY', 'https://www.meteoblue.com/en/server/search/query3?query=')
+    .constant('BASE_URL_GET_RADAR', 'https://www.meteoblue.com/en/weather/forecast/week/')
     // Replace thease commented lines for ionic serve --lab command !
-     .constant('BASE_URL_SEARCH_CITY', 'http://localhost:8100/api/en/server/search/query3?query=')
-    .constant('BASE_URL_GET_RADAR', 'http://localhost:8100/api/en/weather/forecast/week/')
+    // .constant('BASE_URL_SEARCH_CITY', 'http://localhost:8100/api/en/server/search/query3?query=')
+    //.constant('BASE_URL_GET_RADAR', 'http://localhost:8100/api/en/weather/forecast/week/')
 
     .config(function ($stateProvider, $urlRouterProvider) {
 

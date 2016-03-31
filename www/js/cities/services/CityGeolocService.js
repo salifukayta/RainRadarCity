@@ -184,17 +184,12 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
                                 //TODO userLocationOnCountryRadar will be used to show user position in the country
                                 //TODO don't forget to  update the deferred instruction.
                                 var userLocationOnCountryRadar = null;
-                              if(cityLocationOnMap.name === userLocationOnMap.name) {
-                                  var userLocationOnCityRadar = gps2pixel(userLocationOnMap.coords, cityLocationOnMap, radarImgWidth);
-                                  console.log("user Location On City Radar= " + angular.toJson(userLocationOnCityRadar));
-                                  deferred.resolve({
-                                      onCity: userLocationOnCityRadar,
-                                      onCountry: userLocationOnCountryRadar
-                                  });
-                              } else {
-                                  console.warn("Warning: the user location is not in the selected city");
-                                  deferred.reject();
-                              }
+                                var userLocationOnCityRadar = gps2pixel(userLocationOnMap.coords, cityLocationOnMap, radarImgWidth);
+                                console.log("user Location On City Radar= " + angular.toJson(userLocationOnCityRadar));
+                                deferred.resolve({
+                                    onCity: userLocationOnCityRadar,
+                                    onCountry: userLocationOnCountryRadar
+                                });
                             } else {
                                 console.warn("Warning: the user location is not in the selected country");
                                 deferred.reject();
