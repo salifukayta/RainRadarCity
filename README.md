@@ -23,3 +23,8 @@ To add a translations:
 - grunt
 - open template.pot and translate, this will create the fr.po file
 - grunt
+ 
+Annex:
+To install ionic (http://ionicframework.com/docs/guide/installation.html) :
+ - npm install -g cordova
+ - npm install -g ionic
