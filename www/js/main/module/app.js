@@ -146,3 +146,4 @@ var rainRadarCityApp = angular.module('rainRadarCityApp', ['ionic', 'ngCordova',
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/root');
     });
+
