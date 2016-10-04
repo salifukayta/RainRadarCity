@@ -1,3 +1,9 @@
+/* loading size */
+.spinner svg {
+    width: 56px;
+    height: 56px;
+}
+
 /* error animate */
 .enter-error {
     -webkit-transition: 450ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
@@ -45,7 +51,6 @@
     -webkit-animation-delay: 1000ms;
     animation-delay: 1000ms;
 }
-
 /* --------------------------- */
 
 /* list items animate */
@@ -55,6 +60,7 @@
     display: block;
     position: relative;
 }
+
 @-webkit-keyframes enter {
     from {
         opacity: 0;
@@ -70,6 +76,7 @@
         left: 0px;
     }
 }
+
 @keyframes enter {
     from {
         opacity: 0;
@@ -92,6 +99,7 @@
     display: block;
     position: relative;
 }
+
 @-webkit-keyframes leave {
     to {
         opacity: 0;
@@ -107,6 +115,7 @@
         left: 0px;
     }
 }
+
 @keyframes leave {
     to {
         opacity: 0;
@@ -125,12 +134,12 @@
 /* --------------------------- */
 
 /* radio btns (shareRadarPopup) */
-.list .item-radio input:checked ~ .item-content, .list .item-radio .item-content    {
+.list .item-radio input:checked ~ .item-content, .list .item-radio .item-content {
     background-color: #6b46e5;
     color: white;
 }
 
-.list .item-radio ~ .item-content, .list .item-radio .item-content    {
+.list .item-radio ~ .item-content, .list .item-radio .item-content {
     background-color: white;
     color: black;
 }
@@ -150,39 +159,12 @@
     padding-bottom: 10px;
     max-height: 50px;
 }
-/*
-.errorimate-enter, .errorimate-leave {
-     -webkit-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-     -moz-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-     -ms-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-     -o-transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-     transition: 500ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-     position: relative;
-     display: block;
-}
-
-.errorimate-leave.errorimate-leave-active, .errorimate-enter {
-    -webkit-transform: scaleY(0);
-    -moz-transform: scaleY(0);
-    -ms-transform: scaleY(0);
-    -o-transform: scaleY(0);
-    transform: scaleY(0);
-    height: 0px;
-    opacity: 0;
-}
-
-.errorimate-enter.errorimate-enter-active, .errorimate-leave {
-    -webkit-transform: scaleY(1);
-    -moz-transform: scaleY(1);
-    -ms-transform: scaleY(1);
-    -o-transform: scaleY(1);
-    transform: scaleY(1);
-    height: 30px;
-    opacity: 1;
-}*/
 /* --------------------------- */
 
 /* Meter-bar (timebar for radarView) */
+.center {
+    text-align: center;
+}
 .value-meter-bar {
     margin-top: -15px;
     color: #2C3E50 !important;
@@ -190,7 +172,7 @@
 }
 
 meter {
-    -webkit-appearance: none;
+    /*-webkit-appearance: none;*/
     width: 100%;
     height: 5px;
     /*border: 1px solid #ccc;*/
@@ -222,16 +204,20 @@ meter::-webkit-meter-optimum-value {
 }
 
 @keyframes animate-stripes {
-    to { background-position: -50px 0; }
+    to {
+        background-position: -50px 0;
+    }
 }
+
 /* --------------------------- */
 
- /* Loding view */
- .loading-container .loading {
-     background-color: inherit;
- }
- /* --------------------------- */
+/* Loding view */
+.loading-container .loading {
+    background-color: inherit;
+}
 
- .has-bottom .scroll{
-     padding-bottom:150px !important;
- }
+/* --------------------------- */
+
+.has-bottom .scroll {
+    padding-bottom: 150px !important;
+}

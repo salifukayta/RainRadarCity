@@ -4,7 +4,7 @@
 
 'use strict';
 
-cloudApp.factory('lazyLaodingService', ['$q', '$timeout', 'GOOGLE_MAP_API_KEY', function ($q, $timeout, GOOGLE_MAP_API_KEY) {
+rainRadarCityApp.factory('lazyLaodingService', ['$q', '$timeout', 'GOOGLE_MAP_API_KEY', function ($q, $timeout, GOOGLE_MAP_API_KEY) {
     return {
         lazyLoadGoogleMapApi: function() {
             var deferred = $q.defer();

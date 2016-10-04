@@ -1,7 +1,7 @@
 /** CitiesController **/
 'use strict';
 
-cloudApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', 'cityPassService', 'gettextCatalog',
+rainRadarCityApp.controller('CitiesController', ['$scope', '$state', '$localstorage', 'citiesService', 'cityPassService', 'gettextCatalog',
     function ($scope, $state, $localstorage, citiesService, cityPassService, gettextCatalog) {
         var _this = this;
         this.cities = [];

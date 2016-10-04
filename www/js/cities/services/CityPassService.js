@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.factory('cityPassService', [function () {
+rainRadarCityApp.factory('cityPassService', [function () {
 
     this.city = null;
 

@@ -4,7 +4,7 @@
 
 'use strict';
 
-cloudApp.controller('RootController', ['$scope', '$state', '$ionicHistory', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
+rainRadarCityApp.controller('RootController', ['$scope', '$state', '$ionicHistory', '$localstorage', function ($scope, $state, $ionicHistory, $localstorage) {
 
     $ionicHistory.nextViewOptions({
         disableBack: true

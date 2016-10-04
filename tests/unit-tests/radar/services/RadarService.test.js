@@ -13,7 +13,7 @@ describe('RadarService test', function() {
     var TIME_OUT = 5;
     var radarsDefered;
 
-    beforeEach(module('cloudPrecipitation'));
+    beforeEach(module('rainRadarCityApp'));
 
     beforeEach(inject(function(_radarService_) {
         radarService = _radarService_;

@@ -2,7 +2,7 @@
  * Created by Salifukayta on 27/01/2016.
  */
 
-cloudApp.factory('$cordovaGeolocationWifi', ['$q', function ($q) {
+rainRadarCityApp.factory('$cordovaGeolocationWifi', ['$q', function ($q) {
 
         return {
             getCurrentPosition: function (options) {

@@ -2,7 +2,7 @@
  * Created by Salifukayta on 23/12/2015.
  */
 
-cloudApp.directive("radarImgWidth", function() {
+rainRadarCityApp.directive("radarImgWidth", function() {
     return {
         restrict: "A",
         scope: {

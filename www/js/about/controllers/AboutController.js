@@ -4,6 +4,6 @@
 
 'use strict';
 
-cloudApp.controller('AboutController', [function () {
+rainRadarCityApp.controller('AboutController', [function () {
 
 }]);

@@ -3,13 +3,14 @@
  */
 'use strict';
 
-cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '$ionicLoading', '$ionicPlatform', '$localstorage',
+rainRadarCityApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '$ionicLoading', '$ionicPlatform', '$localstorage',
     '$ionicPopup', '$cordovaSocialSharing', '$cordovaToast', 'gettextCatalog', 'radarService', 'cityGeolocService',
     'cityPassService', 'moment', 'RAIN_RADAR_CITY_PLAY_STORE_URL',
     function ($scope, $stateParams, $interval, $ionicLoading, $ionicPlatform, $localstorage, $ionicPopup, $cordovaSocialSharing,
               $cordovaToast, gettextCatalog, radarService, cityGeolocService, cityPassService, moment, RAIN_RADAR_CITY_PLAY_STORE_URL) {
 
         var _this = this;
+        var RADAR_PIC_INTERVAL = 2000;
         this.city = null;
         this.indexCity = -1;
         this.indexCityIncremental = 0;
@@ -66,9 +67,10 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
 
             // Start meter view animation
             $interval.cancel(_this.stopNextCity);
-            _this.stopNextCity = $interval(nextIndexCity, 75, 40);
+            //50 * 40 = 2000 ms
+            _this.stopNextCity = $interval(nextIndexCity, 50, 40);
             $interval.cancel(_this.stopNextCountry);
-            _this.stopNextCountry = $interval(nextIndexCountry, 75, 40);
+            _this.stopNextCountry = $interval(nextIndexCountry, 50, 40);
 
             // Reset index
             if (_this.indexCity === _this.radar.city.length) {
@@ -111,7 +113,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                     if (!_this.isNoDataAvailable) {
                         initIndex();
                         nexPicture();
-                        _this.stopNextPicture = $interval(nexPicture, 3000);
+                        _this.stopNextPicture = $interval(nexPicture, RADAR_PIC_INTERVAL);
                     }
                 })
                 .catch(function (err) {
@@ -188,7 +190,7 @@ cloudApp.controller('RadarController', ['$scope', '$stateParams', '$interval', '
                 $interval.cancel(_this.stopNextPicture);
             } else {
                 nexPicture();
-                _this.stopNextPicture = $interval(nexPicture, 3000);
+                _this.stopNextPicture = $interval(nexPicture, 2000);
             }
         };
 

@@ -14,7 +14,7 @@ describe('CitiesController test', function(){
     var citiesServiceDeferred;
 
     // load the controller's module
-    beforeEach(module('cloudPrecipitation'));
+    beforeEach(module('rainRadarCityApp'));
 
     // disable template caching
     beforeEach(module(function($provide, $urlRouterProvider) {

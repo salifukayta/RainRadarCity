@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.9\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: www/templates/menu.html:37
@@ -20,7 +20,7 @@ msgstr "über"
 msgid "About Rain Radar City"
 msgstr "Über Rain Radar City"
 
-#: www/templates/intro/intro.html:106
+#: www/templates/intro/intro.html:89
 msgid "By activating your GPS :"
 msgstr "Durch die Aktivierung Ihres GPS :"
 
@@ -44,11 +44,11 @@ msgstr "Stadtname"
 msgid "City not Found"
 msgstr "Nicht gefundene Stadt"
 
-#: www/templates/intro/intro.html:53
+#: www/templates/intro/intro.html:36
 msgid "Consult Rain Radar"
 msgstr "Sehen Sie Regenradar nach"
 
-#: www/templates/intro/intro.html:66
+#: www/templates/intro/intro.html:49
 msgid "Date and Time"
 msgstr "Datum und Zeit"
 
@@ -56,7 +56,7 @@ msgstr "Datum und Zeit"
 msgid "Favorites"
 msgstr "Lieblinge"
 
-#: www/templates/intro/intro.html:72
+#: www/templates/intro/intro.html:55
 msgid "Forecast index / All"
 msgstr "Forecast Index / All"
 
@@ -103,9 +103,12 @@ msgstr "auf"
 msgid "Option"
 msgstr "Option"
 
-#: www/templates/radar/radarView.html:1
 #: www/templates/radar/shareRadarPopup.html:7
 #: www/templates/radar/shareRadarPopup.html:9
+msgid "Radar"
+msgstr "Radar"
+
+#: www/templates/radar/radarView.html:1
 msgid "Rain Radar"
 msgstr "Rain Radar"
 
@@ -117,7 +120,7 @@ msgstr "Rain Radar City verwendet Daten von meteoblue.com."
 msgid "Rain Radar of"
 msgstr "regen Radar von"
 
-#: www/templates/intro/intro.html:60
+#: www/templates/intro/intro.html:43
 msgid "Raining Clouds"
 msgstr "Regnende Wolken"
 
@@ -144,7 +147,7 @@ msgstr "Aktie"
 msgid "Sharing Done"
 msgstr "Teilung angeht"
 
-#: www/templates/intro/intro.html:126
+#: www/templates/intro/intro.html:109
 msgid "Start Search City"
 msgstr "Fangen Sie Suchstadt an"
 
@@ -166,7 +169,7 @@ msgstr ""
 "Regen Radar um deine aktuelle Stadt, so dass Sie schnell zu erkennen, wenn "
 "der Regen kommt um in der nächsten Stunde."
 
-#: www/templates/intro/intro.html:101
+#: www/templates/intro/intro.html:84
 msgid "Use GPS to Geolocate your city"
 msgstr "Verwenden Sie GPS ,um Ihre Stadt zu localisieren"
 
@@ -174,11 +177,11 @@ msgstr "Verwenden Sie GPS ,um Ihre Stadt zu localisieren"
 msgid "Which Rain Radar View do you want to share ?"
 msgstr "Welche Radar Regen werden Sie teilen ?"
 
-#: www/templates/intro/intro.html:109
+#: www/templates/intro/intro.html:92
 msgid "You can have directly the forecast radar on the geolocated city."
 msgstr "Sie können direkt auf dem geolocated Stadt die Prognose Radar haben."
 
-#: www/templates/intro/intro.html:110
+#: www/templates/intro/intro.html:93
 msgid "You can view your location in a city and the rain clouds around you"
 msgstr ""
 "Sie können Ihren Standort in der Stadt und den regen Wolken um Sie herum "

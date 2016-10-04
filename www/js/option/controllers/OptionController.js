@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.controller('OptionController', ['$scope', '$localstorage', 'gettextCatalog', function ($scope, $localstorage, gettextCatalog) {
+rainRadarCityApp.controller('OptionController', ['$scope', '$localstorage', 'gettextCatalog', function ($scope, $localstorage, gettextCatalog) {
 
     this.cities = {};
     this.mostViewedCity = {};

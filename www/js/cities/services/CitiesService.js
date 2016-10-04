@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', 'TIME_OUT',
+rainRadarCityApp.factory('citiesService', ['$q', '$http', 'gettextCatalog', 'BASE_URL_SEARCH_CITY', 'TIME_OUT',
     function ($q, $http, gettextCatalog, BASE_URL_SEARCH_CITY, TIME_OUT) {
         var serviceAPI = {
             search: function (cityToSearch) {

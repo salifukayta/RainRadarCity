@@ -9,8 +9,7 @@ describe('FavoritesController test', function(){
     var cityPassServiceMock;
     var localstorageMock;
 
-    // load the controller's module
-    beforeEach(module('cloudPrecipitation'));
+    // load the controller's rainRadarCityApp'));
 
     // disable template caching
     beforeEach(module(function($provide, $urlRouterProvider) {

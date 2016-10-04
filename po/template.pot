@@ -12,7 +12,7 @@ msgstr ""
 msgid "About Rain Radar City"
 msgstr ""
 
-#: www/templates/intro/intro.html:106
+#: www/templates/intro/intro.html:89
 msgid "By activating your GPS :"
 msgstr ""
 
@@ -36,11 +36,11 @@ msgstr ""
 msgid "City not Found"
 msgstr ""
 
-#: www/templates/intro/intro.html:53
+#: www/templates/intro/intro.html:36
 msgid "Consult Rain Radar"
 msgstr ""
 
-#: www/templates/intro/intro.html:66
+#: www/templates/intro/intro.html:49
 msgid "Date and Time"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Favorites"
 msgstr ""
 
-#: www/templates/intro/intro.html:72
+#: www/templates/intro/intro.html:55
 msgid "Forecast index / All"
 msgstr ""
 
@@ -93,9 +93,12 @@ msgstr ""
 msgid "Option"
 msgstr ""
 
-#: www/templates/radar/radarView.html:1
 #: www/templates/radar/shareRadarPopup.html:7
 #: www/templates/radar/shareRadarPopup.html:9
+msgid "Radar"
+msgstr ""
+
+#: www/templates/radar/radarView.html:1
 msgid "Rain Radar"
 msgstr ""
 
@@ -107,7 +110,7 @@ msgstr ""
 msgid "Rain Radar of"
 msgstr ""
 
-#: www/templates/intro/intro.html:60
+#: www/templates/intro/intro.html:43
 msgid "Raining Clouds"
 msgstr ""
 
@@ -131,7 +134,7 @@ msgstr ""
 msgid "Sharing Done"
 msgstr ""
 
-#: www/templates/intro/intro.html:126
+#: www/templates/intro/intro.html:109
 msgid "Start Search City"
 msgstr ""
 
@@ -147,7 +150,7 @@ msgstr ""
 msgid "This is a fast, easy-to-use application that displays animated rain radar around your current city, allowing you to see quickly if rain is coming around in the next hour."
 msgstr ""
 
-#: www/templates/intro/intro.html:101
+#: www/templates/intro/intro.html:84
 msgid "Use GPS to Geolocate your city"
 msgstr ""
 
@@ -155,11 +158,11 @@ msgstr ""
 msgid "Which Rain Radar View do you want to share ?"
 msgstr ""
 
-#: www/templates/intro/intro.html:109
+#: www/templates/intro/intro.html:92
 msgid "You can have directly the forecast radar on the geolocated city."
 msgstr ""
 
-#: www/templates/intro/intro.html:110
+#: www/templates/intro/intro.html:93
 msgid "You can view your location in a city and the rain clouds around you"
 msgstr ""
 

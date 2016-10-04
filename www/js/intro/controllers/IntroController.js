@@ -4,7 +4,7 @@
 
 'use strict';
 
-cloudApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$ionicScrollDelegate', '$location', '$state',
+rainRadarCityApp.controller('IntroController', ['$scope', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', '$ionicScrollDelegate', '$location', '$state',
     function ($scope, $ionicHistory, $localstorage, $ionicSlideBoxDelegate, $ionicScrollDelegate, $location, $state) {
 
         this.hideNavBar = function () {

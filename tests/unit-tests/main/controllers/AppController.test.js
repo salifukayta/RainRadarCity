@@ -7,7 +7,7 @@ describe('AppController test', function(){
     var appCtrl;
     var ionicHistoryMock;
 
-    beforeEach(module('cloudPrecipitation'));
+    beforeEach(module('rainRadarCityApp'));
 
     beforeEach(inject(function($controller, $rootScope) {
         scope = $rootScope.$new();

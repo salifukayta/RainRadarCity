@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.controller('FavoritesController', ['$scope', '$state', '$localstorage', 'cityPassService',
+rainRadarCityApp.controller('FavoritesController', ['$scope', '$state', '$localstorage', 'cityPassService',
     function ($scope, $state, $localstorage, cityPassService) {
         this.cities = {};
         var _this = this;

@@ -4,7 +4,7 @@
 
 'use strict';
 
-cloudApp.factory('$localstorage', ['$window', function($window) {
+rainRadarCityApp.factory('$localstorage', ['$window', function($window) {
     return {
         set: function(key, value) {
             $window.localStorage[key] = angular.toJson(value);

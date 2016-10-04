@@ -4,9 +4,9 @@
 
 'use strict';
 
-cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', '$cordovaGeolocationWifi', 'citiesService',
-        'lazyLaodingService', 'gettextCatalog', 'TIME_OUT',
-    function ($q, $ionicPlatform, $cordovaGeolocation, $cordovaGeolocationWifi, citiesService, lazyLaodingService, gettextCatalog, TIME_OUT) {
+rainRadarCityApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocation', 'citiesService',
+    'lazyLaodingService', 'gettextCatalog', 'TIME_OUT',
+    function ($q, $ionicPlatform, $cordovaGeolocation, citiesService, lazyLaodingService, gettextCatalog, TIME_OUT) {
 
         /**
          * Return cityToSearch information
@@ -32,7 +32,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
             if (typeof google === "undefined") {
                 console.error("google is undefined");
                 lazyLaodingService.lazyLoadGoogleMapApi()
-                    .then(function(res) {
+                    .then(function (res) {
                         console.log(res);
                         if (typeof google === "undefined") {
                             deferred.reject(gettextCatalog.getString("Check your Internet Connection"));
@@ -103,13 +103,34 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
             //        callback(gettextCatalog.getString("Check your GPS"), null);
             //    });
 
-            $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: false})
-                .then(function (position) {
-                    callback(null, position);
-                }, function (err) {
-                    console.log(err.message);
-                    callback(gettextCatalog.getString("Check your GPS"), null);
-                });
+
+            cordova.plugins.diagnostic.requestLocationAuthorization(function (status) {
+                switch (status) {
+                    case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:
+                        console.log("Permission not requested");
+                        break;
+                    case cordova.plugins.diagnostic.permissionStatus.DENIED:
+                        console.log("Permission denied");
+                        break;
+                    case cordova.plugins.diagnostic.permissionStatus.GRANTED:
+                        console.log("Permission granted always");
+
+                        $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
+                            .then(function (position) {
+                                callback(null, position);
+                            }, function (err) {
+                                console.log(err.message);
+                                callback(gettextCatalog.getString("Check your GPS"), null);
+                            });
+                        break;
+                    case cordova.plugins.diagnostic.permissionStatus.GRANTED_WHEN_IN_USE:
+                        console.log("Permission granted only when in use");
+                        break;
+                }
+            }, function (error) {
+                console.error(error);
+            }, cordova.plugins.diagnostic.locationAuthorizationMode.ALWAYS);
+
         }
 
         /**
@@ -128,7 +149,7 @@ cloudApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordovaGeolocat
             // 135° heading to bottom right
             var bottomRightCorner = findPointAt60KmHeading(cityLocationOnMap, 135);
             return {
-                x: Math.round((radarImgWidth - redPointSize)* (userLocationOnMap.longitude - topLeftCorner.lng())
+                x: Math.round((radarImgWidth - redPointSize) * (userLocationOnMap.longitude - topLeftCorner.lng())
                     / (bottomRightCorner.lng() - topLeftCorner.lng())),
                 y: Math.round((radarImgWidth - redPointSize) * (userLocationOnMap.latitude - topLeftCorner.lat())
                     / (bottomRightCorner.lat() - topLeftCorner.lat()))

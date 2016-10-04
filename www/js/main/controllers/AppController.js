@@ -3,7 +3,7 @@
  */
 'use strict';
 
-cloudApp.controller('AppController', ['$scope', '$ionicHistory', function($scope, $ionicHistory) {
+rainRadarCityApp.controller('AppController', ['$scope', '$ionicHistory', function($scope, $ionicHistory) {
 
     $scope.goBack = function() {
         /*        var showAd = $localstorage.get("showAd");

@@ -2,7 +2,7 @@
  * Created by Salifukayta on 19/12/2015.
  */
 
-cloudApp.directive("userLocation", function () {
+rainRadarCityApp.directive("userLocation", function () {
     return {
         restrict: "A",
         scope: {
