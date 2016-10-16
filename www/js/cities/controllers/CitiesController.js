@@ -8,10 +8,8 @@ rainRadarCityApp.controller('CitiesController', ['$scope', '$state', '$localstor
         this.error = null;
         this.cityToSearch = "";
 
-
         // Due to a problem during the first translation of the header of the first view, we do it manually
         this.searchCityTranslated = gettextCatalog.getString("Search City");
-
 
         this.goTo = function (city) {
             cityPassService.set(city);
@@ -53,7 +51,11 @@ rainRadarCityApp.controller('CitiesController', ['$scope', '$state', '$localstor
         };
 
         this.refreshCitiesList = function () {
-            initCitiesList();
+            if (_this.cityToSearch === "") {
+                initCitiesList();
+            } else {
+                _this.search();
+            }
         };
 
         initCitiesList();
