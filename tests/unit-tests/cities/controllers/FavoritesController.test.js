@@ -10,6 +10,7 @@ describe('FavoritesController test', function(){
     var localstorageMock;
 
     // load the controller's rainRadarCityApp'));
+    beforeEach(module('rainRadarCityApp'));
 
     // disable template caching
     beforeEach(module(function($provide, $urlRouterProvider) {
@@ -24,7 +25,7 @@ describe('FavoritesController test', function(){
         localstorageMock = {
             getObject: jasmine.createSpy('$localstorage spy getObject')
                 .and.returnValue({paris: {name: "paris"}}),
-        }
+        };
 
         // mock $state
         stateMock = jasmine.createSpyObj('$state spy', ['go']);
@@ -35,9 +36,11 @@ describe('FavoritesController test', function(){
             $scope: scope, $state: stateMock, $localstorage: localstorageMock, cityPassService: cityPassServiceMock});
     }));
 
-    describe('#hasNoFavoriteCities return true', function() {
+    describe('#hasNoFavoriteCities has true', function() {
 
-        it('should hasNoFavoriteCities return false', function () {
+        it('should hasNoFavoriteCities has true', function () {
+        console.log("it");
+        console.log(favoritesCtrl);
             var hasNoFavoriteCitiesResult = favoritesCtrl.hasNoFavoriteCities();
             expect(hasNoFavoriteCitiesResult).toBeTruthy();
         });

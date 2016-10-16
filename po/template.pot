@@ -84,10 +84,6 @@ msgstr ""
 msgid "No favorite cities"
 msgstr ""
 
-#: www/templates/msgs.html:18
-msgid "on"
-msgstr ""
-
 #: www/templates/menu.html:31
 #: www/templates/option/option.html:1
 msgid "Option"
@@ -168,4 +164,8 @@ msgstr ""
 
 #: www/templates/option/option.html:12
 msgid "You have to add favorites cities before choosing the most viewed one. Then it will be searched by default."
+msgstr ""
+
+#: www/templates/msgs.html:18
+msgid "on"
 msgstr ""

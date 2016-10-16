@@ -1,17 +1,17 @@
 {
   "name": "RainRadarCity",
-  "version": "2.1.0",
+  "version": "2.5.0",
   "description": "Rain Radar City shows the raining spot on cities and countries",
   "dependencies": {
     "angular-moment": "^1.0.0-beta.4",
+    "moment": "^2.11.2"
+  },
+  "devDependencies": {
     "gulp": "^3.5.6",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^2.0.4",
-    "moment": "^2.11.2"
-  },
-  "devDependencies": {
     "bower": "^1.3.3",
     "grunt": "^0.4.5",
     "grunt-angular-gettext": "^2.1.0",

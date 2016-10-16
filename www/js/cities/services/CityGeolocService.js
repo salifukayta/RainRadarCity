@@ -108,13 +108,18 @@ rainRadarCityApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordova
                 switch (status) {
                     case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:
                         console.log("Permission not requested");
+                        callback(gettextCatalog.getString("GPS not yet requested"), null);
                         break;
                     case cordova.plugins.diagnostic.permissionStatus.DENIED:
                         console.log("Permission denied");
+                        callback(gettextCatalog.getString("Allow GPS permission for this app"), null);
+                        break;
+                    case cordova.plugins.diagnostic.permissionStatus.DENIED_ALWAYS:
+                        console.log("Permission denied always");
+                        callback(gettextCatalog.getString("Allow GPS permission for this app"), null);
                         break;
                     case cordova.plugins.diagnostic.permissionStatus.GRANTED:
                         console.log("Permission granted always");
-
                         $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
                             .then(function (position) {
                                 callback(null, position);
@@ -125,6 +130,13 @@ rainRadarCityApp.factory('cityGeolocService', ['$q', '$ionicPlatform', '$cordova
                         break;
                     case cordova.plugins.diagnostic.permissionStatus.GRANTED_WHEN_IN_USE:
                         console.log("Permission granted only when in use");
+                        $cordovaGeolocation.getCurrentPosition({timeout: TIME_OUT, enableHighAccuracy: true})
+                            .then(function (position) {
+                                callback(null, position);
+                            }, function (err) {
+                                console.log(err.message);
+                                callback(gettextCatalog.getString("Check your GPS"), null);
+                            });
                         break;
                 }
             }, function (error) {
